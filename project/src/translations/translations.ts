@@ -1,0 +1,944 @@
+export const translations = {
+  el: {
+    // Navbar
+    nav: {
+      home: 'Αρχική',
+      architecturalOffice: 'Αρχιτεκτονικό Γραφείο',
+      realEstateValuation: 'Εκτίμηση Ακινήτων',
+      propertiesForSale: 'Ακίνητα προς Πώληση',
+      projects: 'Έργα',
+      contact: 'Επικοινωνία'
+    },
+    // Footer
+    footer: {
+      companyDescription: 'Επαγγελματικές υπηρεσίες ακινήτων και αρχιτεκτονικές λύσεις στην Ελλάδα.',
+      contactInfo: 'Στοιχεία Επικοινωνίας',
+      officeHours: 'Ωράριο Λειτουργίας',
+      workDays: 'Δευτέρα - Παρασκευή: 9:00 - 18:00',
+      saturday: 'Σάββατο: 10:00 - 14:00',
+      sunday: 'Κυριακή: Κλειστά',
+      rights: 'Με επιφύλαξη παντός δικαιώματος.'
+    },
+    // Home Page
+    home: {
+      hero: {
+        title: 'Χτίζουμε το Μέλλον, Σχεδιάζουμε τα Όνειρά σας',
+        subtitle: 'Καινοτόμες αρχιτεκτονικές λύσεις και άριστη κατασκευαστική ποιότητα για κάθε έργο',
+        cta: 'Ξεκινήστε το Έργο σας'
+      },
+      services: {
+        title: 'Οι Υπηρεσίες μας',
+        architectural: {
+          title: 'Αρχιτεκτονικές Υπηρεσίες',
+          description: 'Σχεδιασμός και υλοποίηση αρχιτεκτονικών έργων με καινοτόμες λύσεις'
+        },
+        valuation: {
+          title: 'Εκτίμηση Ακινήτων',
+          description: 'Επαγγελματική εκτίμηση ακινήτων από πιστοποιημένους εκτιμητές'
+        },
+        engineering: {
+          title: 'Υπηρεσίες Μηχανικού',
+          description: 'Ολοκληρωμένες υπηρεσίες μηχανικού και τεχνικές μελέτες'
+        }
+      },
+      constructionServices: {
+        title: 'Υπηρεσίες Κατασκευής',
+        planning: {
+          title: 'Σχεδιασμός του πλάνου εργασιών',
+          items: [
+            'Προετοιμασία του αρχιτεκτονικού πλάνου',
+            'Προετοιμασία τμημάτων του σχεδίου',
+            'Έγκριση του σχεδίου',
+            'Λήψη της άδειας ανοικοδόμησης',
+            'Τεχνικός έλεγχος της διαδικασίας',
+            'Προσαρμογή του σχεδίου'
+          ]
+        },
+        specialized: {
+          title: 'Εξειδικευμένες Εργασίες',
+          items: [
+            'Σχεδιασμός μηχανολογικών δικτύων',
+            'Ηλεκτρολογικές εργασίες',
+            'Εργασίες εξωτερικής τοιχοποιίας',
+            'Τοποθέτηση δαπέδων',
+            'Σύνδεση μηχανολογικών συστημάτων'
+          ]
+        },
+        construction: {
+          title: 'Κατασκευαστική εταιρεία',
+          description: 'Η εταιρεία Mavridis Construction χρησιμοποιεί τις πιο σύγχρονες και καινοτόμες μεθόδους της επιστήμης και την πολυετή πείρα, συγκεντρωμένη από τις γενιές κατασκευαστών, για την δημιουργία και την υλοποίηση των πιο τολμηρών σχεδίων σας.',
+          quality: 'Υψηλή ποιότητα και επαγγελματική εκτέλεση όλων των εργασιών εξασφαλίζεται με την χρησιμοποίηση των πιο σύγχρονων τεχνολογιών του σχεδιασμού και οικοδόμησης στην Ελλάδα.',
+          pricing: 'Τιμή του τ.μ. ακινήτου «με το κλειδί στο χέρι» από 1000€, ανάλογα με τις ιδιαιτερότητες του ακινήτου.',
+          commitment: {
+            title: 'Η δέσμευσή μας',
+            text: 'Η εταιρεία Mavridis Construction, βασισμένη στην πολυετή πείρα, στο υψηλό επίπεδο επαγγελματισμού των συνεργατών της και σε αποτελεσματική οργάνωση των εκτελούμενων εργασιών κατασκευής ακινήτων στην Ελλάδα, εγγυάται την έγκυρη και αποτελεσματική εκτέλεση όλων των σχεδίων, με πλήρη σεβασμό στην προσωπικές προτιμήσεις του κάθε πελάτη.'
+          }
+        }
+      },
+      whyChooseUs: {
+        title: 'Γιατί να μας Επιλέξετε',
+        features: [
+          {
+            title: 'Εξειδίκευση',
+            description: 'Χρόνια εμπειρίας στα ακίνητα και την αρχιτεκτονική'
+          },
+          {
+            title: 'Επαγγελματική Εξυπηρέτηση',
+            description: 'Προσωποποιημένες λύσεις για κάθε πελάτη'
+          }
+        ]
+      },
+      certifications: {
+        title: 'Πιστοποιήσεις',
+        expertValuer: {
+          title: 'Expert Valuer In Real Estate Property (REV) TEGoVA',
+          items: [
+            'Πιστοποιημένη εκτιμήτρια ακινήτων',
+            'Διεξαγωγή εκτιμήσεων σύμφωνα με τα Ευρωπαϊκά Πρότυπα',
+            'Πιστοποίηση ISO/IEC 17024'
+          ]
+        },
+        professionalMemberships: {
+          title: 'Μέλος Επαγγελματικών Οργανισμών',
+          items: [
+            'Μέλος του Συλλόγου Εκτιμητών Ελλάδος (Σ.ΕΚ.Ε.)',
+            'Συμμετοχή στην TEGoVA',
+            'Εντεταλμένος χορηγός REV της TEGoVA'
+          ]
+        }
+      },
+      contact: {
+        info: 'Για περισσότερες πληροφορίες επικοινωνήστε μαζί μας στο',
+        phone: '6976999811',
+        hero: {
+          title: {
+            el: 'Επικοινωνήστε μαζί μας',
+            en: 'Contact Us'
+          },
+          subtitle: {
+            el: 'Είμαστε εδώ για να σας βοηθήσουμε',
+            en: 'We are here to help you'
+          }
+        },
+        form: {
+          title: {
+            el: 'Στείλτε μας Μήνυμα',
+            en: 'Send us a Message'
+          },
+          name: {
+            label: {
+              el: 'Ονοματεπώνυμο',
+              en: 'Name'
+            },
+            placeholder: {
+              el: 'Το ονοματεπώνυμό σας',
+              en: 'Your name'
+            }
+          },
+          email: {
+            label: {
+              el: 'Email',
+              en: 'Email'
+            },
+            placeholder: {
+              el: 'Το email σας',
+              en: 'Your email'
+            }
+          },
+          subject: {
+            label: {
+              el: 'Θέμα',
+              en: 'Subject'
+            },
+            placeholder: {
+              el: 'Εισάγετε το θέμα',
+              en: 'Enter subject'
+            }
+          },
+          message: {
+            label: {
+              el: 'Μήνυμα',
+              en: 'Message'
+            },
+            placeholder: {
+              el: 'Γράψτε το μήνυμά σας...',
+              en: 'Write your message...'
+            }
+          },
+          submit: {
+            el: 'Αποστολή Μηνύματος',
+            en: 'Send Message'
+          }
+        },
+        location: {
+          title: {
+            el: 'Η Τοποθεσία μας',
+            en: 'Our Location'
+          }
+        }
+      }
+    },
+    architecturalOffice: {
+      hero: {
+        title: 'Αρχιτεκτονικό Γραφείο',
+        subtitle: 'Δημιουργούμε καινοτόμες αρχιτεκτονικές λύσεις που μεταμορφώνουν τους χώρους'
+      },
+      services: {
+        title: 'Αρχιτεκτονικές Υπηρεσίες',
+        description: 'Παρέχουμε ολοκληρωμένες αρχιτεκτονικές λύσεις για κάθε έργο',
+        items: [
+          {
+            title: 'Αρχιτεκτονικός Σχεδιασμός',
+            description: 'Δημιουργικές και λειτουργικές λύσεις για κάθε χώρο'
+          },
+          {
+            title: 'Μελέτες Κατασκευής',
+            description: 'Λεπτομερείς μελέτες για την άρτια υλοποίηση του έργου'
+          },
+          {
+            title: 'Ανακαινίσεις',
+            description: 'Ανανέωση και αναβάθμιση υφιστάμενων χώρων'
+          },
+          {
+            title: 'Εσωτερική Διακόσμηση',
+            description: 'Σχεδιασμός εσωτερικών χώρων με αισθητική και λειτουργικότητα'
+          }
+        ]
+      },
+      projects: {
+        title: 'Επιλεγμένα Έργα',
+        viewDetails: 'Δείτε Περισσότερα'
+      },
+      whyChooseUs: {
+        title: 'Γιατί να Επιλέξετε το Γραφείο μας',
+        reasons: [
+          'Έμπειρη ομάδα πιστοποιημένων αρχιτεκτόνων',
+          'Καινοτόμες και βιώσιμες λύσεις σχεδιασμού',
+          'Ολοκληρωμένη διαχείριση έργων',
+          'Προσοχή στη λεπτομέρεια και την ποιότητα',
+          'Έγκαιρη παράδοση έργων',
+          'Πελατοκεντρική προσέγγιση'
+        ]
+      }
+    },
+    realEstateValuation: {
+      hero: {
+        title: 'Εκτίμηση Ακινήτων',
+        subtitle: 'Επαγγελματική εκτίμηση με ακρίβεια και αξιοπιστία'
+      },
+      services: {
+        title: 'Οι Υπηρεσίες μας',
+        items: [
+          {
+            title: 'Εκτίμηση Κατοικιών',
+            description: 'Ακριβής εκτίμηση της αξίας κατοικιών'
+          },
+          {
+            title: 'Εμπορικά Ακίνητα',
+            description: 'Εξειδικευμένη εκτίμηση εμπορικών χώρων'
+          },
+          {
+            title: 'Οικόπεδα & Γη',
+            description: 'Αξιολόγηση και εκτίμηση οικοπέδων'
+          }
+        ]
+      },
+      certifications: {
+        title: 'Πιστοποιήσεις',
+        expertValuer: {
+          title: 'Expert Valuer In Real Estate Property (REV) TEGoVA',
+          items: [
+            'Πιστοποιημένη εκτιμήτρια ακινήτων',
+            'Διεξαγωγή εκτιμήσεων σύμφωνα με τα Ευρωπαϊκά Πρότυπα',
+            'Πιστοποίηση ISO/IEC 17024'
+          ]
+        },
+        professionalMemberships: {
+          title: 'Μέλος Επαγγελματικών Οργανισμών',
+          items: [
+            'Μέλος του Συλλόγου Εκτιμητών Ελλάδος (Σ.ΕΚ.Ε.)',
+            'Συμμετοχή στην TEGoVA',
+            'Εντεταλμένος χορηγός REV της TEGoVA'
+          ]
+        }
+      }
+    },
+    propertiesForSale: {
+      hero: {
+        title: 'Ακίνητα προς Πώληση',
+        subtitle: 'Ανακαλύψτε την επιλεγμένη συλλογή διαθέσιμων ακινήτων μας'
+      },
+      search: {
+        placeholder: 'Αναζήτηση ακινήτων...',
+        filters: 'Φίλτρα',
+        applyFilters: 'Εφαρμογή Φίλτρων',
+        propertiesFound: 'ακίνητα βρέθηκαν',
+        sortBy: 'Ταξινόμηση κατά'
+      },
+      propertyTypes: {
+        all: 'Όλοι οι τύποι',
+        apartment: 'Διαμέρισμα',
+        house: 'Μονοκατοικία',
+        villa: 'Βίλα',
+        commercial: 'Επαγγελματικός χώρος'
+      },
+      priceRanges: {
+        all: 'Όλες οι τιμές',
+        upTo: 'Έως',
+        to: 'έως',
+        andUp: 'και άνω'
+      },
+      propertyCard: {
+        viewDetails: 'Προβολή Λεπτομερειών',
+        area: 'Εμβαδόν',
+        bedrooms: 'Υπνοδωμάτια'
+      }
+    },
+    projects: {
+      hero: {
+        title: 'Τα Έργα μας',
+        subtitle: 'Εξερευνήστε το χαρτοφυλάκιο των αρχιτεκτονικών και κατασκευαστικών μας έργων'
+      },
+      search: {
+        placeholder: 'Αναζήτηση έργων...',
+        filters: 'Φίλτρα'
+      },
+      categories: {
+        all: 'Όλα',
+        construction: 'Κατασκευές',
+        interior: 'Εσωτερικοί Χώροι',
+        residential: 'Κατοικίες',
+        suburban: 'Εξοχικά',
+        uncategorized: 'Άλλα'
+      },
+      projectCard: {
+        viewDetails: 'Προβολή Λεπτομερειών',
+        date: 'Ημερομηνία'
+      }
+    },
+    contact: {
+      info: {
+        el: 'Στοιχεία Επικοινωνίας',
+        en: 'Contact Information'
+      },
+      hero: {
+        title: {
+          el: 'Επικοινωνήστε μαζί μας',
+          en: 'Contact Us'
+        },
+        subtitle: {
+          el: 'Είμαστε εδώ για να σας βοηθήσουμε',
+          en: 'We are here to help you'
+        }
+      },
+      details: {
+        address: {
+          title: {
+            el: 'Διεύθυνση',
+            en: 'Address'
+          },
+          content: {
+            el: 'Λεωφόρος Ηρώων 12\nΚομοτηνή, 69100\nΕλλάδα',
+            en: '12 Heroes Avenue\nKomotini, 69100\nGreece'
+          }
+        },
+        phone: {
+          title: {
+            el: 'Τηλέφωνο',
+            en: 'Phone'
+          }
+        },
+        email: {
+          title: {
+            el: 'Email',
+            en: 'Email'
+          }
+        },
+        hours: {
+          title: {
+            el: 'Ωράριο Λειτουργίας',
+            en: 'Business Hours'
+          },
+          workDays: {
+            el: 'Δευτέρα - Παρασκευή: 9:00 - 18:00',
+            en: 'Monday - Friday: 9:00 - 18:00'
+          },
+          saturday: {
+            el: 'Σάββατο: 10:00 - 14:00',
+            en: 'Saturday: 10:00 - 14:00'
+          },
+          sunday: {
+            el: 'Κυριακή: Κλειστά',
+            en: 'Sunday: Closed'
+          }
+        }
+      },
+      form: {
+        title: {
+          el: 'Φόρμα Επικοινωνίας',
+          en: 'Contact Form'
+        },
+        name: {
+          label: {
+            el: 'Ονοματεπώνυμο',
+            en: 'Full Name'
+          },
+          placeholder: {
+            el: 'Εισάγετε το ονοματεπώνυμό σας',
+            en: 'Enter your full name'
+          }
+        },
+        email: {
+          label: {
+            el: 'Email',
+            en: 'Email'
+          },
+          placeholder: {
+            el: 'Εισάγετε το email σας',
+            en: 'Enter your email'
+          }
+        },
+        subject: {
+          label: {
+            el: 'Θέμα',
+            en: 'Subject'
+          },
+          placeholder: {
+            el: 'Εισάγετε το θέμα',
+            en: 'Enter subject'
+          }
+        },
+        message: {
+          label: {
+            el: 'Μήνυμα',
+            en: 'Message'
+          },
+          placeholder: {
+            el: 'Γράψτε το μήνυμά σας...',
+            en: 'Write your message...'
+          }
+        },
+        submit: {
+          el: 'Αποστολή',
+          en: 'Send Message'
+        }
+      },
+      location: {
+        title: {
+          el: 'Η Τοποθεσία μας',
+          en: 'Our Location'
+        }
+      }
+    },
+    engineeringServices: {
+      hero: {
+        title: 'Υπηρεσίες Μηχανικού',
+        subtitle: 'Ολοκληρωμένες υπηρεσίες μηχανικού και τεχνικές μελέτες'
+      },
+      about: {
+        title: 'ARCHInima – Αρχιτεκτονικό Γραφείο',
+        description: 'Απόφοιτη της Αρχιτεκτονικής Σχολής του ΑΠΘ (2000-2007), με φρέσκια ματιά στην ελληνική αρχιτεκτονική και οικοδομική πραγματικότητα, ξεκίνησα την πορεία μου στη γενέτειρά μου δίπλα σε έμπειρο αρχιτέκτονα. Στη συνέχεια, δημιούργησα το δικό μου αρχιτεκτονικό γραφείο.\n\nΜαζί με τον αδελφό μου, Ιωάννη Μαυρίδη (MSc Structural Engineering, Univ. of Surrey), και τις πολύτιμες συμβουλές του πατέρα μας, Ανέστη Μαυρίδη, με 30ετή εμπειρία στις κατασκευές, αναλαμβάνουμε ολοκληρωμένα τον σχεδιασμό, τη μελέτη, τον προϋπολογισμό, την κατασκευή και την εσωτερική διακόσμηση κάθε έργου.\n\nΤο ομαδικό πνεύμα, η θέληση και η φιλική μας διάθεση δημιουργούν σχέσεις εμπιστοσύνης με τους πελάτες μας, κάτι που για εμάς αποτελεί την απόλυτη επιτυχία.'
+      },
+      services: {
+        title: 'Υπηρεσίες',
+        items: [
+          'Αρχιτεκτονικός σχεδιασμός και αρχιτεκτονική μελέτη – επίβλεψη',
+          'Έκδοση πλήρους φακέλου οικοδομικής άδειας και επίβλεψη του έργου',
+          'Έκδοση αδειών λειτουργίας υγειονομικού ενδιαφέροντος παντός τύπου',
+          'Ενεργειακή επιθεώρηση – ένταξη στο πρόγραμμα "εξοικονομώ κατ\'οίκον"',
+          'Ελεγκτής δόμησης',
+          'Ανακαινίσεις διαμερισμάτων και καταστημάτων',
+          'Διακόσμηση εσωτερικών χώρων',
+          'Φωτορεαλισμός και virtual video'
+        ]
+      },
+      experience: {
+        title: 'Γιάννης Μαυρίδης, Company CEO',
+        items: [
+          '17 ετής συνεχής εμπειρία στον Τομέα Στατικών Μελετών',
+          '5 ετής εμπειρία στον τομέα του Ενεργειακού Σχεδιασμού',
+          'Πιστοποιημένος Ελεγκτής Δόμησης',
+          '17 ετής εμπειρία στην Κατασκευή Ιδιωτικών Έργων',
+          '8 ετής εμπειρία στον Τομέα Εκτιμήσεων Ακινήτων',
+          'Εμπειρία σε Τεχνικές Πραγματογνωμοσύνες',
+          'Μέλος της Μόνιμης Επιτροπής Χωροταξίας και Περιβάλλοντος του ΤΕΕ Θράκης'
+        ]
+      }
+    }
+  },
+  en: {
+    // Navbar
+    nav: {
+      home: 'Home',
+      architecturalOffice: 'Architectural Office',
+      realEstateValuation: 'Real Estate Valuation',
+      propertiesForSale: 'Properties for Sale',
+      projects: 'Projects',
+      contact: 'Contact'
+    },
+    // Footer
+    footer: {
+      companyDescription: 'Professional real estate services and architectural solutions in Greece.',
+      contactInfo: 'Contact Information',
+      officeHours: 'Office Hours',
+      workDays: 'Monday - Friday: 9:00 - 18:00',
+      saturday: 'Saturday: 10:00 - 14:00',
+      sunday: 'Sunday: Closed',
+      rights: 'All rights reserved.'
+    },
+    // Home Page
+    home: {
+      hero: {
+        title: 'Building the Future, Designing Your Dreams',
+        subtitle: 'Innovative architectural solutions and superior construction quality for every project',
+        cta: 'Start Your Project'
+      },
+      services: {
+        title: 'Our Services',
+        architectural: {
+          title: 'Architectural Services',
+          description: 'Design and implementation of architectural projects with innovative solutions'
+        },
+        valuation: {
+          title: 'Real Estate Valuation',
+          description: 'Professional property valuation by certified appraisers'
+        },
+        engineering: {
+          title: 'Engineering Services',
+          description: 'Comprehensive engineering services and technical studies'
+        }
+      },
+      constructionServices: {
+        title: 'Construction Services',
+        planning: {
+          title: 'Work Plan Design',
+          items: [
+            'Architectural plan preparation',
+            'Design section preparation',
+            'Plan approval',
+            'Building permit acquisition',
+            'Technical process control',
+            'Plan adaptation'
+          ]
+        },
+        specialized: {
+          title: 'Specialized Works',
+          items: [
+            'Mechanical network design',
+            'Electrical works',
+            'External masonry works',
+            'Flooring installation',
+            'Mechanical systems connection'
+          ]
+        },
+        construction: {
+          title: 'Construction Company',
+          description: 'Mavridis Construction employs cutting-edge scientific methods and generations of construction expertise to bring your boldest designs to life.',
+          quality: 'Superior quality and professional execution of all works is ensured through the use of the most modern design and construction technologies in Greece.',
+          pricing: 'Turnkey property price from €1000 per square meter, depending on property specifications.',
+          commitment: {
+            title: 'Our Commitment',
+            text: 'Mavridis Construction, backed by years of experience, high-level professional partnerships, and efficient organization of property construction works in Greece, guarantees timely and effective execution of all plans, with full respect for each client\'s personal preferences.'
+          }
+        }
+      },
+      whyChooseUs: {
+        title: 'Why Choose Us',
+        features: [
+          {
+            title: 'Expertise',
+            description: 'Years of experience in real estate and architecture'
+          },
+          {
+            title: 'Professional Service',
+            description: 'Dedicated team of certified professionals'
+          },
+          {
+            title: 'Comprehensive Solutions',
+            description: 'Full range of real estate and architectural services'
+          },
+          {
+            title: 'Client Focus',
+            description: 'Personalized approach to your specific needs'
+          }
+        ]
+      },
+      certifications: {
+        title: 'Professional Certifications',
+        expertValuer: {
+          title: 'Expert Valuer In Real Estate Property (REV) TEGoVA',
+          items: [
+            'Certified real estate appraiser, registered in the Registry of Certified Appraisers of the Ministry of Finance (Reg. No. 552)',
+            'Conducting valuations according to European Valuation Standards (EVS)',
+            'Certification compliant with international standard ISO/IEC 17024'
+          ]
+        },
+        professionalMemberships: {
+          title: 'Professional Organization Memberships',
+          items: [
+            'Member of the Hellenic Valuers Association (HVA)',
+            'Member of TEGoVA (The European Group of Valuers\' Associations)',
+            'Authorized sponsor of TEGoVA\'s REV European professional recognition'
+          ]
+        }
+      },
+      contact: {
+        info: 'For more information contact us at',
+        phone: '6976999811',
+        hero: {
+          title: {
+            el: 'Επικοινωνήστε μαζί μας',
+            en: 'Contact Us'
+          },
+          subtitle: {
+            el: 'Είμαστε εδώ για να σας βοηθήσουμε',
+            en: 'We are here to help you'
+          }
+        },
+        form: {
+          title: {
+            el: 'Στείλτε μας Μήνυμα',
+            en: 'Send us a Message'
+          },
+          name: {
+            label: {
+              el: 'Ονοματεπώνυμο',
+              en: 'Name'
+            },
+            placeholder: {
+              el: 'Το ονοματεπώνυμό σας',
+              en: 'Your name'
+            }
+          },
+          email: {
+            label: {
+              el: 'Email',
+              en: 'Email'
+            },
+            placeholder: {
+              el: 'Το email σας',
+              en: 'Your email'
+            }
+          },
+          subject: {
+            label: {
+              el: 'Θέμα',
+              en: 'Subject'
+            },
+            placeholder: {
+              el: 'Εισάγετε το θέμα',
+              en: 'Enter subject'
+            }
+          },
+          message: {
+            label: {
+              el: 'Μήνυμα',
+              en: 'Message'
+            },
+            placeholder: {
+              el: 'Γράψτε το μήνυμά σας...',
+              en: 'Write your message...'
+            }
+          },
+          submit: {
+            el: 'Αποστολή Μηνύματος',
+            en: 'Send Message'
+          }
+        },
+        location: {
+          title: {
+            el: 'Η Τοποθεσία μας',
+            en: 'Our Location'
+          }
+        }
+      }
+    },
+    architecturalOffice: {
+      hero: {
+        title: 'Architectural Office',
+        subtitle: 'Creating innovative architectural solutions that transform spaces'
+      },
+      services: {
+        title: 'Architectural Services',
+        description: 'We provide comprehensive architectural solutions for every project',
+        items: [
+          {
+            title: 'Architectural Design',
+            description: 'Creative and functional solutions for every space'
+          },
+          {
+            title: 'Construction Studies',
+            description: 'Detailed studies for perfect project implementation'
+          },
+          {
+            title: 'Renovations',
+            description: 'Renewal and upgrade of existing spaces'
+          },
+          {
+            title: 'Interior Design',
+            description: 'Interior space design with aesthetics and functionality'
+          }
+        ]
+      },
+      projects: {
+        title: 'Selected Projects',
+        viewDetails: 'View Details'
+      },
+      whyChooseUs: {
+        title: 'Why Choose Our Office',
+        reasons: [
+          'Experienced team of certified architects',
+          'Innovative and sustainable design solutions',
+          'Complete project management',
+          'Attention to detail and quality',
+          'Timely project delivery',
+          'Client-centered approach'
+        ]
+      }
+    },
+    realEstateValuation: {
+      hero: {
+        title: 'Real Estate Valuation',
+        subtitle: 'Professional property valuation by certified appraisers'
+      },
+      services: {
+        title: 'Our Services',
+        items: [
+          {
+            title: 'Residential Property Valuation',
+            description: 'Accurate valuation of residential properties based on current market data'
+          },
+          {
+            title: 'Commercial Properties',
+            description: 'Specialized valuation of commercial spaces and business properties'
+          },
+          {
+            title: 'Land & Plots',
+            description: 'Assessment and valuation of land plots and agricultural properties'
+          }
+        ]
+      },
+      certifications: {
+        title: 'Professional Certifications',
+        expertValuer: {
+          title: 'Expert Valuer In Real Estate Property (REV) TEGoVA',
+          items: [
+            'Certified real estate appraiser, registered in the Registry of Certified Appraisers of the Ministry of Finance (Reg. No. 552)',
+            'Conducting valuations according to European Valuation Standards (EVS)',
+            'Certification compliant with international standard ISO/IEC 17024'
+          ]
+        },
+        professionalMemberships: {
+          title: 'Professional Organization Memberships',
+          items: [
+            'Member of the Hellenic Valuers Association (HVA)',
+            'Member of TEGoVA (The European Group of Valuers\' Associations)',
+            'Authorized sponsor of TEGoVA\'s REV European professional recognition'
+          ]
+        }
+      }
+    },
+    propertiesForSale: {
+      hero: {
+        title: 'Properties for Sale',
+        subtitle: 'Discover our curated collection of available properties'
+      },
+      search: {
+        placeholder: 'Search properties...',
+        filters: 'Filters',
+        applyFilters: 'Apply Filters',
+        propertiesFound: 'properties found',
+        sortBy: 'Sort by'
+      },
+      propertyTypes: {
+        all: 'All types',
+        apartment: 'Apartment',
+        house: 'House',
+        villa: 'Villa',
+        commercial: 'Commercial'
+      },
+      priceRanges: {
+        all: 'All prices',
+        upTo: 'Up to',
+        to: 'to',
+        andUp: 'and up'
+      },
+      propertyCard: {
+        viewDetails: 'View Details',
+        area: 'Area',
+        bedrooms: 'Bedrooms'
+      }
+    },
+    projects: {
+      hero: {
+        title: 'Our Projects',
+        subtitle: 'Explore our portfolio of architectural and construction projects'
+      },
+      search: {
+        placeholder: 'Search projects...',
+        filters: 'Filters'
+      },
+      categories: {
+        all: 'All',
+        construction: 'Construction',
+        interior: 'Interior Design',
+        residential: 'Residential',
+        suburban: 'Suburban',
+        uncategorized: 'Others'
+      },
+      projectCard: {
+        viewDetails: 'View Details',
+        date: 'Date'
+      }
+    },
+    contact: {
+      info: {
+        el: 'Στοιχεία Επικοινωνίας',
+        en: 'Contact Information'
+      },
+      hero: {
+        title: {
+          el: 'Επικοινωνήστε μαζί μας',
+          en: 'Contact Us'
+        },
+        subtitle: {
+          el: 'Είμαστε εδώ για να σας βοηθήσουμε',
+          en: 'We are here to help you'
+        }
+      },
+      details: {
+        address: {
+          title: {
+            el: 'Διεύθυνση',
+            en: 'Address'
+          },
+          content: {
+            el: 'Λεωφόρος Ηρώων 12\nΚομοτηνή, 69100\nΕλλάδα',
+            en: '12 Heroes Avenue\nKomotini, 69100\nGreece'
+          }
+        },
+        phone: {
+          title: {
+            el: 'Τηλέφωνο',
+            en: 'Phone'
+          }
+        },
+        email: {
+          title: {
+            el: 'Email',
+            en: 'Email'
+          }
+        },
+        hours: {
+          title: {
+            el: 'Ωράριο Λειτουργίας',
+            en: 'Business Hours'
+          },
+          workDays: {
+            el: 'Δευτέρα - Παρασκευή: 9:00 - 18:00',
+            en: 'Monday - Friday: 9:00 - 18:00'
+          },
+          saturday: {
+            el: 'Σάββατο: 10:00 - 14:00',
+            en: 'Saturday: 10:00 - 14:00'
+          },
+          sunday: {
+            el: 'Κυριακή: Κλειστά',
+            en: 'Sunday: Closed'
+          }
+        }
+      },
+      form: {
+        title: {
+          el: 'Φόρμα Επικοινωνίας',
+          en: 'Contact Form'
+        },
+        name: {
+          label: {
+            el: 'Ονοματεπώνυμο',
+            en: 'Full Name'
+          },
+          placeholder: {
+            el: 'Εισάγετε το ονοματεπώνυμό σας',
+            en: 'Enter your full name'
+          }
+        },
+        email: {
+          label: {
+            el: 'Email',
+            en: 'Email'
+          },
+          placeholder: {
+            el: 'Εισάγετε το email σας',
+            en: 'Enter your email'
+          }
+        },
+        subject: {
+          label: {
+            el: 'Θέμα',
+            en: 'Subject'
+          },
+          placeholder: {
+            el: 'Εισάγετε το θέμα',
+            en: 'Enter subject'
+          }
+        },
+        message: {
+          label: {
+            el: 'Μήνυμα',
+            en: 'Message'
+          },
+          placeholder: {
+            el: 'Γράψτε το μήνυμά σας...',
+            en: 'Write your message...'
+          }
+        },
+        submit: {
+          el: 'Αποστολή',
+          en: 'Send Message'
+        }
+      },
+      location: {
+        title: {
+          el: 'Η Τοποθεσία μας',
+          en: 'Our Location'
+        }
+      }
+    },
+    engineeringServices: {
+      hero: {
+        title: 'Engineering Services',
+        subtitle: 'Comprehensive engineering services and technical studies'
+      },
+      about: {
+        title: 'ARCHInima – Architectural Office',
+        description: 'A graduate of the School of Architecture at AUTH (2000-2007), with a fresh perspective on Greek architectural and construction reality, I began my journey in my hometown alongside an experienced architect. Subsequently, I established my own architectural office.\n\nTogether with my brother, Ioannis Mavridis (MSc Structural Engineering, Univ. of Surrey), and the valuable guidance of our father, Anestis Mavridis, who has 30 years of experience in construction, we comprehensively undertake the design, study, budgeting, construction, and interior decoration of each project.\n\nOur team spirit, determination, and friendly approach create relationships of trust with our clients, which for us represents absolute success.'
+      },
+      services: {
+        title: 'Services',
+        items: [
+          'Architectural design and supervision',
+          'Complete building permit documentation and project supervision',
+          'Operating licenses for all types of health-regulated establishments',
+          'Energy inspection – integration with "Energy Saving at Home" program',
+          'Building Inspector',
+          'Apartment and store renovations',
+          'Interior design',
+          'Photorealism and virtual video'
+        ]
+      },
+      experience: {
+        title: 'Giannis Mavridis, Company CEO',
+        items: [
+          '17 years of continuous experience in Structural Engineering',
+          '5 years of experience in Energy Design',
+          'Certified Building Inspector',
+          '17 years of experience in Private Construction',
+          '8 years of experience in Real Estate Valuation',
+          'Experience in Technical Expert Reports',
+          'Member of the Standing Committee on Planning and Environment of TEE Thrace'
+        ]
+      }
+    }
+  }
+}; 
