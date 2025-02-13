@@ -1,10 +1,24 @@
 import React from 'react';
-import { Building2, Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
+import { Building2, Phone, Mail, MapPin, Facebook, Instagram, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const { language } = useLanguage();
+
+  const contactInfo = {
+    phones: [
+      '+30 2531 026840',
+      '+30 6977 717410',
+      '+30 6976 999811'
+    ],
+    email: 'ymavridis@gmail.com',
+    address: {
+      el: 'Θάσου 1, Κομοτηνή, 69100',
+      en: '1 Thasou, Komotini, 69100'
+    }
+  };
 
   const socialMedia = [
     {
@@ -35,25 +49,100 @@ const Footer = () => {
     }
   ];
 
+  const quickLinks = [
+    { path: '/architectural-office', label: language === 'el' ? 'Αρχιτεκτονικό Γραφείο' : 'Architectural Office' },
+    { path: '/engineering-services', label: language === 'el' ? 'Υπηρεσίες Μηχανικού' : 'Engineering Services' },
+    { path: '/real-estate-valuation', label: language === 'el' ? 'Εκτίμηση Ακινήτων' : 'Real Estate Valuation' },
+    { path: '/projects', label: language === 'el' ? 'Έργα' : 'Projects' },
+    { path: '/contact', label: language === 'el' ? 'Επικοινωνία' : 'Contact' }
+  ];
+
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="bg-gradient-to-b from-gray-900 to-black text-white">
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div>
-            <div className="flex items-center mb-4">
+            <div className="flex items-center mb-6">
               <Building2 className="h-8 w-8 text-blue-400" />
-              <span className="ml-2 text-xl font-bold">IN-MAVRIDIS</span>
+              <span className="ml-2 text-2xl font-bold">IN-MAVRIDIS</span>
             </div>
-            <p className="text-gray-400">
+            <p className="text-gray-400 mb-6">
               {language === 'el' 
                 ? 'Επαγγελματικές υπηρεσίες ακινήτων και αρχιτεκτονικές λύσεις στην Ελλάδα.'
                 : 'Professional real estate services and architectural solutions in Greece.'
               }
             </p>
+          </div>
 
-            {/* Social Media Links */}
-            <div className="mt-6">
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6">
+              {language === 'el' ? 'Γρήγορη Πλοήγηση' : 'Quick Links'}
+            </h3>
+            <ul className="space-y-3">
+              {quickLinks.map((link, index) => (
+                <li key={index}>
+                  <Link 
+                    to={link.path}
+                    className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6">
+              {language === 'el' ? 'Στοιχεία Επικοινωνίας' : 'Contact Info'}
+            </h3>
+            <div className="space-y-4">
+              {contactInfo.phones.map((phone, index) => (
+                <a 
+                  key={index}
+                  href={`tel:${phone}`}
+                  className="flex items-center text-gray-400 hover:text-blue-400 transition-colors duration-300"
+                >
+                  <Phone className="h-5 w-5 mr-3" />
+                  <span>{phone}</span>
+                </a>
+              ))}
+              <a 
+                href={`mailto:${contactInfo.email}`}
+                className="flex items-center text-gray-400 hover:text-blue-400 transition-colors duration-300"
+              >
+                <Mail className="h-5 w-5 mr-3" />
+                <span>{contactInfo.email}</span>
+              </a>
+              <div className="flex items-center text-gray-400">
+                <MapPin className="h-5 w-5 mr-3" />
+                <span>{contactInfo.address[language]}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Business Hours & Social */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6">
+              {language === 'el' ? 'Ωράριο Λειτουργίας' : 'Business Hours'}
+            </h3>
+            <div className="space-y-3 text-gray-400 mb-8">
+              <div className="flex items-center">
+                <Clock className="h-5 w-5 mr-3" />
+                <div>
+                  <p>{language === 'el' ? 'Δευτέρα - Παρασκευή: 9:00 - 18:00' : 'Monday - Friday: 9:00 - 18:00'}</p>
+                  <p>{language === 'el' ? 'Σάββατο: 10:00 - 14:00' : 'Saturday: 10:00 - 14:00'}</p>
+                  <p>{language === 'el' ? 'Κυριακή: Κλειστά' : 'Sunday: Closed'}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Social Media */}
+            <div>
               <h3 className="text-lg font-semibold mb-4">
                 {language === 'el' ? 'Ακολουθήστε μας' : 'Follow Us'}
               </h3>
@@ -64,7 +153,7 @@ const Footer = () => {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`p-2 rounded-full text-white ${social.color} transition-transform`}
+                    className={`p-2 rounded-full text-white ${social.color} transition-all duration-300`}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -74,48 +163,10 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">
-              {language === 'el' ? 'Στοιχεία Επικοινωνίας' : 'Contact Info'}
-            </h3>
-            <div className="space-y-2">
-              <div className="flex items-center">
-                <Phone className="h-5 w-5 text-blue-400 mr-2" />
-                <span>+30 6976999811</span>
-              </div>
-              <div className="flex items-center">
-                <Mail className="h-5 w-5 text-blue-400 mr-2" />
-                <span>info@in-mavridis.gr</span>
-              </div>
-              <div className="flex items-center">
-                <MapPin className="h-5 w-5 text-blue-400 mr-2" />
-                <span>
-                  {language === 'el' 
-                    ? 'Λεωφόρος Ηρώων 12, Κομοτηνή, 69100'
-                    : '12 Heroes Avenue, Komotini, 69100'
-                  }
-                </span>
-              </div>
-            </div>
-          </div>
-          
-          {/* Office Hours */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">
-              {language === 'el' ? 'Ωράριο Λειτουργίας' : 'Office Hours'}
-            </h3>
-            <div className="space-y-2 text-gray-400">
-              <p>{language === 'el' ? 'Δευτέρα - Παρασκευή: 9:00 - 18:00' : 'Monday - Friday: 9:00 - 18:00'}</p>
-              <p>{language === 'el' ? 'Σάββατο: 10:00 - 14:00' : 'Saturday: 10:00 - 14:00'}</p>
-              <p>{language === 'el' ? 'Κυριακή: Κλειστά' : 'Sunday: Closed'}</p>
-            </div>
-          </div>
         </div>
-        
+
         {/* Copyright */}
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+        <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
           <p>© {new Date().getFullYear()} IN-MAVRIDIS. {language === 'el' ? 'Με επιφύλαξη παντός δικαιώματος.' : 'All rights reserved.'}</p>
         </div>
       </div>

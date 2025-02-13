@@ -4,8 +4,8 @@ export const translations = {
     nav: {
       home: 'Αρχική',
       architecturalOffice: 'Αρχιτεκτονικό Γραφείο',
+      engineeringServices: 'Υπηρεσίες Μηχανικού',
       realEstateValuation: 'Εκτίμηση Ακινήτων',
-      propertiesForSale: 'Ακίνητα προς Πώληση',
       projects: 'Έργα',
       contact: 'Επικοινωνία'
     },
@@ -39,7 +39,8 @@ export const translations = {
         engineering: {
           title: 'Υπηρεσίες Μηχανικού',
           description: 'Ολοκληρωμένες υπηρεσίες μηχανικού και τεχνικές μελέτες'
-        }
+        },
+        learnMore: 'Μάθετε περισσότερα'
       },
       constructionServices: {
         title: 'Υπηρεσίες Κατασκευής',
@@ -108,74 +109,14 @@ export const translations = {
         }
       },
       contact: {
-        info: 'Για περισσότερες πληροφορίες επικοινωνήστε μαζί μας στο',
-        phone: '6976999811',
-        hero: {
-          title: {
-            el: 'Επικοινωνήστε μαζί μας',
-            en: 'Contact Us'
-          },
-          subtitle: {
-            el: 'Είμαστε εδώ για να σας βοηθήσουμε',
-            en: 'We are here to help you'
-          }
-        },
-        form: {
-          title: {
-            el: 'Στείλτε μας Μήνυμα',
-            en: 'Send us a Message'
-          },
-          name: {
-            label: {
-              el: 'Ονοματεπώνυμο',
-              en: 'Name'
-            },
-            placeholder: {
-              el: 'Το ονοματεπώνυμό σας',
-              en: 'Your name'
-            }
-          },
-          email: {
-            label: {
-              el: 'Email',
-              en: 'Email'
-            },
-            placeholder: {
-              el: 'Το email σας',
-              en: 'Your email'
-            }
-          },
-          subject: {
-            label: {
-              el: 'Θέμα',
-              en: 'Subject'
-            },
-            placeholder: {
-              el: 'Εισάγετε το θέμα',
-              en: 'Enter subject'
-            }
-          },
-          message: {
-            label: {
-              el: 'Μήνυμα',
-              en: 'Message'
-            },
-            placeholder: {
-              el: 'Γράψτε το μήνυμά σας...',
-              en: 'Write your message...'
-            }
-          },
-          submit: {
-            el: 'Αποστολή Μηνύματος',
-            en: 'Send Message'
-          }
-        },
-        location: {
-          title: {
-            el: 'Η Τοποθεσία μας',
-            en: 'Our Location'
-          }
-        }
+        info: 'Για περισσότερες πληροφορίες επικοινωνήστε μαζί μας',
+        phones: [
+          '+30 2531 026840',
+          '+30 6977 717410',
+          '+30 6976 999811'
+        ],
+        email: 'ymavridis@gmail.com',
+        address: 'Θάσου 1, Κομοτηνή, 69100'
       }
     },
     architecturalOffice: {
@@ -317,117 +258,24 @@ export const translations = {
       }
     },
     contact: {
-      info: {
-        el: 'Στοιχεία Επικοινωνίας',
-        en: 'Contact Information'
-      },
-      hero: {
-        title: {
-          el: 'Επικοινωνήστε μαζί μας',
-          en: 'Contact Us'
-        },
-        subtitle: {
-          el: 'Είμαστε εδώ για να σας βοηθήσουμε',
-          en: 'We are here to help you'
-        }
-      },
-      details: {
-        address: {
-          title: {
-            el: 'Διεύθυνση',
-            en: 'Address'
-          },
-          content: {
-            el: 'Λεωφόρος Ηρώων 12\nΚομοτηνή, 69100\nΕλλάδα',
-            en: '12 Heroes Avenue\nKomotini, 69100\nGreece'
-          }
-        },
-        phone: {
-          title: {
-            el: 'Τηλέφωνο',
-            en: 'Phone'
-          }
-        },
-        email: {
-          title: {
-            el: 'Email',
-            en: 'Email'
-          }
-        },
-        hours: {
-          title: {
-            el: 'Ωράριο Λειτουργίας',
-            en: 'Business Hours'
-          },
-          workDays: {
-            el: 'Δευτέρα - Παρασκευή: 9:00 - 18:00',
-            en: 'Monday - Friday: 9:00 - 18:00'
-          },
-          saturday: {
-            el: 'Σάββατο: 10:00 - 14:00',
-            en: 'Saturday: 10:00 - 14:00'
-          },
-          sunday: {
-            el: 'Κυριακή: Κλειστά',
-            en: 'Sunday: Closed'
-          }
-        }
-      },
+      title: 'Επικοινωνία',
+      subtitle: 'Είμαστε εδώ για να σας βοηθήσουμε',
       form: {
-        title: {
-          el: 'Φόρμα Επικοινωνίας',
-          en: 'Contact Form'
-        },
-        name: {
-          label: {
-            el: 'Ονοματεπώνυμο',
-            en: 'Full Name'
-          },
-          placeholder: {
-            el: 'Εισάγετε το ονοματεπώνυμό σας',
-            en: 'Enter your full name'
-          }
-        },
-        email: {
-          label: {
-            el: 'Email',
-            en: 'Email'
-          },
-          placeholder: {
-            el: 'Εισάγετε το email σας',
-            en: 'Enter your email'
-          }
-        },
-        subject: {
-          label: {
-            el: 'Θέμα',
-            en: 'Subject'
-          },
-          placeholder: {
-            el: 'Εισάγετε το θέμα',
-            en: 'Enter subject'
-          }
-        },
-        message: {
-          label: {
-            el: 'Μήνυμα',
-            en: 'Message'
-          },
-          placeholder: {
-            el: 'Γράψτε το μήνυμά σας...',
-            en: 'Write your message...'
-          }
-        },
-        submit: {
-          el: 'Αποστολή',
-          en: 'Send Message'
-        }
+        name: 'Ονοματεπώνυμο',
+        email: 'Email',
+        subject: 'Θέμα',
+        message: 'Μήνυμα',
+        send: 'Αποστολή'
       },
-      location: {
-        title: {
-          el: 'Η Τοποθεσία μας',
-          en: 'Our Location'
-        }
+      info: {
+        title: 'Στοιχεία Επικοινωνίας',
+        phones: [
+          '+30 2531 026840',
+          '+30 6977 717410',
+          '+30 6976 999811'
+        ],
+        email: 'ymavridis@gmail.com',
+        address: 'Θάσου 1, Κομοτηνή, 69100'
       }
     },
     engineeringServices: {
@@ -471,8 +319,8 @@ export const translations = {
     nav: {
       home: 'Home',
       architecturalOffice: 'Architectural Office',
+      engineeringServices: 'Engineering Services',
       realEstateValuation: 'Real Estate Valuation',
-      propertiesForSale: 'Properties for Sale',
       projects: 'Projects',
       contact: 'Contact'
     },
@@ -490,7 +338,7 @@ export const translations = {
     home: {
       hero: {
         title: 'Building the Future, Designing Your Dreams',
-        subtitle: 'Innovative architectural solutions and superior construction quality for every project',
+        subtitle: 'Innovative architectural solutions and excellent construction quality for every project',
         cta: 'Start Your Project'
       },
       services: {
@@ -501,12 +349,13 @@ export const translations = {
         },
         valuation: {
           title: 'Real Estate Valuation',
-          description: 'Professional property valuation by certified appraisers'
+          description: 'Professional real estate valuation by certified appraisers'
         },
         engineering: {
           title: 'Engineering Services',
           description: 'Comprehensive engineering services and technical studies'
-        }
+        },
+        learnMore: 'Learn more'
       },
       constructionServices: {
         title: 'Construction Services',
@@ -583,74 +432,14 @@ export const translations = {
         }
       },
       contact: {
-        info: 'For more information contact us at',
-        phone: '6976999811',
-        hero: {
-          title: {
-            el: 'Επικοινωνήστε μαζί μας',
-            en: 'Contact Us'
-          },
-          subtitle: {
-            el: 'Είμαστε εδώ για να σας βοηθήσουμε',
-            en: 'We are here to help you'
-          }
-        },
-        form: {
-          title: {
-            el: 'Στείλτε μας Μήνυμα',
-            en: 'Send us a Message'
-          },
-          name: {
-            label: {
-              el: 'Ονοματεπώνυμο',
-              en: 'Name'
-            },
-            placeholder: {
-              el: 'Το ονοματεπώνυμό σας',
-              en: 'Your name'
-            }
-          },
-          email: {
-            label: {
-              el: 'Email',
-              en: 'Email'
-            },
-            placeholder: {
-              el: 'Το email σας',
-              en: 'Your email'
-            }
-          },
-          subject: {
-            label: {
-              el: 'Θέμα',
-              en: 'Subject'
-            },
-            placeholder: {
-              el: 'Εισάγετε το θέμα',
-              en: 'Enter subject'
-            }
-          },
-          message: {
-            label: {
-              el: 'Μήνυμα',
-              en: 'Message'
-            },
-            placeholder: {
-              el: 'Γράψτε το μήνυμά σας...',
-              en: 'Write your message...'
-            }
-          },
-          submit: {
-            el: 'Αποστολή Μηνύματος',
-            en: 'Send Message'
-          }
-        },
-        location: {
-          title: {
-            el: 'Η Τοποθεσία μας',
-            en: 'Our Location'
-          }
-        }
+        info: 'For more information contact us',
+        phones: [
+          '+30 2531 026840',
+          '+30 6977 717410',
+          '+30 6976 999811'
+        ],
+        email: 'ymavridis@gmail.com',
+        address: '1 Thasou, Komotini, 69100'
       }
     },
     architecturalOffice: {
@@ -792,117 +581,24 @@ export const translations = {
       }
     },
     contact: {
-      info: {
-        el: 'Στοιχεία Επικοινωνίας',
-        en: 'Contact Information'
-      },
-      hero: {
-        title: {
-          el: 'Επικοινωνήστε μαζί μας',
-          en: 'Contact Us'
-        },
-        subtitle: {
-          el: 'Είμαστε εδώ για να σας βοηθήσουμε',
-          en: 'We are here to help you'
-        }
-      },
-      details: {
-        address: {
-          title: {
-            el: 'Διεύθυνση',
-            en: 'Address'
-          },
-          content: {
-            el: 'Λεωφόρος Ηρώων 12\nΚομοτηνή, 69100\nΕλλάδα',
-            en: '12 Heroes Avenue\nKomotini, 69100\nGreece'
-          }
-        },
-        phone: {
-          title: {
-            el: 'Τηλέφωνο',
-            en: 'Phone'
-          }
-        },
-        email: {
-          title: {
-            el: 'Email',
-            en: 'Email'
-          }
-        },
-        hours: {
-          title: {
-            el: 'Ωράριο Λειτουργίας',
-            en: 'Business Hours'
-          },
-          workDays: {
-            el: 'Δευτέρα - Παρασκευή: 9:00 - 18:00',
-            en: 'Monday - Friday: 9:00 - 18:00'
-          },
-          saturday: {
-            el: 'Σάββατο: 10:00 - 14:00',
-            en: 'Saturday: 10:00 - 14:00'
-          },
-          sunday: {
-            el: 'Κυριακή: Κλειστά',
-            en: 'Sunday: Closed'
-          }
-        }
-      },
+      title: 'Contact',
+      subtitle: 'We are here to help you',
       form: {
-        title: {
-          el: 'Φόρμα Επικοινωνίας',
-          en: 'Contact Form'
-        },
-        name: {
-          label: {
-            el: 'Ονοματεπώνυμο',
-            en: 'Full Name'
-          },
-          placeholder: {
-            el: 'Εισάγετε το ονοματεπώνυμό σας',
-            en: 'Enter your full name'
-          }
-        },
-        email: {
-          label: {
-            el: 'Email',
-            en: 'Email'
-          },
-          placeholder: {
-            el: 'Εισάγετε το email σας',
-            en: 'Enter your email'
-          }
-        },
-        subject: {
-          label: {
-            el: 'Θέμα',
-            en: 'Subject'
-          },
-          placeholder: {
-            el: 'Εισάγετε το θέμα',
-            en: 'Enter subject'
-          }
-        },
-        message: {
-          label: {
-            el: 'Μήνυμα',
-            en: 'Message'
-          },
-          placeholder: {
-            el: 'Γράψτε το μήνυμά σας...',
-            en: 'Write your message...'
-          }
-        },
-        submit: {
-          el: 'Αποστολή',
-          en: 'Send Message'
-        }
+        name: 'Full Name',
+        email: 'Email',
+        subject: 'Subject',
+        message: 'Message',
+        send: 'Send'
       },
-      location: {
-        title: {
-          el: 'Η Τοποθεσία μας',
-          en: 'Our Location'
-        }
+      info: {
+        title: 'Contact Information',
+        phones: [
+          '+30 2531 026840',
+          '+30 6977 717410',
+          '+30 6976 999811'
+        ],
+        email: 'ymavridis@gmail.com',
+        address: '1 Thasou, Komotini, 69100'
       }
     },
     engineeringServices: {

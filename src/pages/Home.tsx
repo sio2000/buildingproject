@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Building2, Calculator, Building, Ruler } from 'lucide-react';
-import { motion, useScroll } from 'framer-motion';
+import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { useTranslation } from '../hooks/useTranslation';
+import { useState } from 'react';
 
 interface FeatureItem {
   title: string;
@@ -10,6 +11,7 @@ interface FeatureItem {
 
 const Home = () => {
   const { t } = useTranslation();
+  const [isHovered, setIsHovered] = useState(false);
 
   const services = [
     {
@@ -31,6 +33,64 @@ const Home = () => {
       link: '/engineering-services'
     }
   ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100
+      }
+    }
+  };
+
+  const popUpVariants = {
+    hidden: { scale: 0.5, opacity: 0 },
+    visible: { 
+      scale: 1, 
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 260,
+        damping: 20
+      }
+    }
+  };
+
+  const serviceCardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.645, 0.045, 0.355, 1]
+      }
+    }
+  };
+
+  const cardContentVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: {
+        delay: 0.2,
+        duration: 0.4
+      }
+    }
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -178,53 +238,82 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Services Section with fixed layout */}
-      <div className="py-16 bg-white">
+      {/* Services Section */}
+      <motion.div 
+        className="py-20 bg-gradient-to-b from-gray-50 via-white to-gray-50"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+      >
         <div className="max-w-7xl mx-auto px-4">
-          <motion.h2 
-            className="text-3xl font-bold text-center mb-12 gradient-text"
-            initial={{ opacity: 0, y: 20 }}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-20"
           >
-            {t('home.services.title')}
-          </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+              {t('home.services.title')}
+            </h2>
+            <div className="w-32 h-1.5 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto rounded-full" />
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {services.map((service, index) => (
               <motion.div
-                key={index}
-                className="bg-white rounded-lg p-6 shadow-lg hover-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                key={service.title}
+                className="relative bg-white rounded-2xl p-8 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-sm border border-gray-100"
+                variants={serviceCardVariants}
+                initial="hidden"
+                whileInView="visible"
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
+                whileHover={{ 
+                  y: -10,
+                  transition: { duration: 0.3, ease: "easeOut" }
+                }}
               >
+                {/* Icon */}
                 <motion.div
-                  className="floating"
-                  animate={{ 
-                    y: [0, -10, 0],
-                  }}
-                  transition={{ 
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
+                  className="mb-8"
+                  variants={cardContentVariants}
                 >
-                  <service.icon className="h-12 w-12 text-blue-600 mb-4" />
+                  <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center">
+                    <service.icon className="h-7 w-7 text-blue-600" />
+                  </div>
                 </motion.div>
-                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                <p className="text-gray-600 mb-4">{service.description}</p>
-                <Link
-                  to={service.link}
-                  className="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center"
+
+                {/* Content */}
+                <motion.div
+                  className="space-y-4"
+                  variants={cardContentVariants}
                 >
-                  Learn More →
-                </Link>
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed min-h-[80px]">
+                    {service.description}
+                  </p>
+                  
+                  {/* Updated Learn More Link */}
+                  <Link
+                    to={service.link}
+                    className="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-700 font-semibold group mt-4"
+                  >
+                    <span className="relative">
+                      Learn more...
+                      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                    </span>
+                  </Link>
+                </motion.div>
+
+                {/* Decorative Elements */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-50 to-transparent opacity-50 rounded-tr-2xl pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-blue-50 to-transparent opacity-50 rounded-bl-2xl pointer-events-none" />
               </motion.div>
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Why Choose Us Section */}
       <div className="py-16 bg-gray-50">
@@ -305,18 +394,6 @@ const Home = () => {
                 </li>
               ))}
             </ul>
-          </motion.div>
-
-          {/* Contact Info */}
-          <motion.div
-            className="text-center mt-12"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-gray-700">
-              {t('home.contact.info')} <span className="font-semibold">{t('home.contact.phone')}</span>
-            </p>
           </motion.div>
         </div>
       </div>
