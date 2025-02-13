@@ -280,37 +280,149 @@ export const translations = {
     },
     engineeringServices: {
       hero: {
-        title: 'Υπηρεσίες Μηχανικού',
-        subtitle: 'Ολοκληρωμένες υπηρεσίες μηχανικού και τεχνικές μελέτες'
+        title: {
+          el: 'Υπηρεσίες Μηχανικού',
+          en: 'Engineering Services'
+        },
+        subtitle: {
+          el: 'Ολοκληρωμένες υπηρεσίες μηχανικού και τεχνικές μελέτες',
+          en: 'Comprehensive engineering services and technical studies'
+        }
       },
       about: {
         title: 'ARCHInima – Αρχιτεκτονικό Γραφείο',
         description: 'Απόφοιτη της Αρχιτεκτονικής Σχολής του ΑΠΘ (2000-2007), με φρέσκια ματιά στην ελληνική αρχιτεκτονική και οικοδομική πραγματικότητα, ξεκίνησα την πορεία μου στη γενέτειρά μου δίπλα σε έμπειρο αρχιτέκτονα. Στη συνέχεια, δημιούργησα το δικό μου αρχιτεκτονικό γραφείο.\n\nΜαζί με τον αδελφό μου, Ιωάννη Μαυρίδη (MSc Structural Engineering, Univ. of Surrey), και τις πολύτιμες συμβουλές του πατέρα μας, Ανέστη Μαυρίδη, με 30ετή εμπειρία στις κατασκευές, αναλαμβάνουμε ολοκληρωμένα τον σχεδιασμό, τη μελέτη, τον προϋπολογισμό, την κατασκευή και την εσωτερική διακόσμηση κάθε έργου.\n\nΤο ομαδικό πνεύμα, η θέληση και η φιλική μας διάθεση δημιουργούν σχέσεις εμπιστοσύνης με τους πελάτες μας, κάτι που για εμάς αποτελεί την απόλυτη επιτυχία.'
       },
       services: {
-        title: 'Υπηρεσίες',
-        items: [
-          'Αρχιτεκτονικός σχεδιασμός και αρχιτεκτονική μελέτη – επίβλεψη',
-          'Έκδοση πλήρους φακέλου οικοδομικής άδειας και επίβλεψη του έργου',
-          'Έκδοση αδειών λειτουργίας υγειονομικού ενδιαφέροντος παντός τύπου',
-          'Ενεργειακή επιθεώρηση – ένταξη στο πρόγραμμα "εξοικονομώ κατ\'οίκον"',
-          'Ελεγκτής δόμησης',
-          'Ανακαινίσεις διαμερισμάτων και καταστημάτων',
-          'Διακόσμηση εσωτερικών χώρων',
-          'Φωτορεαλισμός και virtual video'
-        ]
+        title: {
+          el: 'Υπηρεσίες',
+          en: 'Services'
+        },
+        items: {
+          el: [
+            'Αρχιτεκτονικός σχεδιασμός και αρχιτεκτονική μελέτη – επίβλεψη',
+            'Έκδοση πλήρους φακέλου οικοδομικής άδειας και επίβλεψη του έργου',
+            'Έκδοση αδειών λειτουργίας υγειονομικού ενδιαφέροντος παντός τύπου',
+            'Ενεργειακή επιθεώρηση – ένταξη στο πρόγραμμα "εξοικονομώ κατ\'οίκον"',
+            'Ελεγκτής δόμησης',
+            'Ανακαινίσεις διαμερισμάτων και καταστημάτων',
+            'Διακόσμηση εσωτερικών χώρων',
+            'Φωτορεαλισμός και virtual video'
+          ],
+          en: [
+            'Architectural design and supervision',
+            'Complete building permit documentation and project supervision',
+            'Operating licenses for all types of health-regulated establishments',
+            'Energy inspection – integration with "Energy Saving at Home" program',
+            'Building Inspector',
+            'Apartment and store renovations',
+            'Interior design',
+            'Photorealism and virtual video'
+          ]
+        }
       },
       experience: {
-        title: 'Γιάννης Μαυρίδης, Company CEO',
-        items: [
-          '17 ετής συνεχής εμπειρία στον Τομέα Στατικών Μελετών',
-          '5 ετής εμπειρία στον τομέα του Ενεργειακού Σχεδιασμού',
-          'Πιστοποιημένος Ελεγκτής Δόμησης',
-          '17 ετής εμπειρία στην Κατασκευή Ιδιωτικών Έργων',
-          '8 ετής εμπειρία στον Τομέα Εκτιμήσεων Ακινήτων',
-          'Εμπειρία σε Τεχνικές Πραγματογνωμοσύνες',
-          'Μέλος της Μόνιμης Επιτροπής Χωροταξίας και Περιβάλλοντος του ΤΕΕ Θράκης'
-        ]
+        title: {
+          el: 'Γιάννης Μαυρίδης, Company CEO',
+          en: 'Giannis Mavridis, Company CEO'
+        },
+        items: {
+          el: [
+            '17 ετής συνεχής εμπειρία στον Τομέα Στατικών Μελετών',
+            '5 ετής εμπειρία στον τομέα του Ενεργειακού Σχεδιασμού',
+            'Πιστοποιημένος Ελεγκτής Δόμησης',
+            '17 ετής εμπειρία στην Κατασκευή Ιδιωτικών Έργων',
+            '8 ετής εμπειρία στον Τομέα Εκτιμήσεων Ακινήτων',
+            'Εμπειρία σε Τεχνικές Πραγματογνωμοσύνες',
+            'Μέλος της Μόνιμης Επιτροπής Χωροταξίας και Περιβάλλοντος του ΤΕΕ Θράκης'
+          ],
+          en: [
+            '17 years of continuous experience in Structural Engineering',
+            '5 years of experience in Energy Design',
+            'Certified Building Inspector',
+            '17 years of experience in Private Construction',
+            '8 years of experience in Real Estate Valuation',
+            'Experience in Technical Expert Reports',
+            'Member of the Standing Committee on Planning and Environment of TEE Thrace'
+          ]
+        }
+      },
+      introduction: {
+        el: `Απόφοιτη της Αρχιτεκτονικής Σχολής του ΑΠΘ (2000-2007), με φρέσκια ματιά στην ελληνική αρχιτεκτονική και οικοδομική πραγματικότητα, ξεκίνησα την πορεία μου στη γενέτειρά μου δίπλα σε έμπειρο αρχιτέκτονα. Στη συνέχεια, δημιούργησα το δικό μου αρχιτεκτονικό γραφείο.
+
+        Μαζί με τον αδελφό μου, Ιωάννη Μαυρίδη (MSc Structural Engineering, Univ. of Surrey), και τις πολύτιμες συμβουλές του πατέρα μας, Ανέστη Μαυρίδη, με 30ετή εμπειρία στις κατασκευές, αναλαμβάνουμε ολοκληρωμένα τον σχεδιασμό, τη μελέτη, τον προϋπολογισμό, την κατασκευή και την εσωτερική διακόσμηση κάθε έργου.
+
+        Το ομαδικό πνεύμα, η θέληση και η φιλική μας διάθεση δημιουργούν σχέσεις εμπιστοσύνης με τους πελάτες μας, κάτι που για εμάς αποτελεί την απόλυτη επιτυχία.`,
+        
+        en: `A graduate of the School of Architecture at AUTH (2000-2007), with a fresh perspective on Greek architectural and construction reality, I began my journey in my hometown alongside an experienced architect. Subsequently, I established my own architectural office.
+
+        Together with my brother, Ioannis Mavridis (MSc Structural Engineering, Univ. of Surrey), and the valuable guidance of our father, Anestis Mavridis, who has 30 years of experience in construction, we comprehensively undertake the design, study, budgeting, construction, and interior decoration of each project.
+
+        Our team spirit, determination, and friendly approach create relationships of trust with our clients, which for us represents absolute success.`
+      },
+      styledIntro: {
+        el: {
+          part1: {
+            highlight: 'Με πτυχίο από την Αρχιτεκτονική Σχολή του ΑΠΘ (2000-2007)',
+            text: 'εισήγαγα μια φρέσκια προοπτική στην ελληνική αρχιτεκτονική σκηνή. Η επαγγελματική μου πορεία ξεκίνησε στη γενέτειρά μου, όπου είχα την τύχη να συνεργαστώ με έναν καταξιωμένο αρχιτέκτονα, προτού ιδρύσω το δικό μου αρχιτεκτονικό γραφείο.'
+          },
+          part2: {
+            text: 'Σήμερα, μαζί με τον αδελφό μου',
+            name1: 'Ιωάννη Μαυρίδη',
+            degree: '(MSc Structural Engineering, Univ. of Surrey)',
+            text2: ', και την πολύτιμη καθοδήγηση του πατέρα μας',
+            name2: 'Ανέστη Μαυρίδη',
+            text3: ', με 30ετή εμπειρία στον κατασκευαστικό κλάδο, προσφέρουμε ολοκληρωμένες υπηρεσίες που περιλαμβάνουν σχεδιασμό, μελέτη, προϋπολογισμό, κατασκευή και εσωτερική διακόσμηση.'
+          },
+          part3: 'Η επιτυχία μας βασίζεται στο ομαδικό πνεύμα, τη δέσμευσή μας στην ποιότητα και την ικανότητά μας να χτίζουμε σχέσεις εμπιστοσύνης με τους πελάτες μας.'
+        },
+        en: {
+          part1: {
+            highlight: 'With a degree from the School of Architecture at AUTH (2000-2007)',
+            text: 'I brought a fresh perspective to the Greek architectural scene. My professional journey began in my hometown, where I had the privilege of working alongside an accomplished architect before establishing my own architectural firm.'
+          },
+          part2: {
+            text: 'Today, together with my brother',
+            name1: 'Ioannis Mavridis',
+            degree: '(MSc Structural Engineering, Univ. of Surrey)',
+            text2: ', and the invaluable guidance of our father',
+            name2: 'Anestis Mavridis',
+            text3: ', with 30 years of experience in the construction industry, we offer comprehensive services including design, study, budgeting, construction, and interior decoration.'
+          },
+          part3: 'Our success is built on teamwork, our commitment to quality, and our ability to build relationships of trust with our clients.'
+        }
+      },
+      styledText: {
+        el: {
+          part1: {
+            highlight: 'Με πτυχίο από την Αρχιτεκτονική Σχολή του ΑΠΘ (2000-2007)',
+            text: 'εισήγαγα μια φρέσκια προοπτική στην ελληνική αρχιτεκτονική σκηνή. Η επαγγελματική μου πορεία ξεκίνησε στη γενέτειρά μου, όπου είχα την τύχη να συνεργαστώ με έναν καταξιωμένο αρχιτέκτονα, προτού ιδρύσω το δικό μου αρχιτεκτονικό γραφείο.'
+          },
+          part2: {
+            text: 'Σήμερα, μαζί με τον αδελφό μου',
+            name1: 'Ιωάννη Μαυρίδη',
+            degree: '(MSc Structural Engineering, Univ. of Surrey)',
+            text2: ', και την πολύτιμη καθοδήγηση του πατέρα μας',
+            name2: 'Ανέστη Μαυρίδη',
+            text3: ', με 30ετή εμπειρία στον κατασκευαστικό κλάδο, προσφέρουμε ολοκληρωμένες υπηρεσίες που περιλαμβάνουν σχεδιασμό, μελέτη, προϋπολογισμό, κατασκευή και εσωτερική διακόσμηση.'
+          },
+          part3: 'Η επιτυχία μας βασίζεται στο ομαδικό πνεύμα, τη δέσμευσή μας στην ποιότητα και την ικανότητά μας να χτίζουμε σχέσεις εμπιστοσύνης με τους πελάτες μας.'
+        },
+        en: {
+          part1: {
+            highlight: 'With a degree from the School of Architecture at AUTH (2000-2007)',
+            text: 'I brought a fresh perspective to the Greek architectural scene. My professional journey began in my hometown, where I had the privilege of working alongside an accomplished architect before establishing my own architectural firm.'
+          },
+          part2: {
+            text: 'Today, together with my brother',
+            name1: 'Ioannis Mavridis',
+            degree: '(MSc Structural Engineering, Univ. of Surrey)',
+            text2: ', and the invaluable guidance of our father',
+            name2: 'Anestis Mavridis',
+            text3: ', with 30 years of experience in the construction industry, we offer comprehensive services including design, study, budgeting, construction, and interior decoration.'
+          },
+          part3: 'Our success is built on teamwork, our commitment to quality, and our ability to build relationships of trust with our clients.'
+        }
       }
     }
   },
@@ -603,37 +715,149 @@ export const translations = {
     },
     engineeringServices: {
       hero: {
-        title: 'Engineering Services',
-        subtitle: 'Comprehensive engineering services and technical studies'
+        title: {
+          el: 'Υπηρεσίες Μηχανικού',
+          en: 'Engineering Services'
+        },
+        subtitle: {
+          el: 'Ολοκληρωμένες υπηρεσίες μηχανικού και τεχνικές μελέτες',
+          en: 'Comprehensive engineering services and technical studies'
+        }
       },
       about: {
-        title: 'ARCHInima – Architectural Office',
-        description: 'A graduate of the School of Architecture at AUTH (2000-2007), with a fresh perspective on Greek architectural and construction reality, I began my journey in my hometown alongside an experienced architect. Subsequently, I established my own architectural office.\n\nTogether with my brother, Ioannis Mavridis (MSc Structural Engineering, Univ. of Surrey), and the valuable guidance of our father, Anestis Mavridis, who has 30 years of experience in construction, we comprehensively undertake the design, study, budgeting, construction, and interior decoration of each project.\n\nOur team spirit, determination, and friendly approach create relationships of trust with our clients, which for us represents absolute success.'
+        title: 'ARCHInima – Αρχιτεκτονικό Γραφείο',
+        description: 'Απόφοιτη της Αρχιτεκτονικής Σχολής του ΑΠΘ (2000-2007), με φρέσκια ματιά στην ελληνική αρχιτεκτονική και οικοδομική πραγματικότητα, ξεκίνησα την πορεία μου στη γενέτειρά μου δίπλα σε έμπειρο αρχιτέκτονα. Στη συνέχεια, δημιούργησα το δικό μου αρχιτεκτονικό γραφείο.\n\nΜαζί με τον αδελφό μου, Ιωάννη Μαυρίδη (MSc Structural Engineering, Univ. of Surrey), και τις πολύτιμες συμβουλές του πατέρα μας, Ανέστη Μαυρίδη, με 30ετή εμπειρία στις κατασκευές, αναλαμβάνουμε ολοκληρωμένα τον σχεδιασμό, τη μελέτη, τον προϋπολογισμό, την κατασκευή και την εσωτερική διακόσμηση κάθε έργου.\n\nΤο ομαδικό πνεύμα, η θέληση και η φιλική μας διάθεση δημιουργούν σχέσεις εμπιστοσύνης με τους πελάτες μας, κάτι που για εμάς αποτελεί την απόλυτη επιτυχία.'
       },
       services: {
-        title: 'Services',
-        items: [
-          'Architectural design and supervision',
-          'Complete building permit documentation and project supervision',
-          'Operating licenses for all types of health-regulated establishments',
-          'Energy inspection – integration with "Energy Saving at Home" program',
-          'Building Inspector',
-          'Apartment and store renovations',
-          'Interior design',
-          'Photorealism and virtual video'
-        ]
+        title: {
+          el: 'Υπηρεσίες',
+          en: 'Services'
+        },
+        items: {
+          el: [
+            'Αρχιτεκτονικός σχεδιασμός και αρχιτεκτονική μελέτη – επίβλεψη',
+            'Έκδοση πλήρους φακέλου οικοδομικής άδειας και επίβλεψη του έργου',
+            'Έκδοση αδειών λειτουργίας υγειονομικού ενδιαφέροντος παντός τύπου',
+            'Ενεργειακή επιθεώρηση – ένταξη στο πρόγραμμα "εξοικονομώ κατ\'οίκον"',
+            'Ελεγκτής δόμησης',
+            'Ανακαινίσεις διαμερισμάτων και καταστημάτων',
+            'Διακόσμηση εσωτερικών χώρων',
+            'Φωτορεαλισμός και virtual video'
+          ],
+          en: [
+            'Architectural design and supervision',
+            'Complete building permit documentation and project supervision',
+            'Operating licenses for all types of health-regulated establishments',
+            'Energy inspection – integration with "Energy Saving at Home" program',
+            'Building Inspector',
+            'Apartment and store renovations',
+            'Interior design',
+            'Photorealism and virtual video'
+          ]
+        }
       },
       experience: {
-        title: 'Giannis Mavridis, Company CEO',
-        items: [
-          '17 years of continuous experience in Structural Engineering',
-          '5 years of experience in Energy Design',
-          'Certified Building Inspector',
-          '17 years of experience in Private Construction',
-          '8 years of experience in Real Estate Valuation',
-          'Experience in Technical Expert Reports',
-          'Member of the Standing Committee on Planning and Environment of TEE Thrace'
-        ]
+        title: {
+          el: 'Γιάννης Μαυρίδης, Company CEO',
+          en: 'Giannis Mavridis, Company CEO'
+        },
+        items: {
+          el: [
+            '17 ετής συνεχής εμπειρία στον Τομέα Στατικών Μελετών',
+            '5 ετής εμπειρία στον τομέα του Ενεργειακού Σχεδιασμού',
+            'Πιστοποιημένος Ελεγκτής Δόμησης',
+            '17 ετής εμπειρία στην Κατασκευή Ιδιωτικών Έργων',
+            '8 ετής εμπειρία στον Τομέα Εκτιμήσεων Ακινήτων',
+            'Εμπειρία σε Τεχνικές Πραγματογνωμοσύνες',
+            'Μέλος της Μόνιμης Επιτροπής Χωροταξίας και Περιβάλλοντος του ΤΕΕ Θράκης'
+          ],
+          en: [
+            '17 years of continuous experience in Structural Engineering',
+            '5 years of experience in Energy Design',
+            'Certified Building Inspector',
+            '17 years of experience in Private Construction',
+            '8 years of experience in Real Estate Valuation',
+            'Experience in Technical Expert Reports',
+            'Member of the Standing Committee on Planning and Environment of TEE Thrace'
+          ]
+        }
+      },
+      introduction: {
+        el: `Απόφοιτη της Αρχιτεκτονικής Σχολής του ΑΠΘ (2000-2007), με φρέσκια ματιά στην ελληνική αρχιτεκτονική και οικοδομική πραγματικότητα, ξεκίνησα την πορεία μου στη γενέτειρά μου δίπλα σε έμπειρο αρχιτέκτονα. Στη συνέχεια, δημιούργησα το δικό μου αρχιτεκτονικό γραφείο.
+
+        Μαζί με τον αδελφό μου, Ιωάννη Μαυρίδη (MSc Structural Engineering, Univ. of Surrey), και τις πολύτιμες συμβουλές του πατέρα μας, Ανέστη Μαυρίδη, με 30ετή εμπειρία στις κατασκευές, αναλαμβάνουμε ολοκληρωμένα τον σχεδιασμό, τη μελέτη, τον προϋπολογισμό, την κατασκευή και την εσωτερική διακόσμηση κάθε έργου.
+
+        Το ομαδικό πνεύμα, η θέληση και η φιλική μας διάθεση δημιουργούν σχέσεις εμπιστοσύνης με τους πελάτες μας, κάτι που για εμάς αποτελεί την απόλυτη επιτυχία.`,
+        
+        en: `A graduate of the School of Architecture at AUTH (2000-2007), with a fresh perspective on Greek architectural and construction reality, I began my journey in my hometown alongside an experienced architect. Subsequently, I established my own architectural office.
+
+        Together with my brother, Ioannis Mavridis (MSc Structural Engineering, Univ. of Surrey), and the valuable guidance of our father, Anestis Mavridis, who has 30 years of experience in construction, we comprehensively undertake the design, study, budgeting, construction, and interior decoration of each project.
+
+        Our team spirit, determination, and friendly approach create relationships of trust with our clients, which for us represents absolute success.`
+      },
+      styledIntro: {
+        el: {
+          part1: {
+            highlight: 'Με πτυχίο από την Αρχιτεκτονική Σχολή του ΑΠΘ (2000-2007)',
+            text: 'εισήγαγα μια φρέσκια προοπτική στην ελληνική αρχιτεκτονική σκηνή. Η επαγγελματική μου πορεία ξεκίνησε στη γενέτειρά μου, όπου είχα την τύχη να συνεργαστώ με έναν καταξιωμένο αρχιτέκτονα, προτού ιδρύσω το δικό μου αρχιτεκτονικό γραφείο.'
+          },
+          part2: {
+            text: 'Σήμερα, μαζί με τον αδελφό μου',
+            name1: 'Ιωάννη Μαυρίδη',
+            degree: '(MSc Structural Engineering, Univ. of Surrey)',
+            text2: ', και την πολύτιμη καθοδήγηση του πατέρα μας',
+            name2: 'Ανέστη Μαυρίδη',
+            text3: ', με 30ετή εμπειρία στον κατασκευαστικό κλάδο, προσφέρουμε ολοκληρωμένες υπηρεσίες που περιλαμβάνουν σχεδιασμό, μελέτη, προϋπολογισμό, κατασκευή και εσωτερική διακόσμηση.'
+          },
+          part3: 'Η επιτυχία μας βασίζεται στο ομαδικό πνεύμα, τη δέσμευσή μας στην ποιότητα και την ικανότητά μας να χτίζουμε σχέσεις εμπιστοσύνης με τους πελάτες μας.'
+        },
+        en: {
+          part1: {
+            highlight: 'With a degree from the School of Architecture at AUTH (2000-2007)',
+            text: 'I brought a fresh perspective to the Greek architectural scene. My professional journey began in my hometown, where I had the privilege of working alongside an accomplished architect before establishing my own architectural firm.'
+          },
+          part2: {
+            text: 'Today, together with my brother',
+            name1: 'Ioannis Mavridis',
+            degree: '(MSc Structural Engineering, Univ. of Surrey)',
+            text2: ', and the invaluable guidance of our father',
+            name2: 'Anestis Mavridis',
+            text3: ', with 30 years of experience in the construction industry, we offer comprehensive services including design, study, budgeting, construction, and interior decoration.'
+          },
+          part3: 'Our success is built on teamwork, our commitment to quality, and our ability to build relationships of trust with our clients.'
+        }
+      },
+      styledText: {
+        el: {
+          part1: {
+            highlight: 'Με πτυχίο από την Αρχιτεκτονική Σχολή του ΑΠΘ (2000-2007)',
+            text: 'εισήγαγα μια φρέσκια προοπτική στην ελληνική αρχιτεκτονική σκηνή. Η επαγγελματική μου πορεία ξεκίνησε στη γενέτειρά μου, όπου είχα την τύχη να συνεργαστώ με έναν καταξιωμένο αρχιτέκτονα, προτού ιδρύσω το δικό μου αρχιτεκτονικό γραφείο.'
+          },
+          part2: {
+            text: 'Σήμερα, μαζί με τον αδελφό μου',
+            name1: 'Ιωάννη Μαυρίδη',
+            degree: '(MSc Structural Engineering, Univ. of Surrey)',
+            text2: ', και την πολύτιμη καθοδήγηση του πατέρα μας',
+            name2: 'Ανέστη Μαυρίδη',
+            text3: ', με 30ετή εμπειρία στον κατασκευαστικό κλάδο, προσφέρουμε ολοκληρωμένες υπηρεσίες που περιλαμβάνουν σχεδιασμό, μελέτη, προϋπολογισμό, κατασκευή και εσωτερική διακόσμηση.'
+          },
+          part3: 'Η επιτυχία μας βασίζεται στο ομαδικό πνεύμα, τη δέσμευσή μας στην ποιότητα και την ικανότητά μας να χτίζουμε σχέσεις εμπιστοσύνης με τους πελάτες μας.'
+        },
+        en: {
+          part1: {
+            highlight: 'With a degree from the School of Architecture at AUTH (2000-2007)',
+            text: 'I brought a fresh perspective to the Greek architectural scene. My professional journey began in my hometown, where I had the privilege of working alongside an accomplished architect before establishing my own architectural firm.'
+          },
+          part2: {
+            text: 'Today, together with my brother',
+            name1: 'Ioannis Mavridis',
+            degree: '(MSc Structural Engineering, Univ. of Surrey)',
+            text2: ', and the invaluable guidance of our father',
+            name2: 'Anestis Mavridis',
+            text3: ', with 30 years of experience in the construction industry, we offer comprehensive services including design, study, budgeting, construction, and interior decoration.'
+          },
+          part3: 'Our success is built on teamwork, our commitment to quality, and our ability to build relationships of trust with our clients.'
+        }
       }
     }
   }

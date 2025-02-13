@@ -2,6 +2,10 @@ import React from 'react';
 import { Calculator, ClipboardCheck, FileText, BarChart3, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from '../hooks/useTranslation';
+import { useLanguage } from '../context/LanguageContext';
+import p1 from '../assets/images/p1.png';
+import p2 from '../assets/images/p2.png';
+import p3 from '../assets/images/p3.png';
 
 interface Service {
   title: string;
@@ -10,6 +14,7 @@ interface Service {
 
 const RealEstateValuation = () => {
   const { t } = useTranslation();
+  const { language } = useLanguage();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -64,7 +69,7 @@ const RealEstateValuation = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <motion.div 
         className="relative h-[400px] bg-cover bg-center"
@@ -115,6 +120,35 @@ const RealEstateValuation = () => {
                 <p className="text-gray-600">{service.description}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Simple Image Grid */}
+      <div className="py-12 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="rounded-lg overflow-hidden">
+              <img 
+                src={p1} 
+                alt="Real Estate 1"
+                className="w-full h-[250px] object-cover"
+              />
+            </div>
+            <div className="rounded-lg overflow-hidden">
+              <img 
+                src={p2} 
+                alt="Real Estate 2"
+                className="w-full h-[250px] object-cover"
+              />
+            </div>
+            <div className="rounded-lg overflow-hidden">
+              <img 
+                src={p3} 
+                alt="Real Estate 3"
+                className="w-full h-[250px] object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>

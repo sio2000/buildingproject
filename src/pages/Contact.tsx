@@ -1,6 +1,6 @@
 import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { Building2, Phone, Mail, Clock, MapPin, Facebook, Instagram } from 'lucide-react';
+import { Building2, Phone, Mail, Clock, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { useTranslation } from '../hooks/useTranslation';
@@ -202,6 +202,27 @@ const Contact = () => {
                   <p className="text-gray-600">{contactInfo.hours[language].sunday}</p>
                 </div>
               </motion.div>
+
+              {/* Social Media Links */}
+              <div className="mt-8 flex justify-center space-x-6">
+                {socialMedia.map((platform) => (
+                  <motion.a
+                    key={platform.name}
+                    href={platform.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`p-3 text-white rounded-full transition-colors ${platform.color}`}
+                  >
+                    {typeof platform.icon === 'function' ? (
+                      <platform.icon className="h-6 w-6" />
+                    ) : (
+                      <platform.icon className="h-6 w-6" />
+                    )}
+                  </motion.a>
+                ))}
+              </div>
             </div>
           </motion.div>
 

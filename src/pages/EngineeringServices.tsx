@@ -1,9 +1,28 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from '../hooks/useTranslation';
-import { CheckCircle2 } from 'lucide-react';
+import { 
+  CheckCircle2, 
+  Award, 
+  Ruler, 
+  FileText, 
+  Zap, 
+  Home, 
+  Paintbrush,
+  Video, 
+  Building, 
+  Lightbulb, 
+  BadgeCheck,
+  Users, 
+  ClipboardCheck 
+} from 'lucide-react';
+import backofficeImage from '../assets/images/backoffice.png';
+import photo1 from '../assets/images/photo1.png';
+import photo2 from '../assets/images/photo2.png';
+import { useLanguage } from '../context/LanguageContext';
 
 const EngineeringServices = () => {
   const { t } = useTranslation();
+  const { language } = useLanguage();
 
   const services = [
     'Αρχιτεκτονικός σχεδιασμός και αρχιτεκτονική μελέτη – επίβλεψη',
@@ -27,7 +46,7 @@ const EngineeringServices = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <motion.div 
         className="relative h-[400px] bg-cover bg-center"
@@ -35,7 +54,7 @@ const EngineeringServices = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
         style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80")'
+          backgroundImage: `url(${backofficeImage})`
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80" />
@@ -47,105 +66,155 @@ const EngineeringServices = () => {
             transition={{ delay: 0.2 }}
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-              {t('engineeringServices.hero.title')}
+              {t('engineeringServices.hero.title')[language]}
             </h1>
-            <p className="text-xl md:text-2xl max-w-2xl text-gray-200">
-              {t('engineeringServices.hero.subtitle')}
+            <p className="text-xl text-gray-200 max-w-2xl mb-4">
+              {t('engineeringServices.hero.subtitle')[language]}
             </p>
           </motion.div>
         </div>
       </motion.div>
 
+      {/* About Text Section */}
+      <div className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center mb-12"
+          >
+            <div className="prose prose-lg mx-auto text-gray-600 max-w-4xl">
+              <p className="text-lg leading-relaxed mb-6">
+                <span className="font-semibold text-gray-800">
+                  {t('engineeringServices.introduction')[language].split('\n\n')[0]}
+                </span>
+              </p>
+              
+              <p className="text-lg leading-relaxed mb-6">
+                {t('engineeringServices.introduction')[language].split('\n\n')[1]}
+              </p>
+              
+              <p className="text-lg leading-relaxed italic text-gray-700">
+                {t('engineeringServices.introduction')[language].split('\n\n')[2]}
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Image Grid - Smaller Images */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-3xl mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="relative rounded-xl overflow-hidden shadow-xl"
+        >
+          <img 
+            src={photo1} 
+            alt="Office View"
+            className="w-full h-[250px] object-cover"
+          />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="relative rounded-xl overflow-hidden shadow-xl"
+        >
+          <img 
+            src={photo2} 
+            alt="Γιάννης Μαυρίδης"
+            className="w-full h-[250px] object-cover"
+          />
+        </motion.div>
+      </div>
+
       {/* About Section */}
-      <div className="py-16 bg-white">
+      <div className="py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
-            >
-              <h2 className="text-3xl font-bold mb-6 gradient-text">
-                {t('engineeringServices.about.title')}
-              </h2>
-              <div className="prose prose-lg">
-                <p className="text-gray-600 whitespace-pre-line">
-                  {t('engineeringServices.about.description')}
-                </p>
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative h-[400px] rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-shadow transform hover:scale-[1.02] duration-300"
-            >
-              <img 
-                src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
-                alt="Engineering Office"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            </motion.div>
-          </div>
-        </div>
-      </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center mb-12"
+          >
+            <p className="text-gray-600 max-w-4xl mx-auto leading-relaxed whitespace-pre-line">
+              {t('engineeringServices.about.text')[language]}
+            </p>
+          </motion.div>
 
-      {/* Services Section */}
-      <div className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.h2 
-            className="text-3xl font-bold text-center mb-12 gradient-text"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+          {/* Services Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-16"
+          >
+            <h2 className="text-2xl font-bold mb-8 text-center gradient-text">
+              {t('engineeringServices.services.title')[language]}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {t('engineeringServices.services.items')[language].map((service, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ scale: 1.02, backgroundColor: '#EEF2FF' }}
+                  className="flex items-start space-x-4 p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+                >
+                  <div className="p-3 bg-blue-100 rounded-lg">
+                    {index === 0 && <Ruler className="h-6 w-6 text-blue-600" />}
+                    {index === 1 && <FileText className="h-6 w-6 text-blue-600" />}
+                    {index === 2 && <ClipboardCheck className="h-6 w-6 text-blue-600" />}
+                    {index === 3 && <Zap className="h-6 w-6 text-blue-600" />}
+                    {index === 4 && <Building className="h-6 w-6 text-blue-600" />}
+                    {index === 5 && <Home className="h-6 w-6 text-blue-600" />}
+                    {index === 6 && <Paintbrush className="h-6 w-6 text-blue-600" />}
+                    {index === 7 && <Video className="h-6 w-6 text-blue-600" />}
+                  </div>
+                  <span className="text-gray-700 font-medium">{service}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Experience Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            {t('engineeringServices.services.title')}
-          </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {(t('engineeringServices.services.items') as string[]).map((service, index) => (
-              <motion.div
-                key={index}
-                className="flex items-start space-x-3 bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <CheckCircle2 className="h-6 w-6 text-blue-500 flex-shrink-0 mt-1" />
-                <span>{service}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Experience Section */}
-      <div className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.h2 
-            className="text-3xl font-bold text-center mb-12 gradient-text"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            {t('engineeringServices.experience.title')}
-          </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {(t('engineeringServices.experience.items') as string[]).map((item, index) => (
-              <motion.div
-                key={index}
-                className="flex items-start space-x-3 bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <CheckCircle2 className="h-6 w-6 text-green-500 flex-shrink-0 mt-1" />
-                <span>{item}</span>
-              </motion.div>
-            ))}
-          </div>
+            <h2 className="text-2xl font-bold mb-8 text-center gradient-text">
+              {t('engineeringServices.experience.title')[language]}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {t('engineeringServices.experience.items')[language].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ scale: 1.02, backgroundColor: '#F0FDF4' }}
+                  className="flex items-start space-x-4 p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+                >
+                  <div className="p-3 bg-green-100 rounded-lg">
+                    {index === 0 && <Award className="h-6 w-6 text-green-600" />}
+                    {index === 1 && <Lightbulb className="h-6 w-6 text-green-600" />}
+                    {index === 2 && <BadgeCheck className="h-6 w-6 text-green-600" />}
+                    {index === 3 && <Building className="h-6 w-6 text-green-600" />}
+                    {index === 4 && <FileText className="h-6 w-6 text-green-600" />}
+                    {index === 5 && <ClipboardCheck className="h-6 w-6 text-green-600" />}
+                    {index === 6 && <Users className="h-6 w-6 text-green-600" />}
+                  </div>
+                  <span className="text-gray-700 font-medium">{item}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </div>
