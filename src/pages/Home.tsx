@@ -21,12 +21,6 @@ const Home = () => {
       link: '/architectural-office'
     },
     {
-      icon: Calculator,
-      title: t('home.services.valuation.title'),
-      description: t('home.services.valuation.description'),
-      link: '/real-estate-valuation'
-    },
-    {
       icon: Building,
       title: t('home.services.engineering.title'),
       description: t('home.services.engineering.description'),
