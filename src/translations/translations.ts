@@ -40,6 +40,10 @@ export const translations = {
           title: 'Υπηρεσίες Μηχανικού',
           description: 'Ολοκληρωμένες υπηρεσίες μηχανικού και τεχνικές μελέτες'
         },
+        projects: {
+          title: 'Τα Έργα μας',
+          description: 'Ανακαλύψτε το χαρτοφυλάκιο των έργων μας και την ποιότητα των κατασκευών μας'
+        },
         learnMore: 'Μάθετε περισσότερα'
       },
       constructionServices: {
@@ -466,6 +470,10 @@ export const translations = {
         engineering: {
           title: 'Engineering Services',
           description: 'Comprehensive engineering services and technical studies'
+        },
+        projects: {
+          title: 'Our Projects',
+          description: 'Discover our project portfolio and the quality of our constructions'
         },
         learnMore: 'Learn more'
       },

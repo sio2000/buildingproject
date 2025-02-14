@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Building2, Calculator, Building, Ruler } from 'lucide-react';
+import { Building2, Calculator, Building, Ruler, FileText } from 'lucide-react';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { useTranslation } from '../hooks/useTranslation';
 import { useState } from 'react';
@@ -10,7 +10,7 @@ interface FeatureItem {
 }
 
 const Home = () => {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
   const [isHovered, setIsHovered] = useState(false);
 
   const services = [
@@ -25,6 +25,12 @@ const Home = () => {
       title: t('home.services.engineering.title'),
       description: t('home.services.engineering.description'),
       link: '/engineering-services'
+    },
+    {
+      icon: FileText,
+      title: t('home.services.projects.title'),
+      description: t('home.services.projects.description'),
+      link: '/projects'
     }
   ];
 
