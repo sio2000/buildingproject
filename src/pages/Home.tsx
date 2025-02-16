@@ -4,6 +4,7 @@ import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { useTranslation } from '../hooks/useTranslation';
 import { useLanguage } from '../context/LanguageContext';
 import { useState } from 'react';
+import t2 from '../assets/images/t2.jpg';
 
 interface FeatureItem {
   title: string;
@@ -99,21 +100,27 @@ const Home = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section with background image */}
-      <motion.div 
-        className="relative h-[600px] bg-cover bg-center"
-        style={{ 
-          backgroundImage: 'url("https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80")',
-          backgroundAttachment: 'fixed'
-        }}
+      {/* Hero Section */}
+      <motion.div
+        className="relative h-[70vh] bg-cover bg-fixed"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        style={{
+          backgroundImage: `url(${t2})`,
+          backgroundPosition: 'center 40%'
+        }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-50" />
+        <motion.div 
+          className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+        />
         <div className="relative max-w-7xl mx-auto px-4 h-full flex items-center">
-          <div className="text-white">
+          <div className="text-white max-w-2xl">
             <motion.h1 
-              className="text-4xl md:text-6xl font-bold mb-4 glow"
+              className="text-2xl md:text-4xl font-bold mb-4 glow"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
@@ -125,7 +132,7 @@ const Home = () => {
               {t('home.hero.title')}
             </motion.h1>
             <motion.p 
-              className="text-xl md:text-2xl mb-8 max-w-2xl"
+              className="text-base md:text-lg mb-6 max-w-xl"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
@@ -149,7 +156,7 @@ const Home = () => {
             >
               <Link
                 to="/contact"
-                className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors inline-block"
+                className="bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors inline-block"
               >
                 {t('home.hero.cta')}
               </Link>
