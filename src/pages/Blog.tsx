@@ -304,74 +304,95 @@ Ioannis Mavridis, MSc Civil Engineer (equiv. NTUA)
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-7xl mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
-        >
-          <h1 className="text-4xl font-bold mb-4">
-            {language === 'el' ? 'Το Blog μας' : 'Our Blog'}
-          </h1>
-          <p className="text-xl text-gray-600">
-            {language === 'el' ? 'Διαβάστε τα τελευταία νέα και άρθρα μας' : 'Read our latest news and articles'}
-          </p>
-        </motion.div>
+    <div className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <motion.div 
+        className="relative h-[400px] bg-cover bg-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')`
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80" />
+        <div className="relative max-w-7xl mx-auto px-4 h-full flex items-center">
+          <motion.div 
+            className="text-white"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+              {language === 'el' ? 'Το Ιστολόγιο μας' : 'Our Blog'}
+            </h1>
+            <p className="text-xl text-gray-200 max-w-2xl">
+              {language === 'el' 
+                ? 'Ανακαλύψτε τα τελευταία νέα, άρθρα και συμβουλές σχετικά με την αρχιτεκτονική και τις κατασκευές'
+                : 'Discover our latest news, articles and tips about architecture and construction'
+              }
+            </p>
+          </motion.div>
+        </div>
+      </motion.div>
 
-        <div className="space-y-8">
-          {blogPosts.map((post) => (
-            <motion.article
-              key={post.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-lg shadow-lg overflow-hidden"
-            >
-              {post.images.length > 0 && (
-                <div className="relative w-full h-96">
-                  <Slider {...sliderSettings}>
-                    {post.images.map((image, index) => (
-                      <div key={index} className="outline-none h-96">
-                        <div
-                          className="w-full h-full cursor-pointer"
-                          onClick={() => openImageModal(post.images, index)}
-                        >
-                          <img
-                            src={image}
-                            alt={`${post.title[language]} ${index + 1}`}
-                            className="w-full h-full object-cover"
-                          />
+      {/* Blog Content */}
+      <div className="min-h-screen bg-gray-50 py-12">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="space-y-8">
+            {blogPosts.map((post) => (
+              <motion.article
+                key={post.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-lg shadow-lg overflow-hidden"
+              >
+                {post.images.length > 0 && (
+                  <div className="relative w-full h-96">
+                    <Slider {...sliderSettings}>
+                      {post.images.map((image, index) => (
+                        <div key={index} className="outline-none h-96">
+                          <div
+                            className="w-full h-full cursor-pointer"
+                            onClick={() => openImageModal(post.images, index)}
+                          >
+                            <img
+                              src={image}
+                              alt={`${post.title[language]} ${index + 1}`}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
                         </div>
-                      </div>
-                    ))}
-                  </Slider>
+                      ))}
+                    </Slider>
+                  </div>
+                )}
+                <div className="p-6">
+                  <h2 className="text-2xl font-bold mb-4 text-gray-900 hover:text-blue-600 transition-colors">
+                    {post.title[language]}
+                  </h2>
+                  <p className="text-gray-600 mb-4 whitespace-pre-line">
+                    {post.excerpt[language]}
+                  </p>
+                  <div className="flex items-center text-sm text-gray-500 space-x-4">
+                    <div className="flex items-center">
+                      <Calendar className="h-4 w-4 mr-2" />
+                      {new Date(post.date).toLocaleDateString(language === 'el' ? 'el-GR' : 'en-US')}
+                    </div>
+                    <div className="flex items-center">
+                      <User className="h-4 w-4 mr-2" />
+                      {post.author}
+                    </div>
+                    <div className="flex items-center">
+                      <Clock className="h-4 w-4 mr-2" />
+                      {post.readTime}
+                    </div>
+                  </div>
                 </div>
-              )}
-              <div className="p-6">
-                <h2 className="text-2xl font-bold mb-4 text-gray-900 hover:text-blue-600 transition-colors">
-                  {post.title[language]}
-                </h2>
-                <p className="text-gray-600 mb-4 whitespace-pre-line">
-                  {post.excerpt[language]}
-                </p>
-                <div className="flex items-center text-sm text-gray-500 space-x-4">
-                  <div className="flex items-center">
-                    <Calendar className="h-4 w-4 mr-2" />
-                    {new Date(post.date).toLocaleDateString(language === 'el' ? 'el-GR' : 'en-US')}
-                  </div>
-                  <div className="flex items-center">
-                    <User className="h-4 w-4 mr-2" />
-                    {post.author}
-                  </div>
-                  <div className="flex items-center">
-                    <Clock className="h-4 w-4 mr-2" />
-                    {post.readTime}
-                  </div>
-                </div>
-              </div>
-            </motion.article>
-          ))}
+              </motion.article>
+            ))}
+          </div>
         </div>
       </div>
 
