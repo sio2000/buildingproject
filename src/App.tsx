@@ -10,8 +10,11 @@ import RealEstateValuation from './pages/RealEstateValuation';
 import Contact from './pages/Contact';
 import Projects from './pages/Projects';
 import EngineeringServices from './pages/EngineeringServices';
+import Blog from './pages/Blog';
 
 function App() {
+  console.log('App rendering');
+  
   return (
     <LanguageProvider>
       <Router>
@@ -25,6 +28,7 @@ function App() {
               <Route path="/engineering-services" element={<EngineeringServices />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/projects" element={<Projects />} />
+              <Route path="/blog" element={<Blog />} />
             </Routes>
           </main>
           <Footer />

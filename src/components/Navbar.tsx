@@ -14,7 +14,7 @@ const Navbar = () => {
     { path: '/', label: language === 'el' ? 'Αρχική' : 'Home' },
     { path: '/architectural-office', label: language === 'el' ? 'Αρχιτεκτονικό Γραφείο' : 'Architectural Office' },
     { path: '/engineering-services', label: language === 'el' ? 'Υπηρεσίες Μηχανικού' : 'Engineering Services' },
-    { path: '/projects', label: language === 'el' ? 'Έργα' : 'Projects' },
+    { path: '/blog', label: language === 'el' ? 'Blog' : 'Blog' },
     { path: '/contact', label: language === 'el' ? 'Επικοινωνία' : 'Contact' }
   ];
 
@@ -26,14 +26,9 @@ const Navbar = () => {
     <nav className="bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between h-20">
-          {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <img 
-                src={logo} 
-                alt="IN-MAVRIDIS" 
-                className="h-16 w-auto"
-              />
+              <img src={logo} alt="Mavridis Logo" className="h-12" />
             </Link>
           </div>
 

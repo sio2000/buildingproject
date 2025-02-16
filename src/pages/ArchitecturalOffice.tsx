@@ -1,10 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Ruler, PencilRuler, Building2, Compass, CheckCircle2 } from 'lucide-react';
+import { Ruler, PencilRuler, Building2, Compass, CheckCircle2, X } from 'lucide-react';
 import { useTranslation } from '../hooks/useTranslation';
+import { useLanguage } from '../context/LanguageContext';
+import f1 from '../assets/images/f1.jpg';
+import f2 from '../assets/images/f2.jpg';
+import f3 from '../assets/images/f3.jpg';
+import to from '../assets/images/to.png';
+import to1 from '../assets/images/to1.jpg';
+import t1 from '../assets/images/t1.jpg';
+import t2 from '../assets/images/t2.jpg';
+import t3 from '../assets/images/t3.jpg';
+import t4 from '../assets/images/t4.jpg';
+import t5 from '../assets/images/t5.jpg';
+import t6 from '../assets/images/t6.jpg';
+import t7 from '../assets/images/t7.jpg';
+import t8 from '../assets/images/t8.jpg';
+import t9 from '../assets/images/t9.jpg';
+import t10 from '../assets/images/t10.jpg';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const ArchitecturalOffice = () => {
   const { t } = useTranslation();
+  const { language } = useLanguage();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImages, setSelectedImages] = useState<string[]>([]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -65,6 +89,92 @@ const ArchitecturalOffice = () => {
     }
   ];
 
+  const selectedProjects = [
+    {
+      id: 1,
+      title: {
+        el: 'Μονοκατοικία στην Παραλία Αρωγής',
+        en: 'House in Arogi Beach'
+      },
+      description: {
+        el: `Aρχιτεκτονική μελέτη, Στατική μελέτη, ισόγειας μονοκατοικίας 50 τμ. με σοφίτα 25 τμ. σε οικόπεδο στην Παραλία Αρωγής Ροδόπης.`,
+        en: `Architectural and structural study of a 50 sq.m. single-story house with a 25 sq.m. loft in Arogi Beach, Rodopi.`
+      },
+      images: [f1, f2, f3]
+    },
+    {
+      id: 2,
+      title: {
+        el: 'Διώροφη Μονοκατοικία με Σοφίτα στην Εκτενεπόλ',
+        en: 'Two-story House with Attic in Ektenepol'
+      },
+      description: {
+        el: 'Ανέγερση διώροφου μονοκατοικίας με Σοφιτα- αρχιτεκτονική μελέτη- Εκτενεπολ ΖΕΠ Κομοτηνης',
+        en: 'Construction of a two-story house with attic - architectural study - Ektenepol ZEP Komotini'
+      },
+      images: [to, to1]
+    },
+    {
+      id: 3,
+      title: {
+        el: 'Πολυώροφα Κτίρια Κατοικιών στην Κομοτηνή',
+        en: 'Past Multi Storey Residential Projects in Komotini'
+      },
+      description: {
+        el: 'Past multi storey residential projects. Komotini.',
+        en: 'Past multi storey residential projects. Komotini.'
+      },
+      images: [t1, t2, t3, t4, t5, t6, t7, t8, t9, t10]
+    }
+  ];
+
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    autoplay: false,
+    nextArrow: (
+      <div className="absolute right-4 top-1/2 -translate-y-1/2 z-10 cursor-pointer">
+        <ChevronRight className="w-10 h-10 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all" />
+      </div>
+    ),
+    prevArrow: (
+      <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10 cursor-pointer">
+        <ChevronLeft className="w-10 h-10 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all" />
+      </div>
+    ),
+  };
+
+  const modalSliderSettings = {
+    ...sliderSettings,
+    initialSlide: currentImageIndex,
+    nextArrow: (
+      <div className="absolute right-8 top-1/2 -translate-y-1/2 z-10 cursor-pointer">
+        <ChevronRight className="w-12 h-12 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all" />
+      </div>
+    ),
+    prevArrow: (
+      <div className="absolute left-8 top-1/2 -translate-y-1/2 z-10 cursor-pointer">
+        <ChevronLeft className="w-12 h-12 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all" />
+      </div>
+    ),
+  };
+
+  const openImageModal = (images: string[], startIndex: number) => {
+    setSelectedImages(images);
+    setCurrentImageIndex(startIndex);
+    setIsModalOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeImageModal = () => {
+    setIsModalOpen(false);
+    document.body.style.overflow = 'unset';
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -74,7 +184,7 @@ const ArchitecturalOffice = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
         style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80")'
+          backgroundImage: 'url("https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80")'
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-60" />
@@ -153,24 +263,32 @@ const ArchitecturalOffice = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {projects.map((project, index) => (
+            {selectedProjects.map((project, index) => (
               <motion.div
                 key={index}
                 className="bg-white rounded-lg overflow-hidden shadow-md hover-card"
                 variants={itemVariants}
               >
-                <motion.div 
-                  className="h-64 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${project.image})` }}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                />
+                <div className="relative h-64">
+                  <Slider {...sliderSettings}>
+                    {project.images.map((image, imgIndex) => (
+                      <div 
+                        key={imgIndex} 
+                        className="h-64 cursor-pointer"
+                        onClick={() => openImageModal(project.images, imgIndex)}
+                      >
+                        <img
+                          src={image}
+                          alt={`${project.title[language]} ${imgIndex + 1}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ))}
+                  </Slider>
+                </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                  <p className="text-gray-600 mb-2">{project.location}</p>
-                  <span className="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">
-                    {project.type}
-                  </span>
+                  <h3 className="text-xl font-semibold mb-2">{project.title[language]}</h3>
+                  <p className="text-gray-600 mb-2">{project.description[language]}</p>
                 </div>
               </motion.div>
             ))}
@@ -203,6 +321,41 @@ const ArchitecturalOffice = () => {
           </div>
         </div>
       </div>
+
+      {/* Modal Component */}
+      {isModalOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 bg-black bg-opacity-95 flex items-center justify-center"
+        >
+          <button
+            onClick={closeImageModal}
+            className="absolute top-4 right-4 text-white z-50 p-2 hover:text-blue-400 transition-colors"
+          >
+            <X className="h-8 w-8" />
+          </button>
+          
+          <div className="w-full h-full flex items-center justify-center p-4">
+            <div className="w-full max-w-7xl">
+              <Slider {...modalSliderSettings}>
+                {selectedImages.map((image, index) => (
+                  <div key={index} className="outline-none">
+                    <div className="flex items-center justify-center h-[80vh]">
+                      <img
+                        src={image}
+                        alt={`Slide ${index + 1}`}
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </Slider>
+            </div>
+          </div>
+        </motion.div>
+      )}
     </div>
   );
 };

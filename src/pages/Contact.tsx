@@ -25,7 +25,7 @@ const Contact = () => {
   const { t } = useTranslation();
 
   const contactInfo = {
-    phones: ['+30 2531 026840', '+30 6977 717410', '+30 6976 999811'],
+    phones: ['+30 2531034781', '+30 6977 717410', '+30 6976 999811'],
     email: 'ymavridis@gmail.com',
     address: {
       el: 'Θάσου 1, Κομοτηνή, 69100',

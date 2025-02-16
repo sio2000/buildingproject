@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Building2, Calculator, Building, Ruler, FileText } from 'lucide-react';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { useTranslation } from '../hooks/useTranslation';
+import { useLanguage } from '../context/LanguageContext';
 import { useState } from 'react';
 
 interface FeatureItem {
@@ -10,7 +11,8 @@ interface FeatureItem {
 }
 
 const Home = () => {
-  const { t, language } = useTranslation();
+  const { t } = useTranslation();
+  const { language } = useLanguage();
   const [isHovered, setIsHovered] = useState(false);
 
   const services = [
@@ -28,9 +30,12 @@ const Home = () => {
     },
     {
       icon: FileText,
-      title: t('home.services.projects.title'),
-      description: t('home.services.projects.description'),
-      link: '/projects'
+      title: language === 'el' ? 'Το Ιστολόγιο μας' : 'Our Blog',
+      description: language === 'el' 
+        ? 'Ανακαλύψτε τα τελευταία νέα, άρθρα και συμβουλές σχετικά με την αρχιτεκτονική και τις κατασκευές. Μείνετε ενημερωμένοι για τις τελευταίες τάσεις και εξελίξεις στον κλάδο.'
+        : 'Discover our latest news, articles and tips about architecture and construction. Stay updated with the latest trends and developments in the industry.',
+      link: '/blog',
+      buttonText: language === 'el' ? 'Μάθετε περισσότερα...' : 'Learn more...'
     }
   ];
 
@@ -98,7 +103,7 @@ const Home = () => {
       <motion.div 
         className="relative h-[600px] bg-cover bg-center"
         style={{ 
-          backgroundImage: 'url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80")',
+          backgroundImage: 'url("https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80")',
           backgroundAttachment: 'fixed'
         }}
         initial={{ opacity: 0 }}
@@ -238,6 +243,29 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Text Section above Services */}
+      <div className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <motion.div
+            className="text-center max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+              {language === 'el' ? 'Ολοκληρωμένες Αρχιτεκτονικές & Κατασκευαστικές Υπηρεσίες' : 'Comprehensive Architectural & Construction Services'}
+            </h2>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              {language === 'el' 
+                ? 'Το αρχιτεκτονικό και κατασκευαστικό μας γραφείο προσφέρει ολοκληρωμένες λύσεις για κάθε έργο, από τη σύλληψη της ιδέας έως την ολοκλήρωση της κατασκευής. Απευθυνόμαστε σε ιδιώτες και επιχειρήσεις που επιθυμούν να διαχειριστούν το ιδιοκτησιακό τους καθεστώς, να χτίσουν σε αστικά ή παραθαλάσσια οικόπεδα και να υλοποιήσουν το όραμά τους με απόλυτη συνέπεια και επαγγελματισμό.'
+                : 'Our architectural and construction office offers comprehensive solutions for every project, from concept to completion. We serve individuals and businesses looking to manage their property status, build in urban or seaside plots, and realize their vision with absolute consistency and professionalism.'
+              }
+            </p>
+          </motion.div>
+        </div>
+      </div>
+
       {/* Services Section */}
       <motion.div 
         className="py-20 bg-gradient-to-b from-gray-50 via-white to-gray-50"
@@ -284,26 +312,29 @@ const Home = () => {
 
                 {/* Content */}
                 <motion.div
-                  className="space-y-4"
+                  className="space-y-4 h-full flex flex-col"
                   variants={cardContentVariants}
                 >
-                  <h3 className="text-2xl font-bold text-gray-900">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed min-h-[80px]">
-                    {service.description}
-                  </p>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed h-[120px] overflow-hidden">
+                      {service.description}
+                    </p>
+                  </div>
                   
-                  {/* Updated Learn More Link */}
-                  <Link
-                    to={service.link}
-                    className="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-700 font-semibold group mt-4"
-                  >
-                    <span className="relative">
-                      Learn more...
-                      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-                    </span>
-                  </Link>
+                  <div className="mt-auto pt-4">
+                    <Link
+                      to={service.link}
+                      className="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-700 font-semibold group"
+                    >
+                      <span className="relative">
+                        {service.buttonText || (language === 'el' ? 'Μάθετε περισσότερα...' : 'Learn more...')}
+                        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                      </span>
+                    </Link>
+                  </div>
                 </motion.div>
 
                 {/* Decorative Elements */}

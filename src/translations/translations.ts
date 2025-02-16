@@ -7,7 +7,11 @@ export const translations = {
       engineeringServices: 'Υπηρεσίες Μηχανικού',
       realEstateValuation: 'Εκτίμηση Ακινήτων',
       projects: 'Έργα',
-      contact: 'Επικοινωνία'
+      contact: 'Επικοινωνία',
+      blog: {
+        el: 'Blog',
+        en: 'Blog'
+      }
     },
     // Footer
     footer: {
@@ -428,6 +432,16 @@ export const translations = {
           part3: 'Our success is built on teamwork, our commitment to quality, and our ability to build relationships of trust with our clients.'
         }
       }
+    },
+    blog: {
+      title: {
+        el: 'Το Blog μας',
+        en: 'Our Blog'
+      },
+      subtitle: {
+        el: 'Διαβάστε τα τελευταία νέα και άρθρα μας',
+        en: 'Read our latest news and articles'
+      }
     }
   },
   en: {
@@ -438,7 +452,11 @@ export const translations = {
       engineeringServices: 'Engineering Services',
       realEstateValuation: 'Real Estate Valuation',
       projects: 'Projects',
-      contact: 'Contact'
+      contact: 'Contact',
+      blog: {
+        el: 'Blog',
+        en: 'Blog'
+      }
     },
     // Footer
     footer: {
@@ -866,6 +884,16 @@ export const translations = {
           },
           part3: 'Our success is built on teamwork, our commitment to quality, and our ability to build relationships of trust with our clients.'
         }
+      }
+    },
+    blog: {
+      title: {
+        el: 'Το Blog μας',
+        en: 'Our Blog'
+      },
+      subtitle: {
+        el: 'Διαβάστε τα τελευταία νέα και άρθρα μας',
+        en: 'Read our latest news and articles'
       }
     }
   }
