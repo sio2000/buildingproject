@@ -48,7 +48,7 @@ const Contact = () => {
 
   const contactInfo = {
     phones: ['+30 2531034781', '+30 6977 717410', '+30 6976 999811'],
-    email: 'ymavridis@gmail.com',
+    email: ['info@in-mavridis.gr', 'niki_mavridou@yahoo.gr'],
     address: {
       el: 'Θάσου 1, Κομοτηνή, 69100',
       en: '1 Thasou, Komotini, 69100'
@@ -197,13 +197,16 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1 text-gray-800">Email</h3>
-                  <motion.a 
-                    href={`mailto:${contactInfo.email}`}
-                    className="text-gray-600 hover:text-blue-600 transition-colors"
-                    whileHover={{ x: 5 }}
-                  >
-                    {contactInfo.email}
-                  </motion.a>
+                  {contactInfo.email.map((email, index) => (
+                    <motion.a 
+                      key={index}
+                      href={`mailto:${email}`}
+                      className="block text-gray-600 hover:text-blue-600 transition-colors"
+                      whileHover={{ x: 5 }}
+                    >
+                      {email}
+                    </motion.a>
+                  ))}
                 </div>
               </motion.div>
 

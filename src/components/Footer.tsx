@@ -13,7 +13,10 @@ const Footer = () => {
       '+30 6977 717410',
       '+30 6976 999811'
     ],
-    email: 'ymavridis@gmail.com',
+    email: [
+      'ymavridis@gmail.com',
+      'niki_mavridou@yahoo.gr'
+    ],
     address: {
       el: 'Θάσου 1, Κομοτηνή, 69100',
       en: '1 Thasou, Komotini, 69100'
@@ -110,13 +113,16 @@ const Footer = () => {
                   <span>{phone}</span>
                 </a>
               ))}
-              <a 
-                href={`mailto:${contactInfo.email}`}
-                className="flex items-center text-gray-400 hover:text-blue-400 transition-colors duration-300"
-              >
-                <Mail className="h-5 w-5 mr-3" />
-                <span>{contactInfo.email}</span>
-              </a>
+              {contactInfo.email.map((email, index) => (
+                <a 
+                  key={index}
+                  href={`mailto:${email}`}
+                  className="flex items-center text-gray-400 hover:text-blue-400 transition-colors duration-300"
+                >
+                  <Mail className="h-5 w-5 mr-3" />
+                  <span>{email}</span>
+                </a>
+              ))}
               <div className="flex items-center text-gray-400">
                 <MapPin className="h-5 w-5 mr-3" />
                 <span>{contactInfo.address[language]}</span>
