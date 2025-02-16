@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from '../hooks/useTranslation';
 import { useLanguage } from '../context/LanguageContext';
@@ -64,12 +64,67 @@ interface BlogPost {
   images: string[];
 }
 
+interface ArrowProps {
+  className?: string;
+  style?: React.CSSProperties;
+  onClick?: () => void;
+  currentSlide?: number;
+  slideCount?: number;
+}
+
+// Custom arrow components
+const NextArrow = ({ onClick, currentSlide, slideCount, ...props }: ArrowProps) => (
+  <button
+    type="button"
+    onClick={onClick}
+    className="absolute right-4 top-1/2 -translate-y-1/2 z-10 cursor-pointer bg-transparent border-none"
+    aria-label="Next slide"
+    {...props}
+  >
+    <ChevronRight className="w-12 h-12 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all" />
+  </button>
+);
+
+const PrevArrow = ({ onClick, currentSlide, slideCount, ...props }: ArrowProps) => (
+  <button
+    type="button"
+    onClick={onClick}
+    className="absolute left-4 top-1/2 -translate-y-1/2 z-10 cursor-pointer bg-transparent border-none"
+    aria-label="Previous slide"
+    {...props}
+  >
+    <ChevronLeft className="w-12 h-12 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all" />
+  </button>
+);
+
 const Blog = () => {
   const { t } = useTranslation();
   const { language } = useLanguage();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImages, setSelectedImages] = useState<string[]>([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    // Ορισμός title και meta description για SEO
+    document.title = language === 'el' 
+      ? 'Blog | IN-MAVRIDIS - Νέα & Άρθρα για Αρχιτεκτονική, Κατασκευές & Ανακαινίσεις'
+      : 'Blog | IN-MAVRIDIS - News & Articles about Architecture, Construction & Renovations';
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', language === 'el'
+        ? 'Διαβάστε τα τελευταία νέα και άρθρα για αρχιτεκτονική, κατασκευές, ανακαινίσεις, εξοικονόμηση ενέργειας και τάσεις στον κλάδο. Ενημερωθείτε για τις τελευταίες εξελίξεις στον κατασκευαστικό τομέα.'
+        : 'Read the latest news and articles about architecture, construction, renovations, energy saving and industry trends. Stay updated with the latest developments in the construction sector.'
+      );
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = language === 'el'
+        ? 'Διαβάστε τα τελευταία νέα και άρθρα για αρχιτεκτονική, κατασκευές, ανακαινίσεις, εξοικονόμηση ενέργειας και τάσεις στον κλάδο. Ενημερωθείτε για τις τελευταίες εξελίξεις στον κατασκευαστικό τομέα.'
+        : 'Read the latest news and articles about architecture, construction, renovations, energy saving and industry trends. Stay updated with the latest developments in the construction sector.';
+      document.head.appendChild(meta);
+    }
+  }, [language]);
 
   const blogPosts: BlogPost[] = [
     {
@@ -259,36 +314,22 @@ Ioannis Mavridis, MSc Civil Engineer (equiv. NTUA)
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
-    autoplay: false,
-    nextArrow: (
-      <div className="absolute right-4 top-1/2 -translate-y-1/2 z-10 cursor-pointer">
-        <ChevronRight className="w-10 h-10 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all" />
-      </div>
-    ),
-    prevArrow: (
-      <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10 cursor-pointer">
-        <ChevronLeft className="w-10 h-10 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all" />
-      </div>
-    ),
-    customPaging: (i: number) => (
-      <div className="w-3 h-3 mx-1 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all" />
-    ),
-    dotsClass: "slick-dots absolute bottom-4 flex justify-center items-center w-full"
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    customPaging: function(i: number) {
+      return (
+        <button
+          type="button"
+          className="w-2 h-2 mx-1 bg-white rounded-full opacity-50 hover:opacity-100 transition-opacity"
+          aria-label={`Go to slide ${i + 1}`}
+        />
+      );
+    }
   };
 
   const modalSliderSettings = {
     ...sliderSettings,
-    initialSlide: currentImageIndex,
-    nextArrow: (
-      <div className="absolute right-8 top-1/2 -translate-y-1/2 z-10 cursor-pointer">
-        <ChevronRight className="w-12 h-12 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all" />
-      </div>
-    ),
-    prevArrow: (
-      <div className="absolute left-8 top-1/2 -translate-y-1/2 z-10 cursor-pointer">
-        <ChevronLeft className="w-12 h-12 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all" />
-      </div>
-    ),
+    initialSlide: currentImageIndex
   };
 
   const openImageModal = (images: string[], startIndex: number) => {
@@ -350,7 +391,11 @@ Ioannis Mavridis, MSc Civil Engineer (equiv. NTUA)
               >
                 {post.images.length > 0 && (
                   <div className="relative w-full h-96">
-                    <Slider {...sliderSettings}>
+                    <Slider
+                      {...sliderSettings}
+                      className="relative"
+                      aria-label="Blog post images slider"
+                    >
                       {post.images.map((image, index) => (
                         <div key={index} className="outline-none h-96">
                           <div
@@ -413,7 +458,11 @@ Ioannis Mavridis, MSc Civil Engineer (equiv. NTUA)
           
           <div className="w-full h-full flex items-center justify-center p-4">
             <div className="w-full max-w-7xl">
-              <Slider {...modalSliderSettings}>
+              <Slider
+                {...modalSliderSettings}
+                className="relative"
+                aria-label="Blog post images slider"
+              >
                 {selectedImages.map((image, index) => (
                   <div key={index} className="outline-none">
                     <div className="flex items-center justify-center h-[80vh]">

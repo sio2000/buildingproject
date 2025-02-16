@@ -302,58 +302,29 @@ export const translations = {
         description: 'Απόφοιτη της Αρχιτεκτονικής Σχολής του ΑΠΘ (2000-2007), με φρέσκια ματιά στην ελληνική αρχιτεκτονική και οικοδομική πραγματικότητα, ξεκίνησα την πορεία μου στη γενέτειρά μου δίπλα σε έμπειρο αρχιτέκτονα. Στη συνέχεια, δημιούργησα το δικό μου αρχιτεκτονικό γραφείο.\n\nΜαζί με τον αδελφό μου, Ιωάννη Μαυρίδη (MSc Structural Engineering, Univ. of Surrey), και τις πολύτιμες συμβουλές του πατέρα μας, Ανέστη Μαυρίδη, με 30ετή εμπειρία στις κατασκευές, αναλαμβάνουμε ολοκληρωμένα τον σχεδιασμό, τη μελέτη, τον προϋπολογισμό, την κατασκευή και την εσωτερική διακόσμηση κάθε έργου.\n\nΤο ομαδικό πνεύμα, η θέληση και η φιλική μας διάθεση δημιουργούν σχέσεις εμπιστοσύνης με τους πελάτες μας, κάτι που για εμάς αποτελεί την απόλυτη επιτυχία.'
       },
       services: {
-        title: {
-          el: 'Υπηρεσίες',
-          en: 'Services'
-        },
-        items: {
-          el: [
-            'Αρχιτεκτονικός σχεδιασμός και αρχιτεκτονική μελέτη – επίβλεψη',
-            'Έκδοση πλήρους φακέλου οικοδομικής άδειας και επίβλεψη του έργου',
-            'Έκδοση αδειών λειτουργίας υγειονομικού ενδιαφέροντος παντός τύπου',
-            'Ενεργειακή επιθεώρηση – ένταξη στο πρόγραμμα "εξοικονομώ κατ\'οίκον"',
-            'Ελεγκτής δόμησης',
-            'Ανακαινίσεις διαμερισμάτων και καταστημάτων',
-            'Διακόσμηση εσωτερικών χώρων',
-            'Φωτορεαλισμός και virtual video'
-          ],
-          en: [
-            'Architectural design and supervision',
-            'Complete building permit documentation and project supervision',
-            'Operating licenses for all types of health-regulated establishments',
-            'Energy inspection – integration with "Energy Saving at Home" program',
-            'Building Inspector',
-            'Apartment and store renovations',
-            'Interior design',
-            'Photorealism and virtual video'
-          ]
-        }
+        title: 'Οι Υπηρεσίες μας',
+        items: [
+          'Αρχιτεκτονικός σχεδιασμός και αρχιτεκτονική μελέτη – επίβλεψη',
+          'Έκδοση πλήρους φακέλου οικοδομικής άδειας και επίβλεψη του έργου',
+          'Έκδοση αδειών λειτουργίας υγειονομικού ενδιαφέροντος παντός τύπου',
+          'Ενεργειακή επιθεώρηση – ένταξη στο πρόγραμμα "εξοικονομώ κατ\'οίκον"',
+          'Ελεγκτής δόμησης',
+          'Ανακαινίσεις διαμερισμάτων και καταστημάτων',
+          'Διακόσμηση εσωτερικών χώρων',
+          'Φωτορεαλισμός και virtual video'
+        ]
       },
       experience: {
-        title: {
-          el: 'Γιάννης Μαυρίδης, Company CEO',
-          en: 'Giannis Mavridis, Company CEO'
-        },
-        items: {
-          el: [
-            '17 ετής συνεχής εμπειρία στον Τομέα Στατικών Μελετών',
-            '5 ετής εμπειρία στον τομέα του Ενεργειακού Σχεδιασμού',
-            'Πιστοποιημένος Ελεγκτής Δόμησης',
-            '17 ετής εμπειρία στην Κατασκευή Ιδιωτικών Έργων',
-            '8 ετής εμπειρία στον Τομέα Εκτιμήσεων Ακινήτων',
-            'Εμπειρία σε Τεχνικές Πραγματογνωμοσύνες',
-            'Μέλος της Μόνιμης Επιτροπής Χωροταξίας και Περιβάλλοντος του ΤΕΕ Θράκης'
-          ],
-          en: [
-            '17 years of continuous experience in Structural Engineering',
-            '5 years of experience in Energy Design',
-            'Certified Building Inspector',
-            '17 years of experience in Private Construction',
-            '8 years of experience in Real Estate Valuation',
-            'Experience in Technical Expert Reports',
-            'Member of the Standing Committee on Planning and Environment of TEE Thrace'
-          ]
-        }
+        title: 'Η Εμπειρία μας',
+        items: [
+          '17 ετής συνεχής εμπειρία στον Τομέα Στατικών Μελετών',
+          '5 ετής εμπειρία στον τομέα του Ενεργειακού Σχεδιασμού',
+          'Πιστοποιημένος Ελεγκτής Δόμησης',
+          '17 ετής εμπειρία στην Κατασκευή Ιδιωτικών Έργων',
+          '8 ετής εμπειρία στον Τομέα Εκτιμήσεων Ακινήτων',
+          'Εμπειρία σε Τεχνικές Πραγματογνωμοσύνες',
+          'Μέλος της Μόνιμης Επιτροπής Χωροταξίας και Περιβάλλοντος του ΤΕΕ Θράκης'
+        ]
       },
       introduction: {
         el: `Απόφοιτη της Αρχιτεκτονικής Σχολής του ΑΠΘ (2000-2007), με φρέσκια ματιά στην ελληνική αρχιτεκτονική και οικοδομική πραγματικότητα, ξεκίνησα την πορεία μου στη γενέτειρά μου δίπλα σε έμπειρο αρχιτέκτονα. Στη συνέχεια, δημιούργησα το δικό μου αρχιτεκτονικό γραφείο.
@@ -755,58 +726,29 @@ export const translations = {
         description: 'Απόφοιτη της Αρχιτεκτονικής Σχολής του ΑΠΘ (2000-2007), με φρέσκια ματιά στην ελληνική αρχιτεκτονική και οικοδομική πραγματικότητα, ξεκίνησα την πορεία μου στη γενέτειρά μου δίπλα σε έμπειρο αρχιτέκτονα. Στη συνέχεια, δημιούργησα το δικό μου αρχιτεκτονικό γραφείο.\n\nΜαζί με τον αδελφό μου, Ιωάννη Μαυρίδη (MSc Structural Engineering, Univ. of Surrey), και τις πολύτιμες συμβουλές του πατέρα μας, Ανέστη Μαυρίδη, με 30ετή εμπειρία στις κατασκευές, αναλαμβάνουμε ολοκληρωμένα τον σχεδιασμό, τη μελέτη, τον προϋπολογισμό, την κατασκευή και την εσωτερική διακόσμηση κάθε έργου.\n\nΤο ομαδικό πνεύμα, η θέληση και η φιλική μας διάθεση δημιουργούν σχέσεις εμπιστοσύνης με τους πελάτες μας, κάτι που για εμάς αποτελεί την απόλυτη επιτυχία.'
       },
       services: {
-        title: {
-          el: 'Υπηρεσίες',
-          en: 'Services'
-        },
-        items: {
-          el: [
-            'Αρχιτεκτονικός σχεδιασμός και αρχιτεκτονική μελέτη – επίβλεψη',
-            'Έκδοση πλήρους φακέλου οικοδομικής άδειας και επίβλεψη του έργου',
-            'Έκδοση αδειών λειτουργίας υγειονομικού ενδιαφέροντος παντός τύπου',
-            'Ενεργειακή επιθεώρηση – ένταξη στο πρόγραμμα "εξοικονομώ κατ\'οίκον"',
-            'Ελεγκτής δόμησης',
-            'Ανακαινίσεις διαμερισμάτων και καταστημάτων',
-            'Διακόσμηση εσωτερικών χώρων',
-            'Φωτορεαλισμός και virtual video'
-          ],
-          en: [
-            'Architectural design and supervision',
-            'Complete building permit documentation and project supervision',
-            'Operating licenses for all types of health-regulated establishments',
-            'Energy inspection – integration with "Energy Saving at Home" program',
-            'Building Inspector',
-            'Apartment and store renovations',
-            'Interior design',
-            'Photorealism and virtual video'
-          ]
-        }
+        title: 'Our Services',
+        items: [
+          'Architectural design and architectural study - supervision',
+          'Complete building permit file issuance and project supervision',
+          'Issuance of health-related operating licenses of all types',
+          'Energy inspection - inclusion in the "Energy Saving at Home" program',
+          'Building Inspector',
+          'Apartment and store renovations',
+          'Interior decoration',
+          'Photorealism and virtual video'
+        ]
       },
       experience: {
-        title: {
-          el: 'Γιάννης Μαυρίδης, Company CEO',
-          en: 'Giannis Mavridis, Company CEO'
-        },
-        items: {
-          el: [
-            '17 ετής συνεχής εμπειρία στον Τομέα Στατικών Μελετών',
-            '5 ετής εμπειρία στον τομέα του Ενεργειακού Σχεδιασμού',
-            'Πιστοποιημένος Ελεγκτής Δόμησης',
-            '17 ετής εμπειρία στην Κατασκευή Ιδιωτικών Έργων',
-            '8 ετής εμπειρία στον Τομέα Εκτιμήσεων Ακινήτων',
-            'Εμπειρία σε Τεχνικές Πραγματογνωμοσύνες',
-            'Μέλος της Μόνιμης Επιτροπής Χωροταξίας και Περιβάλλοντος του ΤΕΕ Θράκης'
-          ],
-          en: [
-            '17 years of continuous experience in Structural Engineering',
-            '5 years of experience in Energy Design',
-            'Certified Building Inspector',
-            '17 years of experience in Private Construction',
-            '8 years of experience in Real Estate Valuation',
-            'Experience in Technical Expert Reports',
-            'Member of the Standing Committee on Planning and Environment of TEE Thrace'
-          ]
-        }
+        title: 'Our Experience',
+        items: [
+          '17 years of continuous experience in Structural Studies',
+          '5 years of experience in Energy Design',
+          'Certified Building Inspector',
+          '17 years of experience in Private Construction Projects',
+          '8 years of experience in Real Estate Valuations',
+          'Experience in Technical Expertise',
+          'Member of the Permanent Committee for Spatial Planning and Environment of TEE Thrace'
+        ]
       },
       introduction: {
         el: `Απόφοιτη της Αρχιτεκτονικής Σχολής του ΑΠΘ (2000-2007), με φρέσκια ματιά στην ελληνική αρχιτεκτονική και οικοδομική πραγματικότητα, ξεκίνησα την πορεία μου στη γενέτειρά μου δίπλα σε έμπειρο αρχιτέκτονα. Στη συνέχεια, δημιούργησα το δικό μου αρχιτεκτονικό γραφείο.

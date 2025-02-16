@@ -13,11 +13,9 @@ import EngineeringServices from './pages/EngineeringServices';
 import Blog from './pages/Blog';
 
 function App() {
-  console.log('App rendering');
-  
   return (
     <LanguageProvider>
-      <Router>
+      <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <ScrollToTop />
         <div className="min-h-screen flex flex-col">
           <Navbar />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Ruler, PencilRuler, Building2, Compass, CheckCircle2, X } from 'lucide-react';
 import { useTranslation } from '../hooks/useTranslation';
@@ -22,6 +22,44 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+interface ServiceItem {
+  title: string;
+  description: string;
+}
+
+interface ArrowProps {
+  className?: string;
+  style?: React.CSSProperties;
+  onClick?: () => void;
+  currentSlide?: number;
+  slideCount?: number;
+}
+
+// Custom arrow components
+const NextArrow = ({ onClick, currentSlide, slideCount, ...props }: ArrowProps) => (
+  <button
+    type="button"
+    onClick={onClick}
+    className="absolute right-4 top-1/2 -translate-y-1/2 z-10 cursor-pointer bg-transparent border-none"
+    aria-label="Next slide"
+    {...props}
+  >
+    <ChevronRight className="w-12 h-12 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all" />
+  </button>
+);
+
+const PrevArrow = ({ onClick, currentSlide, slideCount, ...props }: ArrowProps) => (
+  <button
+    type="button"
+    onClick={onClick}
+    className="absolute left-4 top-1/2 -translate-y-1/2 z-10 cursor-pointer bg-transparent border-none"
+    aria-label="Previous slide"
+    {...props}
+  >
+    <ChevronLeft className="w-12 h-12 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all" />
+  </button>
+);
 
 const ArchitecturalOffice = () => {
   const { t } = useTranslation();
@@ -135,32 +173,22 @@ const ArchitecturalOffice = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
-    autoplay: false,
-    nextArrow: (
-      <div className="absolute right-4 top-1/2 -translate-y-1/2 z-10 cursor-pointer">
-        <ChevronRight className="w-10 h-10 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all" />
-      </div>
-    ),
-    prevArrow: (
-      <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10 cursor-pointer">
-        <ChevronLeft className="w-10 h-10 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all" />
-      </div>
-    ),
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    customPaging: function(i: number) {
+      return (
+        <button
+          type="button"
+          className="w-2 h-2 mx-1 bg-white rounded-full opacity-50 hover:opacity-100 transition-opacity"
+          aria-label={`Go to slide ${i + 1}`}
+        />
+      );
+    }
   };
 
   const modalSliderSettings = {
     ...sliderSettings,
-    initialSlide: currentImageIndex,
-    nextArrow: (
-      <div className="absolute right-8 top-1/2 -translate-y-1/2 z-10 cursor-pointer">
-        <ChevronRight className="w-12 h-12 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all" />
-      </div>
-    ),
-    prevArrow: (
-      <div className="absolute left-8 top-1/2 -translate-y-1/2 z-10 cursor-pointer">
-        <ChevronLeft className="w-12 h-12 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all" />
-      </div>
-    ),
+    initialSlide: currentImageIndex
   };
 
   const openImageModal = (images: string[], startIndex: number) => {
@@ -174,6 +202,28 @@ const ArchitecturalOffice = () => {
     setIsModalOpen(false);
     document.body.style.overflow = 'unset';
   };
+
+  useEffect(() => {
+    // Ορισμός title και meta description για SEO
+    document.title = language === 'el' 
+      ? 'Αρχιτεκτονικό Γραφείο | IN-MAVRIDIS - Σχεδιασμός, Μελέτες & Κατασκευές στην Κομοτηνή'
+      : 'Architectural Office | IN-MAVRIDIS - Design, Studies & Construction in Komotini';
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', language === 'el'
+        ? 'Ολοκληρωμένες αρχιτεκτονικές υπηρεσίες στην Κομοτηνή. Αρχιτεκτονικός σχεδιασμός, μελέτες, κατασκευές, ανακαινίσεις και εσωτερική διακόσμηση. Εμπειρία 17+ ετών στον κλάδο.'
+        : 'Comprehensive architectural services in Komotini, Greece. Architectural design, studies, construction, renovations and interior design. 17+ years of industry experience.'
+      );
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = language === 'el'
+        ? 'Ολοκληρωμένες αρχιτεκτονικές υπηρεσίες στην Κομοτηνή. Αρχιτεκτονικός σχεδιασμός, μελέτες, κατασκευές, ανακαινίσεις και εσωτερική διακόσμηση. Εμπειρία 17+ ετών στον κλάδο.'
+        : 'Comprehensive architectural services in Komotini, Greece. Architectural design, studies, construction, renovations and interior design. 17+ years of industry experience.';
+      document.head.appendChild(meta);
+    }
+  }, [language]);
 
   return (
     <div className="min-h-screen">
@@ -231,7 +281,7 @@ const ArchitecturalOffice = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {t('architecturalOffice.services.items').map((service, index) => (
+            {(t('architecturalOffice.services.items') as ServiceItem[]).map((service: ServiceItem, index: number) => (
               <motion.div
                 key={index}
                 className="bg-white p-6 rounded-lg shadow-md hover-card"
@@ -270,7 +320,11 @@ const ArchitecturalOffice = () => {
                 variants={itemVariants}
               >
                 <div className="relative h-64">
-                  <Slider {...sliderSettings}>
+                  <Slider
+                    {...sliderSettings}
+                    className="relative"
+                    aria-label="Project images slider"
+                  >
                     {project.images.map((image, imgIndex) => (
                       <div 
                         key={imgIndex} 
@@ -308,7 +362,7 @@ const ArchitecturalOffice = () => {
             {t('architecturalOffice.whyChooseUs.title')}
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {t('architecturalOffice.whyChooseUs.reasons').map((item, index) => (
+            {(t('architecturalOffice.whyChooseUs.reasons') as string[]).map((item: string, index: number) => (
               <motion.div 
                 key={index} 
                 className="flex items-center space-x-3 p-4 bg-gray-50 rounded-lg hover-card"

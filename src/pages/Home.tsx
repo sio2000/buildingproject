@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Building2, Calculator, Building, Ruler, FileText } from 'lucide-react';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
@@ -15,6 +16,28 @@ const Home = () => {
   const { t } = useTranslation();
   const { language } = useLanguage();
   const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    // Ορισμός title και meta description για SEO
+    document.title = language === 'el' 
+      ? 'IN-MAVRIDIS | Αρχιτεκτονικό Γραφείο & Τεχνικές Υπηρεσίες στην Κομοτηνή'
+      : 'IN-MAVRIDIS | Architectural Office & Technical Services in Komotini';
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', language === 'el'
+        ? 'Το γραφείο IN-MAVRIDIS προσφέρει ολοκληρωμένες αρχιτεκτονικές και τεχνικές υπηρεσίες στην Κομοτηνή. Αρχιτεκτονικές μελέτες, κατασκευές, ανακαινίσεις, ενεργειακές επιθεωρήσεις και εκτιμήσεις ακινήτων.'
+        : 'IN-MAVRIDIS office offers comprehensive architectural and technical services in Komotini, Greece. Architectural studies, construction, renovations, energy inspections and real estate valuations.'
+      );
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = language === 'el'
+        ? 'Το γραφείο IN-MAVRIDIS προσφέρει ολοκληρωμένες αρχιτεκτονικές και τεχνικές υπηρεσίες στην Κομοτηνή. Αρχιτεκτονικές μελέτες, κατασκευές, ανακαινίσεις, ενεργειακές επιθεωρήσεις και εκτιμήσεις ακινήτων.'
+        : 'IN-MAVRIDIS office offers comprehensive architectural and technical services in Komotini, Greece. Architectural studies, construction, renovations, energy inspections and real estate valuations.';
+      document.head.appendChild(meta);
+    }
+  }, [language]);
 
   const services = [
     {

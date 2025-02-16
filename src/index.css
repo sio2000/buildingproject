@@ -270,3 +270,11 @@ html {
   25% { transform: translateX(-5px); }
   75% { transform: translateX(5px); }
 }
+
+@font-face {
+  font-family: 'slick';
+  src: url('/fonts/slick.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

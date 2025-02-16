@@ -1,5 +1,5 @@
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useTranslation } from '../hooks/useTranslation';
 import { 
   CheckCircle2, 
   Award, 
@@ -15,14 +15,37 @@ import {
   Users, 
   ClipboardCheck 
 } from 'lucide-react';
+import { useTranslation } from '../hooks/useTranslation';
+import { useLanguage } from '../context/LanguageContext';
 import backofficeImage from '../assets/images/backoffice.png';
 import photo1 from '../assets/images/photo1.png';
 import photo2 from '../assets/images/photo2.png';
-import { useLanguage } from '../context/LanguageContext';
 
 const EngineeringServices = () => {
   const { t } = useTranslation();
   const { language } = useLanguage();
+
+  useEffect(() => {
+    // Ορισμός title και meta description για SEO
+    document.title = language === 'el' 
+      ? 'Υπηρεσίες Μηχανικού | IN-MAVRIDIS - Μελέτες, Επιβλέψεις & Ενεργειακές Επιθεωρήσεις'
+      : 'Engineering Services | IN-MAVRIDIS - Studies, Supervision & Energy Inspections';
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', language === 'el'
+        ? 'Ολοκληρωμένες υπηρεσίες μηχανικού στην Κομοτηνή. Στατικές μελέτες, ενεργειακός σχεδιασμός, επιβλέψεις έργων, εκτιμήσεις ακινήτων και τεχνικές πραγματογνωμοσύνες. Πιστοποιημένος Ελεγκτής Δόμησης.'
+        : 'Comprehensive engineering services in Komotini, Greece. Structural studies, energy design, construction supervision, real estate valuations and technical expertise. Certified Building Inspector.'
+      );
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = language === 'el'
+        ? 'Ολοκληρωμένες υπηρεσίες μηχανικού στην Κομοτηνή. Στατικές μελέτες, ενεργειακός σχεδιασμός, επιβλέψεις έργων, εκτιμήσεις ακινήτων και τεχνικές πραγματογνωμοσύνες. Πιστοποιημένος Ελεγκτής Δόμησης.'
+        : 'Comprehensive engineering services in Komotini, Greece. Structural studies, energy design, construction supervision, real estate valuations and technical expertise. Certified Building Inspector.';
+      document.head.appendChild(meta);
+    }
+  }, [language]);
 
   const services = [
     'Αρχιτεκτονικός σχεδιασμός και αρχιτεκτονική μελέτη – επίβλεψη',
@@ -66,10 +89,13 @@ const EngineeringServices = () => {
             transition={{ delay: 0.2 }}
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-              {t('engineeringServices.hero.title')[language]}
+              {language === 'el' ? 'Υπηρεσίες Μηχανικού' : 'Engineering Services'}
             </h1>
             <p className="text-xl text-gray-200 max-w-2xl mb-4">
-              {t('engineeringServices.hero.subtitle')[language]}
+              {language === 'el' 
+                ? 'Ολοκληρωμένες τεχνικές υπηρεσίες και μελέτες'
+                : 'Comprehensive technical services and studies'
+              }
             </p>
           </motion.div>
         </div>
@@ -140,7 +166,10 @@ const EngineeringServices = () => {
             className="text-center mb-12"
           >
             <p className="text-gray-600 max-w-4xl mx-auto leading-relaxed whitespace-pre-line">
-              {t('engineeringServices.about.text')[language]}
+              {language === 'el' 
+                ? 'Με πολυετή εμπειρία στον τομέα των τεχνικών υπηρεσιών, προσφέρουμε ολοκληρωμένες λύσεις για κάθε έργο.'
+                : 'With years of experience in technical services, we offer comprehensive solutions for every project.'
+              }
             </p>
           </motion.div>
 
@@ -152,10 +181,10 @@ const EngineeringServices = () => {
             className="mb-16"
           >
             <h2 className="text-2xl font-bold mb-8 text-center gradient-text">
-              {t('engineeringServices.services.title')[language]}
+              {t('engineeringServices.services.title')}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {t('engineeringServices.services.items')[language].map((service, index) => (
+              {t('engineeringServices.services.items').map((service, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
@@ -188,10 +217,10 @@ const EngineeringServices = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-2xl font-bold mb-8 text-center gradient-text">
-              {t('engineeringServices.experience.title')[language]}
+              {t('engineeringServices.experience.title')}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {t('engineeringServices.experience.items')[language].map((item, index) => (
+              {t('engineeringServices.experience.items').map((item, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Building2, Phone, Mail, Clock, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -23,6 +23,28 @@ L.Marker.prototype.options.icon = DefaultIcon;
 const Contact = () => {
   const { language } = useLanguage();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    // Ορισμός title και meta description για SEO
+    document.title = language === 'el' 
+      ? 'Επικοινωνία | IN-MAVRIDIS - Αρχιτεκτονικό Γραφείο & Τεχνικές Υπηρεσίες στην Κομοτηνή'
+      : 'Contact | IN-MAVRIDIS - Architectural Office & Technical Services in Komotini';
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', language === 'el'
+        ? 'Επικοινωνήστε με το γραφείο IN-MAVRIDIS στην Κομοτηνή. Αρχιτεκτονικές μελέτες, κατασκευές, ανακαινίσεις και τεχνικές υπηρεσίες. Τηλέφωνο: 2531034781'
+        : 'Contact IN-MAVRIDIS office in Komotini, Greece. Architectural studies, construction, renovations and technical services. Phone: +30 2531034781'
+      );
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = language === 'el'
+        ? 'Επικοινωνήστε με το γραφείο IN-MAVRIDIS στην Κομοτηνή. Αρχιτεκτονικές μελέτες, κατασκευές, ανακαινίσεις και τεχνικές υπηρεσίες. Τηλέφωνο: 2531034781'
+        : 'Contact IN-MAVRIDIS office in Komotini, Greece. Architectural studies, construction, renovations and technical services. Phone: +30 2531034781';
+      document.head.appendChild(meta);
+    }
+  }, [language]);
 
   const contactInfo = {
     phones: ['+30 2531034781', '+30 6977 717410', '+30 6976 999811'],
