@@ -36,13 +36,13 @@ export const translations = {
           title: 'Αρχιτεκτονικές Υπηρεσίες',
           description: 'Σχεδιασμός και υλοποίηση αρχιτεκτονικών έργων με καινοτόμες λύσεις'
         },
+        valuation: {
+          title: 'Εκτίμηση Ακινήτων',
+          description: 'Επαγγελματική εκτίμηση ακινήτων από πιστοποιημένους εκτιμητές'
+        },
         engineering: {
           title: 'Υπηρεσίες Μηχανικού',
           description: 'Ολοκληρωμένες υπηρεσίες μηχανικού και τεχνικές μελέτες'
-        },
-        construction: {
-          title: 'Κατασκευαστικές Υπηρεσίες',
-          description: 'Υψηλής ποιότητας κατασκευές και ανακαινίσεις'
         },
         projects: {
           title: 'Τα Έργα μας',
@@ -452,13 +452,13 @@ export const translations = {
           title: 'Architectural Services',
           description: 'Design and implementation of architectural projects with innovative solutions'
         },
+        valuation: {
+          title: 'Real Estate Valuation',
+          description: 'Professional real estate valuation by certified appraisers'
+        },
         engineering: {
           title: 'Engineering Services',
           description: 'Comprehensive engineering services and technical studies'
-        },
-        construction: {
-          title: 'Construction Services',
-          description: 'High-quality construction and renovation projects'
         },
         projects: {
           title: 'Our Projects',

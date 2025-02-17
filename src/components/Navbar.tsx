@@ -26,10 +26,11 @@ const Navbar = () => {
   return (
     <nav className="bg-white shadow-md fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center" onClick={() => setIsOpen(false)}>
-              <img src={logo} alt="Mavridis Logo" className="h-10" />
+              <img src={logo} alt="IN-MAVRIDIS Logo" className="h-10 md:h-12" />
             </Link>
           </div>
 
@@ -60,14 +61,17 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Controls */}
-          <div className="md:hidden flex items-center space-x-2">
+          <div className="md:hidden flex items-center space-x-3">
             {/* Mobile Language Toggle */}
             <button
               onClick={toggleLanguage}
-              className="p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+              className="p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50 flex items-center"
               aria-label={language === 'el' ? 'Switch to English' : 'Αλλαγή σε Ελληνικά'}
             >
-              <Globe className="h-6 w-6" />
+              <Globe className="h-5 w-5" />
+              <span className="ml-1 text-sm font-medium">
+                {language === 'el' ? 'EN' : 'ΕΛ'}
+              </span>
             </button>
 
             {/* Mobile Menu Button */}
@@ -76,7 +80,7 @@ const Navbar = () => {
               className="p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50"
               aria-label="Toggle menu"
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </div>
@@ -86,7 +90,7 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden absolute w-full bg-white shadow-lg"
+            className="md:hidden absolute w-full bg-white shadow-lg border-t border-gray-100"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -97,12 +101,12 @@ const Navbar = () => {
                 <Link
                   key={item.path}
                   to={item.path}
+                  onClick={() => setIsOpen(false)}
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-colors
                     ${location.pathname === item.path
                       ? 'text-blue-600 bg-blue-50'
                       : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
                     }`}
-                  onClick={() => setIsOpen(false)}
                 >
                   {item.label}
                 </Link>

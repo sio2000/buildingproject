@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import Slider from 'react-slick';
@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { useTranslation } from '../hooks/useTranslation';
 import { useLanguage } from '../context/LanguageContext';
 
-type Category = 'all' | 'construction' | 'interior' | 'residential' | 'commercial' | 'renovation';
+type Category = 'all' | 'construction' | 'interior' | 'residential' | 'suburban' | 'uncategorized';
 
 interface Project {
   id: number;
@@ -94,21 +94,21 @@ const projects: Project[] = [
   // Add more projects...
 ];
 
+const categories = [
+  { id: 'all' as const, translationKey: 'projects.categories.all' as const },
+  { id: 'construction' as const, translationKey: 'projects.categories.construction' as const },
+  { id: 'interior' as const, translationKey: 'projects.categories.interior' as const },
+  { id: 'residential' as const, translationKey: 'projects.categories.residential' as const },
+  { id: 'suburban' as const, translationKey: 'projects.categories.suburban' as const },
+  { id: 'uncategorized' as const, translationKey: 'projects.categories.uncategorized' as const }
+] as const;
+
 const Projects = () => {
   const { t } = useTranslation();
   const { language } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<Category>('all');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-
-  const categories = [
-    { value: 'all', label: language === 'el' ? 'Όλα' : 'All' },
-    { value: 'construction', label: language === 'el' ? 'Κατασκευές' : 'Construction' },
-    { value: 'interior', label: language === 'el' ? 'Εσωτερικοί Χώροι' : 'Interior' },
-    { value: 'residential', label: language === 'el' ? 'Κατοικίες' : 'Residential' },
-    { value: 'commercial', label: language === 'el' ? 'Επαγγελματικοί Χώροι' : 'Commercial' },
-    { value: 'renovation', label: language === 'el' ? 'Ανακαινίσεις' : 'Renovation' }
-  ];
 
   const filteredProjects = projects.filter(project => {
     const matchesSearch = project.title[language].toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -135,20 +135,6 @@ const Projects = () => {
       </div>
     </div>
   );
-
-  useEffect(() => {
-    document.title = language === 'el'
-      ? 'Έργα | MAVRIDIS - Κατασκευές & Αρχιτεκτονικές Υπηρεσίες'
-      : 'Projects | MAVRIDIS - Constructions & Architectural Services';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', language === 'el'
-        ? 'Δείτε το χαρτοφυλάκιο των έργων μας. Κατασκευές, ανακαινίσεις και αρχιτεκτονικά έργα από το γραφείο MAVRIDIS στην Κομοτηνή.'
-        : 'View our project portfolio. Construction, renovation and architectural projects by MAVRIDIS office in Komotini, Greece.'
-      );
-    }
-  }, [language]);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -191,15 +177,15 @@ const Projects = () => {
             <div className="flex gap-2 overflow-x-auto pb-2">
               {categories.map((category) => (
                 <button
-                  key={category.value}
-                  onClick={() => setSelectedCategory(category.value as Category)}
+                  key={category.id}
+                  onClick={() => setSelectedCategory(category.id)}
                   className={`px-4 py-2 rounded-lg whitespace-nowrap ${
-                    selectedCategory === category.value
+                    selectedCategory === category.id
                       ? 'bg-blue-600 text-white'
                       : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
                   }`}
                 >
-                  {category.label}
+                  {t(category.translationKey)}
                 </button>
               ))}
             </div>

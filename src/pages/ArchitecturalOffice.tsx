@@ -284,16 +284,24 @@ Maroneia, Rodopi, Μαρώνεια, Προφήτης Ηλίας Ροδόπης
   };
 
   useEffect(() => {
+    // Ορισμός title και meta description για SEO
     document.title = language === 'el' 
-      ? 'Αρχιτεκτονικό Γραφείο | MAVRIDIS - Κατασκευές & Αρχιτεκτονικές Υπηρεσίες'
-      : 'Architectural Office | MAVRIDIS - Constructions & Architectural Services';
+      ? 'Αρχιτεκτονικό Γραφείο | IN-MAVRIDIS - Σχεδιασμός, Μελέτες & Κατασκευές στην Κομοτηνή'
+      : 'Architectural Office | IN-MAVRIDIS - Design, Studies & Construction in Komotini';
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', language === 'el'
-        ? 'Το γραφείο MAVRIDIS προσφέρει ολοκληρωμένες αρχιτεκτονικές και κατασκευαστικές υπηρεσίες στην Κομοτηνή. Αρχιτεκτονικές μελέτες, κατασκευές, ανακαινίσεις.'
-        : 'MAVRIDIS office offers comprehensive architectural and construction services in Komotini, Greece. Architectural studies, construction, renovations.'
+        ? 'Ολοκληρωμένες αρχιτεκτονικές υπηρεσίες στην Κομοτηνή. Αρχιτεκτονικός σχεδιασμός, μελέτες, κατασκευές, ανακαινίσεις και εσωτερική διακόσμηση. Εμπειρία 17+ ετών στον κλάδο.'
+        : 'Comprehensive architectural services in Komotini, Greece. Architectural design, studies, construction, renovations and interior design. 17+ years of industry experience.'
       );
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = language === 'el'
+        ? 'Ολοκληρωμένες αρχιτεκτονικές υπηρεσίες στην Κομοτηνή. Αρχιτεκτονικός σχεδιασμός, μελέτες, κατασκευές, ανακαινίσεις και εσωτερική διακόσμηση. Εμπειρία 17+ ετών στον κλάδο.'
+        : 'Comprehensive architectural services in Komotini, Greece. Architectural design, studies, construction, renovations and interior design. 17+ years of industry experience.';
+      document.head.appendChild(meta);
     }
   }, [language]);
 
