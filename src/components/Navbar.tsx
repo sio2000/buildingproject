@@ -20,15 +20,16 @@ const Navbar = () => {
 
   const toggleLanguage = () => {
     setLanguage(language === 'el' ? 'en' : 'el');
+    setIsOpen(false);
   };
 
   return (
-    <nav className="bg-white shadow-md">
+    <nav className="bg-white shadow-md fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between h-20">
+        <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link to="/" className="flex items-center">
-              <img src={logo} alt="Mavridis Logo" className="h-12" />
+            <Link to="/" className="flex items-center" onClick={() => setIsOpen(false)}>
+              <img src={logo} alt="Mavridis Logo" className="h-10" />
             </Link>
           </div>
 
@@ -48,7 +49,7 @@ const Navbar = () => {
               </Link>
             ))}
             
-            {/* Language Toggle Button */}
+            {/* Desktop Language Toggle */}
             <button
               onClick={toggleLanguage}
               className="flex items-center px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50"
@@ -58,11 +59,22 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
+          {/* Mobile Controls */}
+          <div className="md:hidden flex items-center space-x-2">
+            {/* Mobile Language Toggle */}
+            <button
+              onClick={toggleLanguage}
+              className="p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+              aria-label={language === 'el' ? 'Switch to English' : 'Αλλαγή σε Ελληνικά'}
+            >
+              <Globe className="h-6 w-6" />
+            </button>
+
+            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-blue-600"
+              className="p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+              aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -70,17 +82,17 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden"
+            className="md:hidden absolute w-full bg-white shadow-lg"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="px-2 pt-2 pb-3 space-y-1">
+            <div className="px-4 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
                 <Link
                   key={item.path}

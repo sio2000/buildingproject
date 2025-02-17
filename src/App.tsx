@@ -15,11 +15,11 @@ import Blog from './pages/Blog';
 function App() {
   return (
     <LanguageProvider>
-      <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <Router>
         <ScrollToTop />
         <div className="min-h-screen flex flex-col">
           <Navbar />
-          <main className="flex-grow">
+          <main className="flex-grow pt-16">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/architectural-office" element={<ArchitecturalOffice />} />
