@@ -4,8 +4,10 @@
 
 [build.environment]
   NODE_VERSION = "18"
-  SITE_TITLE = "MAVRIDIS - Constructions & Architectural Services"
-  SITE_DESCRIPTION = "MAVRIDIS - Constructions & Architectural Services"
+
+[site_info]
+  title = "MAVRIDIS - Constructions & Architectural Services"
+  description = "MAVRIDIS - Constructions & Architectural Services"
 
 [[headers]]
   for = "/*"
@@ -14,7 +16,6 @@
     X-Content-Type-Options = "nosniff"
     X-XSS-Protection = "1; mode=block"
     Content-Security-Policy = "frame-ancestors 'none'"
-    description = "MAVRIDIS - Constructions & Architectural Services"
 
 [[redirects]]
   from = "/*"
