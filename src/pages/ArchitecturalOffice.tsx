@@ -22,6 +22,23 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import z from '../assets/images/z.jpg';
+import x from '../assets/images/x.jpg';
+import c from '../assets/images/c.jpg';
+import v from '../assets/images/v.jpg';
+import b from '../assets/images/b.jpg';
+import n from '../assets/images/n.jpg';
+import m from '../assets/images/m.jpg';
+import as from '../assets/images/as.jpg';
+import ad from '../assets/images/ad.jpg';
+import af from '../assets/images/af.jpg';
+import ag from '../assets/images/ag.jpg';
+import ah from '../assets/images/ah.jpg';
+import aj from '../assets/images/aj.jpg';
+import ak from '../assets/images/ak.jpg';
+import al from '../assets/images/al.jpg';
+import lop from '../assets/images/lop.png';
+import lop2 from '../assets/images/lop2.jpg';
 
 interface ServiceItem {
   title: string;
@@ -60,6 +77,21 @@ const PrevArrow = ({ onClick, currentSlide, slideCount, ...props }: ArrowProps) 
     <ChevronLeft className="w-12 h-12 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-all" />
   </button>
 );
+
+// Ενημέρωση του interface Settings
+interface Settings extends React.ComponentProps<typeof Slider> {
+  dots?: boolean;
+  infinite?: boolean;
+  speed?: number;
+  slidesToShow?: number;
+  slidesToScroll?: number;
+  nextArrow?: JSX.Element;
+  prevArrow?: JSX.Element;
+  customPaging?: (i: number) => JSX.Element;
+  className?: string;
+  initialSlide?: number;
+  arrows?: boolean;
+}
 
 const ArchitecturalOffice = () => {
   const { t } = useTranslation();
@@ -131,6 +163,54 @@ const ArchitecturalOffice = () => {
     {
       id: 1,
       title: {
+        el: 'Νέο Έργο - Μονοκατοικία στις Σάπες',
+        en: 'New Project - House in Sapes'
+      },
+      description: {
+        el: `Νέο έργο υπό κατασκευή. Ανέγερση μονοκατοικίας στις Σάπες Ροδόπης.
+
+@yiannismavridis, @ΝικηΜαυριδου
+
+#αρχιτεκτονικοσσχεδιασμος #στατικημελετη #επιβλεψηεργου #κατασκευηεργου #maronia #fanari #komotini`,
+        en: `New project under construction. House construction in Sapes, Rodopi.
+
+@yiannismavridis, @NikiMavridou
+
+#architecturaldesign #structuraldesign #constructionsupervision #construction #maronia #fanari #komotini`
+      },
+      images: [lop, lop2]
+    },
+    {
+      id: 2,
+      title: {
+        el: 'Μελέτη Ανέγερσης Ισόγειας Μονοκατοικίας',
+        en: 'Single-Story House Construction Study'
+      },
+      description: {
+        el: `Μελέτη ανέγερσης ισόγειας μονοκατοικίας με πρόβλεψη ορόφου. Φωτορεαλιστική απεικόνιση: μελέτη ανέγερσης ισόγειας μονοκατοικίας με πρόβλεψη ορόφου.`,
+        en: `Construction study of a single-story house with provision for an additional floor. Photorealistic visualization: construction study of a single-story house with future floor provision.`
+      },
+      images: [as, ad, af, ag, ah, aj, ak, al]
+    },
+    {
+      id: 3,
+      title: {
+        el: 'Προκατασκευασμένες Κατοικίες στον Προφήτη Ηλία',
+        en: 'Prefabricated Houses in Profitis Ilias'
+      },
+      description: {
+        el: `Νέο έργο σε εξέλιξη: «Ανέγερση δύο όμοιων προκατασκευασμένων κατοικιών στον παραθεριστικό οικισμό Προφήτη Ηλία Δήμου Μαρώνειας Σαπών, ΠΕ Ροδόπης». Ολοκλήρωση βάσεων σκυροδέματος και εν αναμονή του μεταλλικού σκελετού κατοικιών.
+
+Maroneia, Rodopi, Μαρώνεια, Προφήτης Ηλίας Ροδόπης
+
+#αρχιτεκτονικοσσχεδιασμος #στατικημελετη #επιβλεψηεργου #κατασκευηεργου`,
+        en: `New project in progress: "Construction of two identical prefabricated houses in the holiday settlement of Profitis Ilias, Municipality of Maroneia Sapon, Rodopi". Completion of concrete foundations and awaiting the metal frame of the houses.`
+      },
+      images: [z, x, c, v, b, n, m]
+    },
+    {
+      id: 4,
+      title: {
         el: 'Μονοκατοικία στην Παραλία Αρωγής',
         en: 'House in Arogi Beach'
       },
@@ -141,7 +221,7 @@ const ArchitecturalOffice = () => {
       images: [f1, f2, f3]
     },
     {
-      id: 2,
+      id: 5,
       title: {
         el: 'Διώροφη Μονοκατοικία με Σοφίτα στην Εκτενεπόλ',
         en: 'Two-story House with Attic in Ektenepol'
@@ -153,7 +233,7 @@ const ArchitecturalOffice = () => {
       images: [to, to1]
     },
     {
-      id: 3,
+      id: 6,
       title: {
         el: 'Πολυώροφα Κτίρια Κατοικιών στην Κομοτηνή',
         en: 'Past Multi Storey Residential Projects in Komotini'

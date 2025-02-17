@@ -10,7 +10,6 @@ import "slick-carousel/slick/slick-theme.css";
 // Εισαγωγές εικόνων
 import f1 from '../assets/images/f1.jpg';
 import f2 from '../assets/images/f2.jpg';
-import f3 from '../assets/images/f3.jpg';
 import q1 from '../assets/images/q1.jpg';
 import q2 from '../assets/images/q2.jpg';
 import q3 from '../assets/images/q3.jpg';
@@ -47,6 +46,33 @@ import t7 from '../assets/images/t7.jpg';
 import t8 from '../assets/images/t8.jpg';
 import t9 from '../assets/images/t9.jpg';
 import t10 from '../assets/images/t10.jpg';
+import ik1 from '../assets/images/ik1.jpg';
+import ik2 from '../assets/images/ik2.jpg';
+import ik3 from '../assets/images/ik3.jpg';
+import ik4 from '../assets/images/ik4.jpg';
+import b1 from '../assets/images/b1.jpg';
+import b2 from '../assets/images/b2.jpg';
+import b3 from '../assets/images/b3.jpg';
+import b4 from '../assets/images/b4.jpg';
+import i11 from '../assets/images/11.jpg';
+import i22 from '../assets/images/22.jpg';
+import i33 from '../assets/images/33.jpg';
+import i44 from '../assets/images/44.jpg';
+import i55 from '../assets/images/55.jpg';
+import i66 from '../assets/images/66.jpg';
+import i77 from '../assets/images/77.jpg';
+import i88 from '../assets/images/88.jpg';
+import s1 from '../assets/images/s1.jpg';
+import s2 from '../assets/images/s2.jpg';
+import s3 from '../assets/images/s3.jpg';
+import s4 from '../assets/images/s4.jpg';
+import z from '../assets/images/z.jpg';
+import x from '../assets/images/x.jpg';
+import c from '../assets/images/c.jpg';
+import v from '../assets/images/v.jpg';
+import b from '../assets/images/b.jpg';
+import n from '../assets/images/n.jpg';
+import m from '../assets/images/m.jpg';
 
 interface BlogPost {
   id: number;
@@ -61,7 +87,7 @@ interface BlogPost {
   date: string;
   author: string;
   readTime: string;
-  images: string[];
+  images: any[];
 }
 
 interface ArrowProps {
@@ -97,6 +123,21 @@ const PrevArrow = ({ onClick, currentSlide, slideCount, ...props }: ArrowProps) 
   </button>
 );
 
+// Ενημέρωση του interface Settings
+interface Settings extends React.ComponentProps<typeof Slider> {
+  dots?: boolean;
+  infinite?: boolean;
+  speed?: number;
+  slidesToShow?: number;
+  slidesToScroll?: number;
+  nextArrow?: JSX.Element;
+  prevArrow?: JSX.Element;
+  customPaging?: (i: number) => JSX.Element;
+  className?: string;
+  initialSlide?: number;
+  arrows?: boolean;
+}
+
 const Blog = () => {
   const { t } = useTranslation();
   const { language } = useLanguage();
@@ -126,32 +167,110 @@ const Blog = () => {
     }
   }, [language]);
 
+  // Δημιουργούμε τα URLs για τις εικόνες
+  const imageUrls = {
+    ik: Array.from({ length: 4 }, (_, i) => 
+      new URL(`../assets/images/ik${i + 1}.jpg`, import.meta.url).href
+    ),
+    ma: Array.from({ length: 4 }, (_, i) => 
+      new URL(`../assets/images/ma${i + 1}.jpg`, import.meta.url).href
+    ),
+    w: Array.from({ length: 7 }, (_, i) => 
+      new URL(`../assets/images/w${i + 1}.jpg`, import.meta.url).href
+    )
+  };
+
   const blogPosts: BlogPost[] = [
     {
       id: 1,
       title: {
-        el: 'Μονοκατοικία στην Παραλία Αρωγής',
-        en: 'House in Arogi Beach'
+        el: 'Νέο έργο: Προκατασκευασμένες Κατοικίες στον Προφήτη Ηλία',
+        en: 'New Project: Prefabricated Houses in Profitis Ilias'
       },
       excerpt: {
-        el: `Aρχιτεκτονική μελέτη, Στατική μελέτη, ισόγειας μονοκατοικίας 50 τμ. με σοφίτα 25 τμ. σε οικόπεδο στην Παραλία Αρωγής Ροδόπης. 
+        el: `Νέο έργο σε εξέλιξη: «Ανέγερση δύο όμοιων προκατασκευασμένων κατοικιών στον παραθεριστικό οικισμό Προφήτη Ηλία Δήμου Μαρώνειας Σαπών, ΠΕ Ροδόπης». Ολοκλήρωση βάσεων σκυροδέματος και εν αναμονή του μεταλλικού σκελετού κατοικιών.
 
-Νίκη Μαυρίδου ARCHInima αρχιτεκτονικό γραφείο, Ιωάννης Μαυρίδης MSc Civil Engineer 
+Maroneia, Rodopi, Μαρώνεια, Προφήτης Ηλίας Ροδόπης
 
-#architecture #architect #civilengineering #komotini #arogi #fanari`,
-        en: `Architectural and structural study of a 50 sq.m. single-story house with a 25 sq.m. loft in Arogi Beach, Rodopi.
+#αρχιτεκτονικοσσχεδιασμος #στατικημελετη #επιβλεψηεργου #κατασκευηεργου`,
+        en: `New project in progress: "Construction of two identical prefabricated houses in the holiday settlement of Profitis Ilias, Municipality of Maroneia Sapon, Rodopi". Completion of concrete foundations and awaiting the metal frame of the houses.
 
-Niki Mavridou ARCHInima architectural office, Ioannis Mavridis MSc Civil Engineer
+Maroneia, Rodopi, Profitis Ilias Rodopi
 
-#architecture #architect #civilengineering #komotini #arogi #fanari`
+#architecturaldesign #structuraldesign #constructionsupervision #construction`
       },
-      date: '2024-02-15',
+      date: '2024-02-16',
       author: 'Νίκη Μαυρίδου & Ιωάννης Μαυρίδης',
       readTime: '3 min',
-      images: [f1, f2, f3]
+      images: [z, x, c, v, b, n, m]
     },
     {
       id: 2,
+      title: {
+        el: 'Σύμβουλοι Μηχανικοί - Ολοκληρωμένες Υπηρεσίες',
+        en: 'Engineering Consultants - Comprehensive Services'
+      },
+      excerpt: {
+        el: `Αρχιτεκτονικό Γραφείο, Γραφείο Πολιτικού Μηχανικού MSc Civil Engineer. Αρχιτεκτονικές μελέτες, Στατικές μελέτες, Ενεργειακές μελέτες (ΚΕΝΑΚ), Μελέτες Ενίσχυσης & ΚΑΝΕΠΕ, Εφαρμογές Penetron, Μελέτες αποτίμησης φέρουσας ικανότητας υπάρχοντος κτιρίου, Μελέτες αποτίμησης για Προσθήκη ορόφου/ων, Πλήρεις Επιβλέψεις ανεγέρσεων με λεπτομέρειες κατασκευής και κοστολογήσεις σταδίων, Πλήρης διαχείριση εργοταξίου ως την αποπεράτωση. 
+
+Ενεργειακές μελέτες, Εκτιμήσεις REV ακινήτων, Νομιμοποιήσεις Αυθαιρέτων Κατασκευών, Άδειες Λειτουργίας επιχειρήσεων και καταστημάτων, Άδειες εργασιών Μικρής κλίμακας, Άδειες κατηγορίας 3, & όλων των κατηγοριών, Ελεγκτές Δόμησης, Ελεγκτές Προσβασιμότητας, Ταυτότητα κτιρίου, Βεβαίωση - έλεγχος νομιμότητας για μεταβιβάσεις ακινήτων - συμβόλαια, Ενεργειακές επιθεωρήσεις & Ενεργειακά Πιστοποιητικά, Επιθεωρητής Καταλυμάτων, Υποβολή επενδυτικών σχεδίων ΕΣΠΑ - LEADER, Κατασκευή Ιδιωτικών Έργων, Ανακαινίσεις, Μονώσεις ταρατσών - εξωστών - υπογείων
+
+Σύμβουλοι μηχανικοί:
+@Yiannis Mavridis πολιτικός μηχανικός
+@Νίκη Μαυρίδου αρχιτέκτων μηχανικός
+
+#eadeia #ektimiseis #taftotitaktiriou #ktimatologio #afthereta #propertyresearchgreece #buildingpermitsgreece #maronia #fanari #komotini`,
+        en: `Architectural Office, Civil Engineering Office MSc Civil Engineer. Architectural studies, Structural studies, Energy studies (KENAK), Reinforcement & KANEPE studies, Penetron applications, Existing building load-bearing capacity assessment studies, Floor addition assessment studies, Complete construction supervision with construction details and stage costing, Complete construction site management until completion.`
+      },
+      date: '2024-02-15',
+      author: 'Νίκη Μαυρίδου & Ιωάννης Μαυρίδης',
+      readTime: '5 min',
+      images: [ik1, ik2, ik3, ik4]
+    },
+    {
+      id: 3,
+      title: {
+        el: 'Ανέγερση Μονοκατοικίας στην Κομοτηνή - Αποπεράτωση Πλακών',
+        en: 'House Construction in Komotini - Concrete Slab Completion'
+      },
+      excerpt: {
+        el: `Ανέγερση μονοκατοικίας στην Κομοτηνή. Εξέλιξη κατασκευής- αποπεράτωση πλακών σκυροδέματος.
+
+Σύμβουλοι μηχανικοί:
+@Yiannis Mavridis πολιτικός μηχανικός
+@Νίκη Μαυρίδου αρχιτέκτων μηχανικός
+
+#eadeia #ektimiseis #taftotitaktiriou #ktimatologio #afthereta #propertyresearchgreece #buildingpermitsgreece #maronia #fanari #komotini`,
+        en: `House construction in Komotini. Construction progress - completion of concrete slabs.`
+      },
+      date: '2024-02-08',
+      author: 'Νίκη Μαυρίδου & Ιωάννης Μαυρίδης',
+      readTime: '3 min',
+      images: [b1, b2, b3, b4]
+    },
+    {
+      id: 4,
+      title: {
+        el: 'Ανέγερση Μονοκατοικίας - Εργασίες Αποπεράτωσης',
+        en: 'House Construction - Completion Works'
+      },
+      excerpt: {
+        el: `Ανέγερση μονοκατοικίας- εξέλιξη κατασκευής- επιχρίσματα, εργασίες αποπεράτωσης.
+
+Σύμβουλοι μηχανικοί:
+@Yiannis Mavridis πολιτικός μηχανικός
+@Νίκη Μαυρίδου αρχιτέκτων μηχανικός
+
+#eadeia #ektimiseis #taftotitaktiriou #ktimatologio #afthereta #propertyresearchgreece #buildingpermitsgreece #maronia #fanari #komotini`,
+        en: `House construction - construction progress - plastering, completion works.`
+      },
+      date: '2024-02-03',
+      author: 'Νίκη Μαυρίδου & Ιωάννης Μαυρίδης',
+      readTime: '3 min',
+      images: [i11, i22, i33, i44, i55, i66, i77, i88]
+    },
+    {
+      id: 5,
       title: {
         el: 'Τεχνικές Μελέτες & Υπηρεσίες',
         en: 'Technical Studies & Services'
@@ -192,7 +311,7 @@ https://www.instagram.com/komotini_architecture_engineer/
       images: [e1, e2, e3, e4]
     },
     {
-      id: 3,
+      id: 6,
       title: {
         el: 'Διώροφη Μονοκατοικία με Σοφίτα στην Εκτενεπόλ',
         en: 'Two-story House with Attic in Ektenepol'
@@ -237,7 +356,7 @@ https://www.instagram.com/komotini_architecture_engineer/
       images: [to, to1]
     },
     {
-      id: 4,
+      id: 7,
       title: {
         el: 'Ολοκληρωμένες Υπηρεσίες Συμβούλων Μηχανικών',
         en: 'Comprehensive Engineering Consulting Services'
@@ -262,7 +381,7 @@ Ioannis Mavridis, MSc Civil Engineer (equiv. NTUA)
       images: [q1, q2, q3, q4, q5, q6, q7, q8, q9]
     },
     {
-      id: 5,
+      id: 8,
       title: {
         el: 'Εξειδικευμένες Κατασκευαστικές Λύσεις',
         en: 'Specialized Construction Solutions'
@@ -287,7 +406,7 @@ Ioannis Mavridis, MSc Civil Engineer (equiv. NTUA)
       images: [r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11]
     },
     {
-      id: 6,
+      id: 9,
       title: {
         el: 'Πολυώροφα Κτίρια Κατοικιών στην Κομοτηνή',
         en: 'Past Multi Storey Residential Projects in Komotini'
@@ -307,7 +426,8 @@ Ioannis Mavridis, MSc Civil Engineer (equiv. NTUA)
     }
   ];
 
-  const sliderSettings = {
+  // Ενημέρωση των slider settings
+  const sliderSettings: Settings = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -316,18 +436,15 @@ Ioannis Mavridis, MSc Civil Engineer (equiv. NTUA)
     arrows: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
-    customPaging: function(i: number) {
-      return (
-        <button
-          type="button"
-          className="w-2 h-2 mx-1 bg-white rounded-full opacity-50 hover:opacity-100 transition-opacity"
-          aria-label={`Go to slide ${i + 1}`}
-        />
-      );
-    }
+    customPaging: (i) => (
+      <button
+        className="w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-all duration-300"
+        aria-label={`Go to slide ${i + 1}`}
+      />
+    )
   };
 
-  const modalSliderSettings = {
+  const modalSliderSettings: Settings = {
     ...sliderSettings,
     initialSlide: currentImageIndex
   };
