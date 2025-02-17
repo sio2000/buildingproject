@@ -26,24 +26,16 @@ const EngineeringServices = () => {
   const { language } = useLanguage();
 
   useEffect(() => {
-    // Ορισμός title και meta description για SEO
     document.title = language === 'el' 
-      ? 'Υπηρεσίες Μηχανικού | IN-MAVRIDIS - Μελέτες, Επιβλέψεις & Ενεργειακές Επιθεωρήσεις'
-      : 'Engineering Services | IN-MAVRIDIS - Studies, Supervision & Energy Inspections';
+      ? 'Κατασκευαστικές Υπηρεσίες | MAVRIDIS - Κατασκευές & Αρχιτεκτονικές Υπηρεσίες'
+      : 'Construction Services | MAVRIDIS - Constructions & Architectural Services';
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', language === 'el'
-        ? 'Ολοκληρωμένες υπηρεσίες μηχανικού στην Κομοτηνή. Στατικές μελέτες, ενεργειακός σχεδιασμός, επιβλέψεις έργων, εκτιμήσεις ακινήτων και τεχνικές πραγματογνωμοσύνες. Πιστοποιημένος Ελεγκτής Δόμησης.'
-        : 'Comprehensive engineering services in Komotini, Greece. Structural studies, energy design, construction supervision, real estate valuations and technical expertise. Certified Building Inspector.'
+        ? 'Ολοκληρωμένες κατασκευαστικές υπηρεσίες από το γραφείο MAVRIDIS. Κατασκευές κτιρίων, επιβλέψεις έργων, στατικές μελέτες και τεχνικές συμβουλές στην Κομοτηνή.'
+        : 'Comprehensive construction services by MAVRIDIS office. Building construction, project supervision, structural studies and technical consulting in Komotini, Greece.'
       );
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = language === 'el'
-        ? 'Ολοκληρωμένες υπηρεσίες μηχανικού στην Κομοτηνή. Στατικές μελέτες, ενεργειακός σχεδιασμός, επιβλέψεις έργων, εκτιμήσεις ακινήτων και τεχνικές πραγματογνωμοσύνες. Πιστοποιημένος Ελεγκτής Δόμησης.'
-        : 'Comprehensive engineering services in Komotini, Greece. Structural studies, energy design, construction supervision, real estate valuations and technical expertise. Certified Building Inspector.';
-      document.head.appendChild(meta);
     }
   }, [language]);
 

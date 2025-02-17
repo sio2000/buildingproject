@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Building2, Phone, Mail, Clock, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -23,32 +23,52 @@ L.Marker.prototype.options.icon = DefaultIcon;
 const Contact = () => {
   const { language } = useLanguage();
   const { t } = useTranslation();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const recipients = ['ymavridis@gmail.com', 'niki_mavridou@yahoo.gr'];
+    const mailtoLink = `mailto:${recipients.join(',')}?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+      `Όνομα: ${formData.name}
+Email: ${formData.email}
+
+${formData.message}`
+    )}`;
+    
+    window.location.href = mailtoLink;
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
   useEffect(() => {
-    // Ορισμός title και meta description για SEO
     document.title = language === 'el' 
-      ? 'Επικοινωνία | IN-MAVRIDIS - Αρχιτεκτονικό Γραφείο & Τεχνικές Υπηρεσίες στην Κομοτηνή'
-      : 'Contact | IN-MAVRIDIS - Architectural Office & Technical Services in Komotini';
+      ? 'Επικοινωνία | MAVRIDIS - Κατασκευές & Αρχιτεκτονικές Υπηρεσίες'
+      : 'Contact | MAVRIDIS - Constructions & Architectural Services';
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', language === 'el'
-        ? 'Επικοινωνήστε με το γραφείο IN-MAVRIDIS στην Κομοτηνή. Αρχιτεκτονικές μελέτες, κατασκευές, ανακαινίσεις και τεχνικές υπηρεσίες. Τηλέφωνο: 2531034781'
-        : 'Contact IN-MAVRIDIS office in Komotini, Greece. Architectural studies, construction, renovations and technical services. Phone: +30 2531034781'
+        ? 'Επικοινωνήστε με το γραφείο MAVRIDIS στην Κομοτηνή. Κατασκευές, αρχιτεκτονικές μελέτες, ανακαινίσεις και τεχνικές υπηρεσίες. Τηλέφωνο: 2531034781'
+        : 'Contact MAVRIDIS office in Komotini, Greece. Construction, architectural studies, renovations and technical services. Phone: +30 2531034781'
       );
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = language === 'el'
-        ? 'Επικοινωνήστε με το γραφείο IN-MAVRIDIS στην Κομοτηνή. Αρχιτεκτονικές μελέτες, κατασκευές, ανακαινίσεις και τεχνικές υπηρεσίες. Τηλέφωνο: 2531034781'
-        : 'Contact IN-MAVRIDIS office in Komotini, Greece. Architectural studies, construction, renovations and technical services. Phone: +30 2531034781';
-      document.head.appendChild(meta);
     }
   }, [language]);
 
   const contactInfo = {
     phones: ['+30 2531034781', '+30 6977 717410', '+30 6976 999811'],
-    email: ['info@in-mavridis.gr', 'niki_mavridou@yahoo.gr'],
+    email: ['ymavridis@gmail.com', 'niki_mavridou@yahoo.gr'],
     address: {
       el: 'Θάσου 1, Κομοτηνή, 69100',
       en: '1 Thasou, Komotini, 69100'
@@ -262,7 +282,7 @@ const Contact = () => {
               {language === 'el' ? 'Φόρμα Επικοινωνίας' : 'Contact Form'}
             </h2>
 
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -270,6 +290,10 @@ const Contact = () => {
                   </label>
                   <input
                     type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
                     placeholder={language === 'el' ? 'Εισάγετε το ονοματεπώνυμό σας' : 'Enter your full name'}
                     className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400"
                   />
@@ -280,6 +304,10 @@ const Contact = () => {
                   </label>
                   <input
                     type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
                     placeholder={language === 'el' ? 'Εισάγετε το email σας' : 'Enter your email'}
                     className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400"
                   />
@@ -292,6 +320,10 @@ const Contact = () => {
                 </label>
                 <input
                   type="text"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleInputChange}
+                  required
                   placeholder={language === 'el' ? 'Εισάγετε το θέμα του μηνύματος' : 'Enter message subject'}
                   className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400"
                 />
@@ -302,6 +334,10 @@ const Contact = () => {
                   {language === 'el' ? 'Μήνυμα' : 'Message'}
                 </label>
                 <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
                   rows={6}
                   placeholder={language === 'el' ? 'Γράψτε το μήνυμά σας...' : 'Write your message...'}
                   className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400"

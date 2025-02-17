@@ -146,24 +146,16 @@ const Blog = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    // Ορισμός title και meta description για SEO
     document.title = language === 'el' 
-      ? 'Blog | IN-MAVRIDIS - Νέα & Άρθρα για Αρχιτεκτονική, Κατασκευές & Ανακαινίσεις'
-      : 'Blog | IN-MAVRIDIS - News & Articles about Architecture, Construction & Renovations';
+      ? 'Blog | MAVRIDIS - Κατασκευές & Αρχιτεκτονικές Υπηρεσίες'
+      : 'Blog | MAVRIDIS - Constructions & Architectural Services';
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', language === 'el'
-        ? 'Διαβάστε τα τελευταία νέα και άρθρα για αρχιτεκτονική, κατασκευές, ανακαινίσεις, εξοικονόμηση ενέργειας και τάσεις στον κλάδο. Ενημερωθείτε για τις τελευταίες εξελίξεις στον κατασκευαστικό τομέα.'
-        : 'Read the latest news and articles about architecture, construction, renovations, energy saving and industry trends. Stay updated with the latest developments in the construction sector.'
+        ? 'Διαβάστε τα τελευταία νέα και άρθρα για κατασκευές, αρχιτεκτονική, ανακαινίσεις και τάσεις στον κλάδο από το γραφείο MAVRIDIS στην Κομοτηνή.'
+        : 'Read the latest news and articles about construction, architecture, renovations and industry trends from MAVRIDIS office in Komotini, Greece.'
       );
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = language === 'el'
-        ? 'Διαβάστε τα τελευταία νέα και άρθρα για αρχιτεκτονική, κατασκευές, ανακαινίσεις, εξοικονόμηση ενέργειας και τάσεις στον κλάδο. Ενημερωθείτε για τις τελευταίες εξελίξεις στον κατασκευαστικό τομέα.'
-        : 'Read the latest news and articles about architecture, construction, renovations, energy saving and industry trends. Stay updated with the latest developments in the construction sector.';
-      document.head.appendChild(meta);
     }
   }, [language]);
 
