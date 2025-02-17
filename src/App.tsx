@@ -6,7 +6,6 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import ArchitecturalOffice from './pages/ArchitecturalOffice';
-import RealEstateValuation from './pages/RealEstateValuation';
 import Contact from './pages/Contact';
 import Projects from './pages/Projects';
 import EngineeringServices from './pages/EngineeringServices';
