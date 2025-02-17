@@ -1,9 +1,10 @@
 {
   "name": "mavridis-constructions",
-  "description": "MAVRIDIS - Constructions & Architectural Services",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "displayName": "MAVRIDIS - Constructions & Architectural Services",
+  "description": "MAVRIDIS - Constructions & Architectural Services",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
