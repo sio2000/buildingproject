@@ -287,20 +287,8 @@ export const translations = {
       }
     },
     engineeringServices: {
-      hero: {
-        title: {
-          el: 'Υπηρεσίες Μηχανικού',
-          en: 'Engineering Services'
-        },
-        subtitle: {
-          el: 'Ολοκληρωμένες υπηρεσίες μηχανικού και τεχνικές μελέτες',
-          en: 'Comprehensive engineering services and technical studies'
-        }
-      },
-      about: {
-        title: 'ARCHInima – Αρχιτεκτονικό Γραφείο',
-        description: 'Απόφοιτη της Αρχιτεκτονικής Σχολής του ΑΠΘ (2000-2007), με φρέσκια ματιά στην ελληνική αρχιτεκτονική και οικοδομική πραγματικότητα, ξεκίνησα την πορεία μου στη γενέτειρά μου δίπλα σε έμπειρο αρχιτέκτονα. Στη συνέχεια, δημιούργησα το δικό μου αρχιτεκτονικό γραφείο.\n\nΜαζί με τον αδελφό μου, Ιωάννη Μαυρίδη (MSc Structural Engineering, Univ. of Surrey), και τις πολύτιμες συμβουλές του πατέρα μας, Ανέστη Μαυρίδη, με 30ετή εμπειρία στις κατασκευές, αναλαμβάνουμε ολοκληρωμένα τον σχεδιασμό, τη μελέτη, τον προϋπολογισμό, την κατασκευή και την εσωτερική διακόσμηση κάθε έργου.\n\nΤο ομαδικό πνεύμα, η θέληση και η φιλική μας διάθεση δημιουργούν σχέσεις εμπιστοσύνης με τους πελάτες μας, κάτι που για εμάς αποτελεί την απόλυτη επιτυχία.'
-      },
+      title: 'Υπηρεσίες Μηχανικού',
+      description: 'Ολοκληρωμένες λύσεις για κάθε έργο',
       services: {
         title: 'Οι Υπηρεσίες μας',
         items: [
@@ -326,83 +314,8 @@ export const translations = {
           'Μέλος της Μόνιμης Επιτροπής Χωροταξίας και Περιβάλλοντος του ΤΕΕ Θράκης'
         ]
       },
-      introduction: {
-        el: `Απόφοιτη της Αρχιτεκτονικής Σχολής του ΑΠΘ (2000-2007), με φρέσκια ματιά στην ελληνική αρχιτεκτονική και οικοδομική πραγματικότητα, ξεκίνησα την πορεία μου στη γενέτειρά μου δίπλα σε έμπειρο αρχιτέκτονα. Στη συνέχεια, δημιούργησα το δικό μου αρχιτεκτονικό γραφείο.
-
-        Μαζί με τον αδελφό μου, Ιωάννη Μαυρίδη (MSc Structural Engineering, Univ. of Surrey), και τις πολύτιμες συμβουλές του πατέρα μας, Ανέστη Μαυρίδη, με 30ετή εμπειρία στις κατασκευές, αναλαμβάνουμε ολοκληρωμένα τον σχεδιασμό, τη μελέτη, τον προϋπολογισμό, την κατασκευή και την εσωτερική διακόσμηση κάθε έργου.
-
-        Το ομαδικό πνεύμα, η θέληση και η φιλική μας διάθεση δημιουργούν σχέσεις εμπιστοσύνης με τους πελάτες μας, κάτι που για εμάς αποτελεί την απόλυτη επιτυχία.`,
-        
-        en: `A graduate of the School of Architecture at AUTH (2000-2007), with a fresh perspective on Greek architectural and construction reality, I began my journey in my hometown alongside an experienced architect. Subsequently, I established my own architectural office.
-
-        Together with my brother, Ioannis Mavridis (MSc Structural Engineering, Univ. of Surrey), and the valuable guidance of our father, Anestis Mavridis, who has 30 years of experience in construction, we comprehensively undertake the design, study, budgeting, construction, and interior decoration of each project.
-
-        Our team spirit, determination, and friendly approach create relationships of trust with our clients, which for us represents absolute success.`
-      },
-      styledIntro: {
-        el: {
-          part1: {
-            highlight: 'Με πτυχίο από την Αρχιτεκτονική Σχολή του ΑΠΘ (2000-2007)',
-            text: 'εισήγαγα μια φρέσκια προοπτική στην ελληνική αρχιτεκτονική σκηνή. Η επαγγελματική μου πορεία ξεκίνησε στη γενέτειρά μου, όπου είχα την τύχη να συνεργαστώ με έναν καταξιωμένο αρχιτέκτονα, προτού ιδρύσω το δικό μου αρχιτεκτονικό γραφείο.'
-          },
-          part2: {
-            text: 'Σήμερα, μαζί με τον αδελφό μου',
-            name1: 'Ιωάννη Μαυρίδη',
-            degree: '(MSc Structural Engineering, Univ. of Surrey)',
-            text2: ', και την πολύτιμη καθοδήγηση του πατέρα μας',
-            name2: 'Ανέστη Μαυρίδη',
-            text3: ', με 30ετή εμπειρία στον κατασκευαστικό κλάδο, προσφέρουμε ολοκληρωμένες υπηρεσίες που περιλαμβάνουν σχεδιασμό, μελέτη, προϋπολογισμό, κατασκευή και εσωτερική διακόσμηση.'
-          },
-          part3: 'Η επιτυχία μας βασίζεται στο ομαδικό πνεύμα, τη δέσμευσή μας στην ποιότητα και την ικανότητά μας να χτίζουμε σχέσεις εμπιστοσύνης με τους πελάτες μας.'
-        },
-        en: {
-          part1: {
-            highlight: 'With a degree from the School of Architecture at AUTH (2000-2007)',
-            text: 'I brought a fresh perspective to the Greek architectural scene. My professional journey began in my hometown, where I had the privilege of working alongside an accomplished architect before establishing my own architectural firm.'
-          },
-          part2: {
-            text: 'Today, together with my brother',
-            name1: 'Ioannis Mavridis',
-            degree: '(MSc Structural Engineering, Univ. of Surrey)',
-            text2: ', and the invaluable guidance of our father',
-            name2: 'Anestis Mavridis',
-            text3: ', with 30 years of experience in the construction industry, we offer comprehensive services including design, study, budgeting, construction, and interior decoration.'
-          },
-          part3: 'Our success is built on teamwork, our commitment to quality, and our ability to build relationships of trust with our clients.'
-        }
-      },
-      styledText: {
-        el: {
-          part1: {
-            highlight: 'Με πτυχίο από την Αρχιτεκτονική Σχολή του ΑΠΘ (2000-2007)',
-            text: 'εισήγαγα μια φρέσκια προοπτική στην ελληνική αρχιτεκτονική σκηνή. Η επαγγελματική μου πορεία ξεκίνησε στη γενέτειρά μου, όπου είχα την τύχη να συνεργαστώ με έναν καταξιωμένο αρχιτέκτονα, προτού ιδρύσω το δικό μου αρχιτεκτονικό γραφείο.'
-          },
-          part2: {
-            text: 'Σήμερα, μαζί με τον αδελφό μου',
-            name1: 'Ιωάννη Μαυρίδη',
-            degree: '(MSc Structural Engineering, Univ. of Surrey)',
-            text2: ', και την πολύτιμη καθοδήγηση του πατέρα μας',
-            name2: 'Ανέστη Μαυρίδη',
-            text3: ', με 30ετή εμπειρία στον κατασκευαστικό κλάδο, προσφέρουμε ολοκληρωμένες υπηρεσίες που περιλαμβάνουν σχεδιασμό, μελέτη, προϋπολογισμό, κατασκευή και εσωτερική διακόσμηση.'
-          },
-          part3: 'Η επιτυχία μας βασίζεται στο ομαδικό πνεύμα, τη δέσμευσή μας στην ποιότητα και την ικανότητά μας να χτίζουμε σχέσεις εμπιστοσύνης με τους πελάτες μας.'
-        },
-        en: {
-          part1: {
-            highlight: 'With a degree from the School of Architecture at AUTH (2000-2007)',
-            text: 'I brought a fresh perspective to the Greek architectural scene. My professional journey began in my hometown, where I had the privilege of working alongside an accomplished architect before establishing my own architectural firm.'
-          },
-          part2: {
-            text: 'Today, together with my brother',
-            name1: 'Ioannis Mavridis',
-            degree: '(MSc Structural Engineering, Univ. of Surrey)',
-            text2: ', and the invaluable guidance of our father',
-            name2: 'Anestis Mavridis',
-            text3: ', with 30 years of experience in the construction industry, we offer comprehensive services including design, study, budgeting, construction, and interior decoration.'
-          },
-          part3: 'Our success is built on teamwork, our commitment to quality, and our ability to build relationships of trust with our clients.'
-        }
-      }
+      architectOffice: 'ARCHInima – Αρχιτεκτονικό Γραφείο',
+      ceo: 'Γιάννης Μαυρίδης, Διευθύνων Σύμβουλος'
     },
     blog: {
       title: {
@@ -413,6 +326,52 @@ export const translations = {
         el: 'Διαβάστε τα τελευταία νέα και άρθρα μας',
         en: 'Read our latest news and articles'
       }
+    },
+    whyInterested: {
+      title: {
+        el: 'Ανάπτυξη & Συμβουλευτική Ακινήτων',
+        en: 'Real Estate Development & Consulting'
+      },
+      subtitle: {
+        el: 'Γιατί να σας ενδιαφέρει:',
+        en: 'Why you should be interested:'
+      },
+      heroTitle: 'Στην Καρδιά των Βαλκανίων: Ευκαιρίες στην Θράκη',
+      location: {
+        el: [
+          'Η εταιρεία μας εδρεύει στην Κομοτηνή, πρωτεύουσα της Θράκης, στη Βόρεια Ελλάδα.',
+          'Η περιοχή μας συνορεύει με τη Βουλγαρία στα βόρεια (15 χλμ. σύνορα) και με την Τουρκία στα ανατολικά (80 χλμ. σύνορα). Η Θεσσαλονίκη, το δεύτερο μεγαλύτερο οικονομικό κέντρο της Ελλάδας, απέχει 270 χλμ. (2 ώρες μέσω αυτοκινητόδρομου). Το Πλόβντιβ, το δεύτερο μεγαλύτερο οικονομικό κέντρο της Βουλγαρίας, απέχει 1,5 ώρα οδικώς, ενώ η Κωνσταντινούπολη είναι προσβάσιμη σε 3,5 ώρες με αυτοκίνητο, με καθημερινές διεθνείς συγκοινωνίες, συμπεριλαμβανομένης σύνδεσης με το Αεροδρόμιο Ατατούρκ.',
+          'Αυτά τα χαρακτηριστικά τοποθετούν τη Θράκη στο επίκεντρο μιας αναδυόμενης τουριστικής αγοράς...'
+        ],
+        en: [
+          'Our company is based in Komotini, the capital of Thrace, in Northern Greece.',
+          'Our region borders Bulgaria to the north (15 km border) and Turkey to the east (80 km border). Thessaloniki, Greece\'s second-largest economic center, is 270 km away (2 hours via highway). Plovdiv, Bulgaria\'s second-largest economic center, is 1.5 hours away by road, while Istanbul is accessible in 3.5 hours by car, with daily international connections, including a link to Ataturk Airport.',
+          'These characteristics place Thrace at the center of an emerging tourist market...'
+        ]
+      },
+      touristAttractions: {
+        title: {
+          el: 'Τουριστικά Σημεία Ενδιαφέροντος',
+          en: 'Tourist Attractions'
+        },
+        items: {
+          el: [
+            {
+              title: 'Περιοχή Μαρώνειας',
+              description: 'Με ήσυχες παραλίες, αιωνόβιες ελιές, αμπελώνες και παραδοσιακές ταβέρνες με φρέσκο ψάρι.'
+            },
+            // ... υπόλοιπα σημεία ενδιαφέροντος
+          ],
+          en: [
+            {
+              title: 'Maroneia Area',
+              description: 'With quiet beaches, ancient olive trees, vineyards, and traditional taverns serving fresh fish.'
+            },
+            // ... remaining attractions
+          ]
+        }
+      },
+      // ... υπόλοιπες μεταφράσεις
     }
   },
   en: {
@@ -434,8 +393,8 @@ export const translations = {
       companyDescription: 'Professional real estate services and architectural solutions in Greece.',
       contactInfo: 'Contact Information',
       officeHours: 'Office Hours',
-      workDays: 'Monday - Friday: 9:00 - 18:00',
-      saturday: 'Saturday: 10:00 - 14:00',
+      workDays: 'Monday - Friday: 9:00 AM - 6:00 PM',
+      saturday: 'Saturday: 10:00 AM - 2:00 PM',
       sunday: 'Sunday: Closed',
       rights: 'All rights reserved.'
     },
@@ -711,29 +670,17 @@ export const translations = {
       }
     },
     engineeringServices: {
-      hero: {
-        title: {
-          el: 'Υπηρεσίες Μηχανικού',
-          en: 'Engineering Services'
-        },
-        subtitle: {
-          el: 'Ολοκληρωμένες υπηρεσίες μηχανικού και τεχνικές μελέτες',
-          en: 'Comprehensive engineering services and technical studies'
-        }
-      },
-      about: {
-        title: 'ARCHInima – Αρχιτεκτονικό Γραφείο',
-        description: 'Απόφοιτη της Αρχιτεκτονικής Σχολής του ΑΠΘ (2000-2007), με φρέσκια ματιά στην ελληνική αρχιτεκτονική και οικοδομική πραγματικότητα, ξεκίνησα την πορεία μου στη γενέτειρά μου δίπλα σε έμπειρο αρχιτέκτονα. Στη συνέχεια, δημιούργησα το δικό μου αρχιτεκτονικό γραφείο.\n\nΜαζί με τον αδελφό μου, Ιωάννη Μαυρίδη (MSc Structural Engineering, Univ. of Surrey), και τις πολύτιμες συμβουλές του πατέρα μας, Ανέστη Μαυρίδη, με 30ετή εμπειρία στις κατασκευές, αναλαμβάνουμε ολοκληρωμένα τον σχεδιασμό, τη μελέτη, τον προϋπολογισμό, την κατασκευή και την εσωτερική διακόσμηση κάθε έργου.\n\nΤο ομαδικό πνεύμα, η θέληση και η φιλική μας διάθεση δημιουργούν σχέσεις εμπιστοσύνης με τους πελάτες μας, κάτι που για εμάς αποτελεί την απόλυτη επιτυχία.'
-      },
+      title: 'Engineering Services',
+      description: 'Comprehensive solutions for every project',
       services: {
         title: 'Our Services',
         items: [
-          'Architectural design and architectural study - supervision',
-          'Complete building permit file issuance and project supervision',
-          'Issuance of health-related operating licenses of all types',
-          'Energy inspection - inclusion in the "Energy Saving at Home" program',
-          'Building Inspector',
-          'Apartment and store renovations',
+          'Architectural design and architectural study – supervision',
+          'Issuance of a complete building permit file and supervision of the project',
+          'Issuance of health interest operation permits of all types',
+          'Energy inspection – inclusion in the "Energy Saving at Home" program',
+          'Building inspector',
+          'Renovations of apartments and shops',
           'Interior decoration',
           'Photorealism and virtual video'
         ]
@@ -747,86 +694,11 @@ export const translations = {
           '17 years of experience in Private Construction Projects',
           '8 years of experience in Real Estate Valuations',
           'Experience in Technical Expertise',
-          'Member of the Permanent Committee for Spatial Planning and Environment of TEE Thrace'
+          'Member of the Permanent Committee for Spatial Planning and Environment'
         ]
       },
-      introduction: {
-        el: `Απόφοιτη της Αρχιτεκτονικής Σχολής του ΑΠΘ (2000-2007), με φρέσκια ματιά στην ελληνική αρχιτεκτονική και οικοδομική πραγματικότητα, ξεκίνησα την πορεία μου στη γενέτειρά μου δίπλα σε έμπειρο αρχιτέκτονα. Στη συνέχεια, δημιούργησα το δικό μου αρχιτεκτονικό γραφείο.
-
-        Μαζί με τον αδελφό μου, Ιωάννη Μαυρίδη (MSc Structural Engineering, Univ. of Surrey), και τις πολύτιμες συμβουλές του πατέρα μας, Ανέστη Μαυρίδη, με 30ετή εμπειρία στις κατασκευές, αναλαμβάνουμε ολοκληρωμένα τον σχεδιασμό, τη μελέτη, τον προϋπολογισμό, την κατασκευή και την εσωτερική διακόσμηση κάθε έργου.
-
-        Το ομαδικό πνεύμα, η θέληση και η φιλική μας διάθεση δημιουργούν σχέσεις εμπιστοσύνης με τους πελάτες μας, κάτι που για εμάς αποτελεί την απόλυτη επιτυχία.`,
-        
-        en: `A graduate of the School of Architecture at AUTH (2000-2007), with a fresh perspective on Greek architectural and construction reality, I began my journey in my hometown alongside an experienced architect. Subsequently, I established my own architectural office.
-
-        Together with my brother, Ioannis Mavridis (MSc Structural Engineering, Univ. of Surrey), and the valuable guidance of our father, Anestis Mavridis, who has 30 years of experience in construction, we comprehensively undertake the design, study, budgeting, construction, and interior decoration of each project.
-
-        Our team spirit, determination, and friendly approach create relationships of trust with our clients, which for us represents absolute success.`
-      },
-      styledIntro: {
-        el: {
-          part1: {
-            highlight: 'Με πτυχίο από την Αρχιτεκτονική Σχολή του ΑΠΘ (2000-2007)',
-            text: 'εισήγαγα μια φρέσκια προοπτική στην ελληνική αρχιτεκτονική σκηνή. Η επαγγελματική μου πορεία ξεκίνησε στη γενέτειρά μου, όπου είχα την τύχη να συνεργαστώ με έναν καταξιωμένο αρχιτέκτονα, προτού ιδρύσω το δικό μου αρχιτεκτονικό γραφείο.'
-          },
-          part2: {
-            text: 'Σήμερα, μαζί με τον αδελφό μου',
-            name1: 'Ιωάννη Μαυρίδη',
-            degree: '(MSc Structural Engineering, Univ. of Surrey)',
-            text2: ', και την πολύτιμη καθοδήγηση του πατέρα μας',
-            name2: 'Ανέστη Μαυρίδη',
-            text3: ', με 30ετή εμπειρία στον κατασκευαστικό κλάδο, προσφέρουμε ολοκληρωμένες υπηρεσίες που περιλαμβάνουν σχεδιασμό, μελέτη, προϋπολογισμό, κατασκευή και εσωτερική διακόσμηση.'
-          },
-          part3: 'Η επιτυχία μας βασίζεται στο ομαδικό πνεύμα, τη δέσμευσή μας στην ποιότητα και την ικανότητά μας να χτίζουμε σχέσεις εμπιστοσύνης με τους πελάτες μας.'
-        },
-        en: {
-          part1: {
-            highlight: 'With a degree from the School of Architecture at AUTH (2000-2007)',
-            text: 'I brought a fresh perspective to the Greek architectural scene. My professional journey began in my hometown, where I had the privilege of working alongside an accomplished architect before establishing my own architectural firm.'
-          },
-          part2: {
-            text: 'Today, together with my brother',
-            name1: 'Ioannis Mavridis',
-            degree: '(MSc Structural Engineering, Univ. of Surrey)',
-            text2: ', and the invaluable guidance of our father',
-            name2: 'Anestis Mavridis',
-            text3: ', with 30 years of experience in the construction industry, we offer comprehensive services including design, study, budgeting, construction, and interior decoration.'
-          },
-          part3: 'Our success is built on teamwork, our commitment to quality, and our ability to build relationships of trust with our clients.'
-        }
-      },
-      styledText: {
-        el: {
-          part1: {
-            highlight: 'Με πτυχίο από την Αρχιτεκτονική Σχολή του ΑΠΘ (2000-2007)',
-            text: 'εισήγαγα μια φρέσκια προοπτική στην ελληνική αρχιτεκτονική σκηνή. Η επαγγελματική μου πορεία ξεκίνησε στη γενέτειρά μου, όπου είχα την τύχη να συνεργαστώ με έναν καταξιωμένο αρχιτέκτονα, προτού ιδρύσω το δικό μου αρχιτεκτονικό γραφείο.'
-          },
-          part2: {
-            text: 'Σήμερα, μαζί με τον αδελφό μου',
-            name1: 'Ιωάννη Μαυρίδη',
-            degree: '(MSc Structural Engineering, Univ. of Surrey)',
-            text2: ', και την πολύτιμη καθοδήγηση του πατέρα μας',
-            name2: 'Ανέστη Μαυρίδη',
-            text3: ', με 30ετή εμπειρία στον κατασκευαστικό κλάδο, προσφέρουμε ολοκληρωμένες υπηρεσίες που περιλαμβάνουν σχεδιασμό, μελέτη, προϋπολογισμό, κατασκευή και εσωτερική διακόσμηση.'
-          },
-          part3: 'Η επιτυχία μας βασίζεται στο ομαδικό πνεύμα, τη δέσμευσή μας στην ποιότητα και την ικανότητά μας να χτίζουμε σχέσεις εμπιστοσύνης με τους πελάτες μας.'
-        },
-        en: {
-          part1: {
-            highlight: 'With a degree from the School of Architecture at AUTH (2000-2007)',
-            text: 'I brought a fresh perspective to the Greek architectural scene. My professional journey began in my hometown, where I had the privilege of working alongside an accomplished architect before establishing my own architectural firm.'
-          },
-          part2: {
-            text: 'Today, together with my brother',
-            name1: 'Ioannis Mavridis',
-            degree: '(MSc Structural Engineering, Univ. of Surrey)',
-            text2: ', and the invaluable guidance of our father',
-            name2: 'Anestis Mavridis',
-            text3: ', with 30 years of experience in the construction industry, we offer comprehensive services including design, study, budgeting, construction, and interior decoration.'
-          },
-          part3: 'Our success is built on teamwork, our commitment to quality, and our ability to build relationships of trust with our clients.'
-        }
-      }
+      architectOffice: 'ARCHInima – Architectural Office',
+      ceo: 'Giannis Mavridis, Company CEO'
     },
     blog: {
       title: {
@@ -837,6 +709,52 @@ export const translations = {
         el: 'Διαβάστε τα τελευταία νέα και άρθρα μας',
         en: 'Read our latest news and articles'
       }
+    },
+    whyInterested: {
+      title: {
+        el: 'Ανάπτυξη & Συμβουλευτική Ακινήτων',
+        en: 'Real Estate Development & Consulting'
+      },
+      subtitle: {
+        el: 'Γιατί να σας ενδιαφέρει:',
+        en: 'Why you should be interested:'
+      },
+      heroTitle: 'In the Heart of the Balkans: Opportunities in Thrace',
+      location: {
+        el: [
+          'Η εταιρεία μας εδρεύει στην Κομοτηνή, πρωτεύουσα της Θράκης, στη Βόρεια Ελλάδα.',
+          'Η περιοχή μας συνορεύει με τη Βουλγαρία στα βόρεια (15 χλμ. σύνορα) και με την Τουρκία στα ανατολικά (80 χλμ. σύνορα). Η Θεσσαλονίκη, το δεύτερο μεγαλύτερο οικονομικό κέντρο της Ελλάδας, απέχει 270 χλμ. (2 ώρες μέσω αυτοκινητόδρομου). Το Πλόβντιβ, το δεύτερο μεγαλύτερο οικονομικό κέντρο της Βουλγαρίας, απέχει 1,5 ώρα οδικώς, ενώ η Κωνσταντινούπολη είναι προσβάσιμη σε 3,5 ώρες με αυτοκίνητο, με καθημερινές διεθνείς συγκοινωνίες, συμπεριλαμβανομένης σύνδεσης με το Αεροδρόμιο Ατατούρκ.',
+          'Αυτά τα χαρακτηριστικά τοποθετούν τη Θράκη στο επίκεντρο μιας αναδυόμενης τουριστικής αγοράς...'
+        ],
+        en: [
+          'Our company is based in Komotini, the capital of Thrace, in Northern Greece.',
+          'Our region borders Bulgaria to the north (15 km border) and Turkey to the east (80 km border). Thessaloniki, Greece\'s second-largest economic center, is 270 km away (2 hours via highway). Plovdiv, Bulgaria\'s second-largest economic center, is 1.5 hours away by road, while Istanbul is accessible in 3.5 hours by car, with daily international connections, including a link to Ataturk Airport.',
+          'These characteristics place Thrace at the center of an emerging tourist market...'
+        ]
+      },
+      touristAttractions: {
+        title: {
+          el: 'Τουριστικά Σημεία Ενδιαφέροντος',
+          en: 'Tourist Attractions'
+        },
+        items: {
+          el: [
+            {
+              title: 'Περιοχή Μαρώνειας',
+              description: 'Με ήσυχες παραλίες, αιωνόβιες ελιές, αμπελώνες και παραδοσιακές ταβέρνες με φρέσκο ψάρι.'
+            },
+            // ... υπόλοιπα σημεία ενδιαφέροντος
+          ],
+          en: [
+            {
+              title: 'Maroneia Area',
+              description: 'With quiet beaches, ancient olive trees, vineyards, and traditional taverns serving fresh fish.'
+            },
+            // ... remaining attractions
+          ]
+        }
+      },
+      // ... υπόλοιπες μεταφράσεις
     }
   }
 }; 

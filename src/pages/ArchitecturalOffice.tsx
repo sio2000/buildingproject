@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Ruler, PencilRuler, Building2, Compass, CheckCircle2, X } from 'lucide-react';
+import { Ruler, PencilRuler, Building2, Compass, CheckCircle2, X, ArrowRight } from 'lucide-react';
 import { useTranslation } from '../hooks/useTranslation';
 import { useLanguage } from '../context/LanguageContext';
 import f1 from '../assets/images/f1.jpg';
@@ -39,10 +39,12 @@ import ak from '../assets/images/ak.jpg';
 import al from '../assets/images/al.jpg';
 import lop from '../assets/images/lop.png';
 import lop2 from '../assets/images/lop2.jpg';
+import { Link } from 'react-router-dom';
 
 interface ServiceItem {
   title: string;
   description: string;
+  link?: string;
 }
 
 interface ArrowProps {
@@ -115,25 +117,49 @@ const ArchitecturalOffice = () => {
     visible: { opacity: 1, y: 0 }
   };
 
-  const architecturalServices = {
-    title: 'Αρχιτεκτονικές Υπηρεσίες',
-    description: 'Παρέχουμε ολοκληρωμένες αρχιτεκτονικές λύσεις για κάθε έργο',
-    services: [
+  const services = {
+    el: [
       {
         title: 'Αρχιτεκτονικός Σχεδιασμός',
-        description: 'Δημιουργικές και λειτουργικές λύσεις για κάθε χώρο'
-      },
-      {
-        title: 'Μελέτες Κατασκευής',
-        description: 'Λεπτομερείς μελέτες για την άρτια υλοποίηση του έργου'
-      },
-      {
-        title: 'Ανακαινίσεις',
-        description: 'Ανανέωση και αναβάθμιση υφιστάμενων χώρων'
+        description: 'Σχεδιασμός κτιρίων με έμφαση στην αισθητική και λειτουργικότητα',
+        link: '/architectural-design'
       },
       {
         title: 'Εσωτερική Διακόσμηση',
-        description: 'Σχεδιασμός εσωτερικών χώρων με αισθητική και λειτουργικότητα'
+        description: 'Σχεδιασμός εσωτερικών χώρων με αισθητική και λειτουργικότητα',
+        link: '/interior-design'
+      },
+      {
+        title: 'Μελέτες Κατασκευής',
+        description: 'Λεπτομερείς μελέτες για την άρτια υλοποίηση του έργου',
+        link: '/blog'
+      },
+      {
+        title: 'Ανακαινίσεις',
+        description: 'Ανανέωση και αναβάθμιση υφιστάμενων χώρων',
+        link: '/renovations'
+      }
+    ],
+    en: [
+      {
+        title: 'Architectural Design',
+        description: 'Building design with emphasis on aesthetics and functionality',
+        link: '/architectural-design'
+      },
+      {
+        title: 'Interior Design',
+        description: 'Interior space design with aesthetics and functionality',
+        link: '/interior-design'
+      },
+      {
+        title: 'Construction Studies',
+        description: 'Detailed studies for the proper implementation of the project',
+        link: '/blog'
+      },
+      {
+        title: 'Renovations',
+        description: 'Renovation and upgrading of existing spaces',
+        link: '/renovations'
       }
     ]
   };
@@ -284,16 +310,24 @@ Maroneia, Rodopi, Μαρώνεια, Προφήτης Ηλίας Ροδόπης
   };
 
   useEffect(() => {
+    // Ορισμός title και meta description για SEO
     document.title = language === 'el' 
-      ? 'Αρχιτεκτονικό Γραφείο | MAVRIDIS - Κατασκευές & Αρχιτεκτονικές Υπηρεσίες'
-      : 'Architectural Office | MAVRIDIS - Constructions & Architectural Services';
+      ? 'Αρχιτεκτονικό Γραφείο | IN-MAVRIDIS - Σχεδιασμός, Μελέτες & Κατασκευές στην Κομοτηνή'
+      : 'Architectural Office | IN-MAVRIDIS - Design, Studies & Construction in Komotini';
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', language === 'el'
-        ? 'Εξειδικευμένες αρχιτεκτονικές υπηρεσίες από το γραφείο MAVRIDIS στην Κομοτηνή. Σχεδιασμός κατοικιών, επαγγελματικών χώρων, ανακαινίσεις και αρχιτεκτονικές μελέτες.'
-        : 'Specialized architectural services by MAVRIDIS office in Komotini. House design, commercial spaces, renovations and architectural studies.'
+        ? 'Ολοκληρωμένες αρχιτεκτονικές υπηρεσίες στην Κομοτηνή. Αρχιτεκτονικός σχεδιασμός, μελέτες, κατασκευές, ανακαινίσεις και εσωτερική διακόσμηση. Εμπειρία 17+ ετών στον κλάδο.'
+        : 'Comprehensive architectural services in Komotini, Greece. Architectural design, studies, construction, renovations and interior design. 17+ years of industry experience.'
       );
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = language === 'el'
+        ? 'Ολοκληρωμένες αρχιτεκτονικές υπηρεσίες στην Κομοτηνή. Αρχιτεκτονικός σχεδιασμός, μελέτες, κατασκευές, ανακαινίσεις και εσωτερική διακόσμηση. Εμπειρία 17+ ετών στον κλάδο.'
+        : 'Comprehensive architectural services in Komotini, Greece. Architectural design, studies, construction, renovations and interior design. 17+ years of industry experience.';
+      document.head.appendChild(meta);
     }
   }, [language]);
 
@@ -353,14 +387,29 @@ Maroneia, Rodopi, Μαρώνεια, Προφήτης Ηλίας Ροδόπης
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {(t('architecturalOffice.services.items') as ServiceItem[]).map((service: ServiceItem, index: number) => (
+            {services[language].map((service, index) => (
               <motion.div
                 key={index}
-                className="bg-white p-6 rounded-lg shadow-md hover-card"
-                variants={itemVariants}
+                className="flex items-start space-x-4"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1 * index }}
               >
-                <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
+                <CheckCircle2 className="w-6 h-6 text-blue-600 mt-1" />
+                <div>
+                  {service.link ? (
+                    <Link 
+                      to={service.link}
+                      className="group inline-flex items-center text-lg font-semibold text-blue-600 hover:text-blue-700"
+                    >
+                      {service.title}
+                      <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  ) : (
+                    <h3 className="text-lg font-semibold">{service.title}</h3>
+                  )}
+                  <p className="text-gray-600 mt-1">{service.description}</p>
+                </div>
               </motion.div>
             ))}
           </motion.div>

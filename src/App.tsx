@@ -11,6 +11,12 @@ import Contact from './pages/Contact';
 import Projects from './pages/Projects';
 import EngineeringServices from './pages/EngineeringServices';
 import Blog from './pages/Blog';
+import Portfolio from './pages/Portfolio';
+import ProjectDetail from './pages/ProjectDetail';
+import InteriorDesign from './pages/InteriorDesign';
+import WhyInterested from './pages/WhyInterested';
+import Renovations from './pages/Renovations';
+import ArchitecturalDesign from './pages/ArchitecturalDesign';
 
 function App() {
   return (
@@ -19,14 +25,20 @@ function App() {
         <ScrollToTop />
         <div className="min-h-screen flex flex-col">
           <Navbar />
-          <main className="flex-grow pt-16 md:pt-20">
+          <main className="flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/architectural-office" element={<ArchitecturalOffice />} />
               <Route path="/engineering-services" element={<EngineeringServices />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/portfolio/:projectId" element={<ProjectDetail />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/blog" element={<Blog />} />
+              <Route path="/interior-design" element={<InteriorDesign />} />
+              <Route path="/whyinterested" element={<WhyInterested />} />
+              <Route path="/renovations" element={<Renovations />} />
+              <Route path="/architectural-design" element={<ArchitecturalDesign />} />
             </Routes>
           </main>
           <Footer />

@@ -1,42 +1,140 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Building2, Calculator, Building, Ruler, FileText } from 'lucide-react';
+import { Building2, Calculator, Building, Ruler, FileText, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { useTranslation } from '../hooks/useTranslation';
 import { useLanguage } from '../context/LanguageContext';
-import { useState } from 'react';
 import t2 from '../assets/images/t2.jpg';
+import architecturalDesign from '../assets/images/architectural-design.jpg';
+import img77 from '../assets/images/77.jpg';
+import imgRt5 from '../assets/images/rt5.jpg';
 
 interface FeatureItem {
   title: string;
   description: string;
 }
 
+const certifications = {
+  el: {
+    column1: [
+      '<strong>Πιστοποιημένος Ελεγκτής Δόμησης</strong>. Για έργα της μεγαλύτερης κατηγορίας.',
+      '<strong>Πιστοποιημένος Επιθεωρητής Καταλυμάτων</strong>. Για κατηγοριοποίηση ξενοδοχειακών μονάδων (αστεροποίηση) και ενοικιαζόμενων δωματίων (κλειδιά) από την <strong>TÜV Austria</strong>.',
+      'Εμπειρία στις <strong>Εκτιμήσεις Ακινήτων</strong>, με συνεργασίες με διάφορες τράπεζες (Πανελλήνια, Ασπίς, Αγροτική, Πειραιώς).',
+      'Εξειδίκευση σε <strong>Ενεργειακές Μελέτες και Επιθεωρήσεις</strong> βάσει <strong>ΚΕΝΑΚ</strong>.',
+      'Διεκπεραίωση προγράμματος <strong>"Εξοικονομώ κατ\' Οίκον"</strong>.',
+      '<strong>Expert Valuer in Real Estate Property (REV) – TEGoVA</strong>.',
+      '<strong>Πιστοποιημένη Εκτιμήτρια Ακινήτων</strong>, διεξάγοντας εκτιμήσεις σύμφωνα με τα Ευρωπαϊκά Πρότυπα.'
+    ],
+    column2: [
+      '<strong>ΜΕΛΟΣ ΕΠΑΓΓΕΛΜΑΤΙΚΩΝ ΟΡΓΑΝΙΣΜΩΝ</strong>',
+      '<strong>Πιστοποίηση ISO/IEC 17024</strong>.',
+      '<strong>Μέλος του Συλλόγου Εκτιμητών Ελλάδος (Σ.ΕΚ.Ε.)</strong>.',
+      '<strong>Συμμετοχή στην TEGoVA</strong>.',
+      '<strong>Εντεταλμένος Χορηγός REV της TEGoVA</strong>.'
+    ]
+  },
+  en: {
+    column1: [
+      '<strong>Certified Building Inspector</strong> for large-scale projects.',
+      '<strong>Certified Accommodation Inspector</strong> for the classification of <strong>hotel units</strong> (star rating) and <strong>rental rooms</strong> (keys) by <strong>TÜV Austria</strong>.',
+      'Expertise in <strong>Real Estate Valuations</strong>, with collaborations with various banks (Panellinia, Aspis, Agricultural Bank, Piraeus Bank).',
+      'Specialization in <strong>Energy Studies and Inspections</strong> based on <strong>KENAK</strong>.',
+      'Execution of programs such as <strong>"Exoikonomo kat\' Oikon"</strong>.',
+      '<strong>Expert Valuer in Real Estate Property (REV) – TEGoVA</strong>.',
+      '<strong>Certified Real Estate Appraiser</strong>, conducting valuations in accordance with European Standards.'
+    ],
+    column2: [
+      '<strong>MEMBERSHIP IN PROFESSIONAL ORGANIZATIONS</strong>',
+      '<strong>ISO/IEC 17024 Certification</strong>.',
+      '<strong>Member of the Hellenic Association of Valuers (Σ.ΕΚ.Ε.)</strong>.',
+      '<strong>Participation in TEGoVA</strong>.',
+      '<strong>Designated REV Sponsor of TEGoVA</strong>.'
+    ]
+  }
+};
+
+const slides = {
+  el: [
+    {
+      title: 'Αρχιτεκτονικές λύσεις - Διακόσμηση χώρων',
+      description: 'Αδειοδοτήσεις, Καταστημάτων, Καταλυμάτων, Επιχειρήσεων',
+      buttonText: 'Επισκόπηση',
+      buttonLink: '/interior-design',
+      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop'
+    },
+    {
+      title: 'Χτίζουμε το Μέλλον, Σχεδιάζουμε τα Όνειρά σας',
+      description: 'Καινοτόμες αρχιτεκτονικές λύσεις και άριστη κατασκευαστική ποιότητα για κάθε έργο',
+      buttonText: 'Ανακαλύψτε τα κατασκευαστικά μας έργα',
+      buttonLink: '/blog',
+      image: t2
+    },
+    {
+      title: 'Δηλώσεις - Βεβαιώσεις αυθαίρετων',
+      description: 'Αρχιτεκτονικός σχεδιασμός, Έκδοση αδειών, Επαγγελματικών χώρων, Τουριστικών καταλυμάτων, Επιχειρήσεων',
+      buttonText: 'Δείτε τις αρχιτεκτονικές μας λύσεις',
+      buttonLink: '/portfolio',
+      image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop'
+    }
+  ],
+  en: [
+    {
+      title: 'Architectural Solutions - Interior Design',
+      description: 'Licensing, Stores, Accommodations, Businesses',
+      buttonText: 'Overview',
+      buttonLink: '/interior-design',
+      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop'
+    },
+    {
+      title: 'Building the Future, Designing Your Dreams',
+      description: 'Innovative architectural solutions and excellent construction quality for every project',
+      buttonText: 'Discover our construction projects',
+      buttonLink: '/blog',
+      image: t2
+    },
+    {
+      title: 'Arbitrary Building Declarations - Certifications',
+      description: 'Architectural design, Licensing, Commercial spaces, Tourist accommodations, Business premises',
+      buttonText: 'View our architectural solutions',
+      buttonLink: '/portfolio',
+      image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop'
+    }
+  ]
+};
+
 const Home = () => {
   const { t } = useTranslation();
   const { language } = useLanguage();
-  const [isHovered, setIsHovered] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    // SEO Optimization
+    // Ορισμός title και meta description για SEO
     document.title = language === 'el' 
-      ? 'MAVRIDIS - Κατασκευές & Αρχιτεκτονικές Υπηρεσίες στην Κομοτηνή'
-      : 'MAVRIDIS - Constructions & Architectural Services in Komotini';
+      ? 'IN-MAVRIDIS | Αρχιτεκτονικό Γραφείο & Τεχνικές Υπηρεσίες στην Κομοτηνή'
+      : 'IN-MAVRIDIS | Architectural Office & Technical Services in Komotini';
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', language === 'el'
-        ? 'Το γραφείο MAVRIDIS προσφέρει ολοκληρωμένες κατασκευαστικές και αρχιτεκτονικές υπηρεσίες στην Κομοτηνή. Αρχιτεκτονικές μελέτες, κατασκευές, ανακαινίσεις και επιβλέψεις έργων.'
-        : 'MAVRIDIS office offers comprehensive construction and architectural services in Komotini, Greece. Architectural studies, construction projects, renovations and project supervision.'
+        ? 'Το γραφείο IN-MAVRIDIS προσφέρει ολοκληρωμένες αρχιτεκτονικές και τεχνικές υπηρεσίες στην Κομοτηνή. Αρχιτεκτονικές μελέτες, κατασκευές, ανακαινίσεις, ενεργειακές επιθεωρήσεις και εκτιμήσεις ακινήτων.'
+        : 'IN-MAVRIDIS office offers comprehensive architectural and technical services in Komotini, Greece. Architectural studies, construction, renovations, energy inspections and real estate valuations.'
       );
     } else {
       const meta = document.createElement('meta');
       meta.name = 'description';
       meta.content = language === 'el'
-        ? 'Το γραφείο MAVRIDIS προσφέρει ολοκληρωμένες κατασκευαστικές και αρχιτεκτονικές υπηρεσίες στην Κομοτηνή. Αρχιτεκτονικές μελέτες, κατασκευές, ανακαινίσεις και επιβλέψεις έργων.'
-        : 'MAVRIDIS office offers comprehensive construction and architectural services in Komotini, Greece. Architectural studies, construction projects, renovations and project supervision.';
+        ? 'Το γραφείο IN-MAVRIDIS προσφέρει ολοκληρωμένες αρχιτεκτονικές και τεχνικές υπηρεσίες στην Κομοτηνή. Αρχιτεκτονικές μελέτες, κατασκευές, ανακαινίσεις, ενεργειακές επιθεωρήσεις και εκτιμήσεις ακινήτων.'
+        : 'IN-MAVRIDIS office offers comprehensive architectural and technical services in Komotini, Greece. Architectural studies, construction, renovations, energy inspections and real estate valuations.';
       document.head.appendChild(meta);
     }
+
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => {
+        const next = prev + 1;
+        return next >= slides[language].length ? 0 : next;
+      });
+    }, 5000);
+    return () => clearInterval(timer);
   }, [language]);
 
   const services = [
@@ -121,72 +219,141 @@ const Home = () => {
     }
   };
 
+  const nextSlide = () => {
+    setCurrentSlide((prev) => {
+      const next = prev + 1;
+      return next >= slides[language].length ? 0 : next;
+    });
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => {
+      const next = prev - 1;
+      return next < 0 ? slides[language].length - 1 : next;
+    });
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
-      <motion.div
-        className="relative h-[70vh] bg-cover bg-fixed"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        style={{
-          backgroundImage: `url(${t2})`,
-          backgroundPosition: 'center 40%'
-        }}
-      >
-        <motion.div 
-          className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5 }}
-        />
-        <div className="relative max-w-7xl mx-auto px-4 h-full flex items-center">
-          <div className="text-white max-w-2xl">
-            <motion.h1 
-              className="text-2xl md:text-4xl font-bold mb-4 glow"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ 
-                duration: 0.8,
-                type: "spring",
-                stiffness: 100 
+      {/* Hero Section with Slider - Changed height */}
+      <div className="relative h-[600px]">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <div 
+              className="relative h-full bg-cover bg-center bg-no-repeat"
+              style={{ 
+                backgroundImage: `url(${slides[language][currentSlide].image})`
               }}
             >
-              {t('home.hero.title')}
-            </motion.h1>
-            <motion.p 
-              className="text-base md:text-lg mb-6 max-w-xl"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ 
-                duration: 0.8,
-                delay: 0.2,
-                type: "spring",
-                stiffness: 100 
-              }}
-            >
-              {t('home.hero.subtitle')}
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ 
-                duration: 0.8,
-                delay: 0.4,
-                type: "spring",
-                stiffness: 100 
-              }}
-            >
-              <Link
-                to="/contact"
-                className="bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors inline-block"
-              >
-                {t('home.hero.cta')}
-              </Link>
-            </motion.div>
-          </div>
+              <div className="absolute inset-0 bg-black/50">
+                <div className="max-w-7xl mx-auto px-4 h-full flex flex-col justify-center items-center text-center">
+                  <motion.h1 
+                    className="text-3xl md:text-5xl font-bold text-white mb-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    {slides[language][currentSlide].title}
+                  </motion.h1>
+                  <motion.p 
+                    className="text-lg md:text-xl text-white mb-6 max-w-3xl"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                  >
+                    {slides[language][currentSlide].description}
+                  </motion.p>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6 }}
+                  >
+                    <Link
+                      to={slides[language][currentSlide].buttonLink || '/contact'}
+                      className="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors text-base border border-blue-400 shadow-md"
+                    >
+                      {slides[language][currentSlide].buttonText}
+                    </Link>
+                  </motion.div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-colors"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="h-8 w-8" />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-colors"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="h-8 w-8" />
+        </button>
+
+        {/* Slide indicators - Moved up slightly */}
+        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
+          {slides[language].map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-2 h-2 rounded-full transition-colors ${
+                index === currentSlide ? 'bg-white' : 'bg-white/50'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
-      </motion.div>
+      </div>
+
+      {/* Balkans Section */}
+      <div className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <motion.h2 
+            className="text-3xl font-bold text-center mb-8"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            {language === 'el' 
+              ? 'Γιατί αξίζει να ενδιαφερθείτε, ιδιαίτερα αν προέρχεστε από τα Βαλκάνια'
+              : 'Why you should be interested, especially if you come from the Balkans'}
+          </motion.h2>
+
+          <motion.div
+            className="max-w-4xl mx-auto bg-gray-50 p-8 rounded-lg shadow-lg"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-gray-700 text-lg leading-relaxed mb-6">
+              {language === 'el' 
+                ? 'Ανακαλύψτε τις μοναδικές ευκαιρίες ανάπτυξης και επενδύσεων στη Θράκη. Με στρατηγική τοποθεσία, δίπλα σε Βουλγαρία και Τουρκία, και πρόσβαση σε ανερχόμενες τουριστικές αγορές, η περιοχή μας προσφέρει αμέτρητες δυνατότητες.'
+                : 'Discover unique development and investment opportunities in Thrace. With a strategic location next to Bulgaria and Turkey, and access to emerging tourist markets, our region offers countless possibilities.'}
+            </p>
+            <Link
+              to="/whyinterested"
+              className="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              {language === 'el' ? 'Μάθετε περισσότερα!' : 'Learn more!'}
+            </Link>
+          </motion.div>
+        </div>
+      </div>
 
       {/* Construction Services Section */}
       <div className="py-16 bg-gray-50">
@@ -440,56 +607,46 @@ const Home = () => {
       </div>
 
       {/* Certifications Section */}
-      <div className="py-16 bg-white">
+      <div className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <motion.h2 
-            className="text-3xl font-bold text-center mb-12 gradient-text"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
+          <h2 className="text-3xl font-bold text-center mb-12">
             {t('home.certifications.title')}
-          </motion.h2>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Left Column */}
+            <motion.div
+              className="bg-gray-50 p-8 rounded-lg"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <ul className="space-y-3">
+                {certifications[language].column1.map((cert, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="text-blue-600 mr-2">•</span>
+                    <span className="text-gray-700" dangerouslySetInnerHTML={{ __html: cert }}></span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
 
-          {/* Expert Valuer Section */}
-          <motion.div
-            className="mb-12 bg-gray-50 p-8 rounded-lg"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-xl font-semibold mb-4">
-              {t('home.certifications.expertValuer.title')}
-            </h3>
-            <ul className="space-y-3">
-              {(t('home.certifications.expertValuer.items') as string[]).map((item, index) => (
-                <li key={index} className="flex items-start">
-                  <span className="text-blue-600 mr-2">•</span>
-                  <span className="text-gray-700">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Professional Memberships Section */}
-          <motion.div
-            className="bg-gray-50 p-8 rounded-lg"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-xl font-semibold mb-4">
-              {t('home.certifications.professionalMemberships.title')}
-            </h3>
-            <ul className="space-y-3">
-              {(t('home.certifications.professionalMemberships.items') as string[]).map((item, index) => (
-                <li key={index} className="flex items-start">
-                  <span className="text-blue-600 mr-2">•</span>
-                  <span className="text-gray-700">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+            {/* Right Column */}
+            <motion.div
+              className="bg-gray-50 p-8 rounded-lg"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <ul className="space-y-3">
+                {certifications[language].column2.map((cert, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="text-blue-600 mr-2">•</span>
+                    <span className="text-gray-700" dangerouslySetInnerHTML={{ __html: cert }}></span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
         </div>
       </div>
     </div>

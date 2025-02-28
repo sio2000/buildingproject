@@ -24,6 +24,7 @@ export const useTranslation = () => {
       value = value[k];
     }
     
+    console.log(`Translation for key "${key}":`, value);
     return value;
   };
 

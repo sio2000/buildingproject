@@ -26,18 +26,22 @@ const EngineeringServices = () => {
   const { language } = useLanguage();
 
   useEffect(() => {
-    document.title = language === 'el' 
-      ? 'Κατασκευαστικές Υπηρεσίες | MAVRIDIS - Κατασκευές & Αρχιτεκτονικές Υπηρεσίες'
-      : 'Construction Services | MAVRIDIS - Constructions & Architectural Services';
+    document.title = t('engineeringServices.title');
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', language === 'el'
-        ? 'Ολοκληρωμένες κατασκευαστικές υπηρεσίες από το γραφείο MAVRIDIS. Κατασκευές κτιρίων, επιβλέψεις έργων, στατικές μελέτες και τεχνικές συμβουλές στην Κομοτηνή.'
-        : 'Comprehensive construction services by MAVRIDIS office. Building construction, project supervision, structural studies and technical consulting in Komotini, Greece.'
-      );
+        ? 'Ολοκληρωμένες υπηρεσίες μηχανικού στην Κομοτηνή. Στατικές μελέτες, ενεργειακός σχεδιασμός, επιβλέψεις έργων, εκτιμήσεις ακινήτων και τεχνικές πραγματογνωμοσύνες. Πιστοποιημένος Ελεγκτής Δόμησης.'
+        : 'Comprehensive engineering services in Komotini, Greece. Structural studies, energy design, construction supervision, real estate valuations and technical expertise. Certified Building Inspector.');
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = language === 'el'
+        ? 'Ολοκληρωμένες υπηρεσίες μηχανικού στην Κομοτηνή. Στατικές μελέτες, ενεργειακός σχεδιασμός, επιβλέψεις έργων, εκτιμήσεις ακινήτων και τεχνικές πραγματογνωμοσύνες. Πιστοποιημένος Ελεγκτής Δόμησης.'
+        : 'Comprehensive engineering services in Komotini, Greece. Structural studies, energy design, construction supervision, real estate valuations and technical expertise. Certified Building Inspector.';
+      document.head.appendChild(meta);
     }
-  }, [language]);
+  }, [language, t]);
 
   const services = [
     'Αρχιτεκτονικός σχεδιασμός και αρχιτεκτονική μελέτη – επίβλεψη',
@@ -61,182 +65,143 @@ const EngineeringServices = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50 py-12">
       {/* Hero Section */}
-      <motion.div 
-        className="relative h-[400px] bg-cover bg-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        style={{
-          backgroundImage: `url(${backofficeImage})`
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80" />
-        <div className="relative max-w-7xl mx-auto px-4 h-full flex items-center">
-          <motion.div 
-            className="text-white"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-              {language === 'el' ? 'Υπηρεσίες Μηχανικού' : 'Engineering Services'}
-            </h1>
-            <p className="text-xl text-gray-200 max-w-2xl mb-4">
-              {language === 'el' 
-                ? 'Ολοκληρωμένες τεχνικές υπηρεσίες και μελέτες'
-                : 'Comprehensive technical services and studies'
-              }
-            </p>
-          </motion.div>
-        </div>
-      </motion.div>
-
-      {/* About Text Section */}
-      <div className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-12"
-          >
-            <div className="prose prose-lg mx-auto text-gray-600 max-w-4xl">
-              <p className="text-lg leading-relaxed mb-6">
-                <span className="font-semibold text-gray-800">
-                  {t('engineeringServices.introduction')[language].split('\n\n')[0]}
-                </span>
-              </p>
-              
-              <p className="text-lg leading-relaxed mb-6">
-                {t('engineeringServices.introduction')[language].split('\n\n')[1]}
-              </p>
-              
-              <p className="text-lg leading-relaxed italic text-gray-700">
-                {t('engineeringServices.introduction')[language].split('\n\n')[2]}
-              </p>
-            </div>
-          </motion.div>
+      <div className="relative w-full h-[50vh] bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${backofficeImage})` }}>
+        <div className="absolute inset-0 bg-black bg-opacity-50" />
+        <div className="relative h-full flex flex-col justify-center items-center text-center text-white">
+          <motion.h1 className="text-5xl font-bold mb-4" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}>
+            {t('engineeringServices.title')}
+          </motion.h1>
+          <motion.p className="text-2xl" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
+            {t('engineeringServices.description')}
+          </motion.p>
         </div>
       </div>
 
-      {/* Image Grid - Smaller Images */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-3xl mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="relative rounded-xl overflow-hidden shadow-xl"
-        >
-          <img 
-            src={photo1} 
-            alt="Office View"
-            className="w-full h-[250px] object-cover"
-          />
+      <div className="max-w-7xl mx-auto px-4">
+        <motion.div className="bg-white rounded-xl shadow-lg p-10 mb-12" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
+          <h2 className="text-3xl font-bold mb-8 text-blue-700 border-b pb-4">
+            ARCHInima – Αρχιτεκτονικό Γραφείο
+          </h2>
+          <div className="flex items-center space-x-4">
+            <img src={photo1} alt="ARCHInima" className="w-1/2 h-auto rounded-lg" />
+            <div className="text-gray-700 leading-relaxed text-lg whitespace-pre-line space-y-6">
+              <p>
+                Με σπουδές στη Σχολή <strong>Αριστοτελείου Πανεπιστημίου</strong> Θεσσαλονίκης (2000-2007) και μια φρέσκια, δημιουργική ματιά στην ελληνική αρχιτεκτονική και οικοδομική πραγματικότητα, ξεκίνησα το ταξίδι μου στον κόσμο του σχεδιασμού. Η βαθιά σύνδεσή μου με την πλούσια και μακρόχρονη κατασκευαστική παράδοση της οικογένειάς μου αποτέλεσε πολύτιμο εφόδιο στα πρώτα μου βήματα, δίπλα σε έναν έμπειρο αρχιτέκτονα, ο οποίος μου μετέδωσε ανεκτίμητες γνώσεις. Αυτή η εμπειρία με οδήγησε στη δημιουργία του δικού μου αρχιτεκτονικού γραφείου, το ARCHInima.
+              </p>
+              <p>
+                Μαζί με τον αδελφό μου, Ιωάννη Μαυρίδη, πολιτικό μηχανικό (<strong>MSc Structural Engineering</strong>, <strong>Univ. of Surrey, UK</strong>), και τις πολύτιμες συμβουλές του πατέρα μας, Ανέστη Μαυρίδη, μηχανικού με <strong>30 χρόνια εμπειρίας</strong> στον κατασκευαστικό τομέα, αναλαμβάνουμε το έργο σας από την αρχή έως την ολοκλήρωσή του.
+              </p>
+              <p>
+                Αναλαμβάνουμε:
+                <ul className="list-disc list-inside">
+                  <li>✔️ Αρχιτεκτονικό σχεδιασμό</li>
+                  <li>✔️ Μελέτη & προϋπολογισμό</li>
+                  <li>✔️ Κατασκευή & διαχείριση έργου</li>
+                  <li>✔️ Εσωτερική διακόσμηση</li>
+                  <li>✔️ Ολοκληρωμένη καθοδήγηση προς την υλοποίηση κάθε οράματος</li>
+                </ul>
+              </p>
+              <p>
+                Το ομαδικό πνεύμα, η θέληση και η φιλική διάθεση που μας χαρακτηρίζουν δημιουργούν έναν δεσμό εμπιστοσύνης με τους ανθρώπους που μας επιλέγουν. Για εμάς, η πραγματική επιτυχία δεν βρίσκεται μόνο στην ολοκλήρωση ενός έργου, αλλά στη δημιουργία σχέσεων που αντέχουν στον χρόνο.
+              </p>
+            </div>
+          </div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="relative rounded-xl overflow-hidden shadow-xl"
-        >
-          <img 
-            src={photo2} 
-            alt="Γιάννης Μαυρίδης"
-            className="w-full h-[250px] object-cover"
-          />
+        {/* Νέο Κείμενο για Γιάννη Μαυρίδη */}
+        <motion.div className="bg-white rounded-xl shadow-lg p-10 mb-12">
+          <h2 className="text-3xl font-bold mb-4 text-blue-700">Γιάννης Μαυρίδης, Company CEO</h2>
+          <div className="flex items-center space-x-4">
+            <img src={photo2} alt="Γιάννης Μαυρίδης" className="w-1/2 h-auto rounded-lg" />
+            <div className="text-gray-700 leading-relaxed text-lg whitespace-pre-line space-y-6">
+              <ul className="list-disc list-inside">
+                <li><strong>17 ετής συνεχής εμπειρία</strong> στον Τομέα Στατικών Μελετών Αντισεισμικού Σχεδιασμού και Κατασκευής Κτιρίων από Οπλισμένο Σκυρόδεμα, με επιπλέον εξειδίκευση στον Σχεδιασμό κατά τις Διάβρωσης Σκυροδέματος.</li>
+                <li><strong>5 ετής εμπειρία</strong> στον τομέα του Ενεργειακού Σχεδιασμού κατά <strong>ΚΕΝΑΚ</strong>, και στις ενεργειακές μελέτες και Ενεργειακές Επιθεωρήσεις. Διεκπεραίωση προγράμματος «<strong>Εξοικονομώ κατ Οίκον</strong>».</li>
+                <li><strong>Πιστοποιημένος Ελεγκτής</strong> Δόμησης της μεγαλύτερης κατηγορίας Έργων.</li>
+                <li><strong>17 ετής εμπειρία</strong> στην Κατασκευή Ιδιωτικών Έργων – <strong>6 ετής εμπειρία</strong> στον τομέα Δημοσίων Έργων.</li>
+                <li><strong>8 ετής εμπειρία</strong> στον Τομέα Εκτιμήσεων Ακινήτων (Πανελλήνια Τράπεζα, Ασπίς Τράπεζα, Αγροτική Τράπεζα, Τράπεζα Πειραιώς).</li>
+                <li>Εμπειρία σε Τεχνικές Πραγματογνωμοσύνες (ΤΕΕ Θράκης, ιδιωτών, Δικαστηρίων).</li>
+                <li>Μέλος της Μόνιμης Επιτροπής Χωροταξίας και Περιβάλλοντος του ΤΕΕ Θράκης.</li>
+                <li>Άδειες Δόμησης, Άδειες λειτουργίας Καταστημάτων, Καταστημάτων Υγειονομικού Ενδιαφέροντος, Βιοτεχνιών, Μεταποιητικών επιχειρήσεων, Άδειες διατήρησης σταύλων(μαντριών).</li>
+                <li><strong>Πιστοποιημένος Επιθεωρητής Καταλυμμάτων</strong> για Κατηγοριοποίηση Ξενοδοχειακών Μονάδων (Αστεροποίηση) / Ενοικιαζόμενων Δωματίων (Κλειδιά) <strong>TUV Austria</strong>.</li>
+              </ul>
+            </div>
+          </div>
         </motion.div>
-      </div>
 
-      {/* About Section */}
-      <div className="py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-12"
-          >
-            <p className="text-gray-600 max-w-4xl mx-auto leading-relaxed whitespace-pre-line">
-              {language === 'el' 
-                ? 'Με πολυετή εμπειρία στον τομέα των τεχνικών υπηρεσιών, προσφέρουμε ολοκληρωμένες λύσεις για κάθε έργο.'
-                : 'With years of experience in technical services, we offer comprehensive solutions for every project.'
-              }
-            </p>
-          </motion.div>
+        {/* Services Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <h2 className="text-2xl font-bold mb-8 text-center gradient-text">
+            {t('engineeringServices.services.title')}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {t('engineeringServices.services.items').map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.02, backgroundColor: '#EEF2FF' }}
+                className="flex items-start space-x-4 p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+              >
+                <div className="p-3 bg-blue-100 rounded-lg">
+                  {index === 0 && <Ruler className="h-6 w-6 text-blue-600" />}
+                  {index === 1 && <FileText className="h-6 w-6 text-blue-600" />}
+                  {index === 2 && <ClipboardCheck className="h-6 w-6 text-blue-600" />}
+                  {index === 3 && <Zap className="h-6 w-6 text-blue-600" />}
+                  {index === 4 && <Building className="h-6 w-6 text-blue-600" />}
+                  {index === 5 && <Home className="h-6 w-6 text-blue-600" />}
+                  {index === 6 && <Paintbrush className="h-6 w-6 text-blue-600" />}
+                  {index === 7 && <Video className="h-6 w-6 text-blue-600" />}
+                </div>
+                <span className="text-gray-700 font-medium">{service}</span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
-          {/* Services Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16"
-          >
-            <h2 className="text-2xl font-bold mb-8 text-center gradient-text">
-              {t('engineeringServices.services.title')}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {t('engineeringServices.services.items').map((service, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ scale: 1.02, backgroundColor: '#EEF2FF' }}
-                  className="flex items-start space-x-4 p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
-                >
-                  <div className="p-3 bg-blue-100 rounded-lg">
-                    {index === 0 && <Ruler className="h-6 w-6 text-blue-600" />}
-                    {index === 1 && <FileText className="h-6 w-6 text-blue-600" />}
-                    {index === 2 && <ClipboardCheck className="h-6 w-6 text-blue-600" />}
-                    {index === 3 && <Zap className="h-6 w-6 text-blue-600" />}
-                    {index === 4 && <Building className="h-6 w-6 text-blue-600" />}
-                    {index === 5 && <Home className="h-6 w-6 text-blue-600" />}
-                    {index === 6 && <Paintbrush className="h-6 w-6 text-blue-600" />}
-                    {index === 7 && <Video className="h-6 w-6 text-blue-600" />}
-                  </div>
-                  <span className="text-gray-700 font-medium">{service}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Experience Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-2xl font-bold mb-8 text-center gradient-text">
-              {t('engineeringServices.experience.title')}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {t('engineeringServices.experience.items').map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ scale: 1.02, backgroundColor: '#F0FDF4' }}
-                  className="flex items-start space-x-4 p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
-                >
-                  <div className="p-3 bg-green-100 rounded-lg">
-                    {index === 0 && <Award className="h-6 w-6 text-green-600" />}
-                    {index === 1 && <Lightbulb className="h-6 w-6 text-green-600" />}
-                    {index === 2 && <BadgeCheck className="h-6 w-6 text-green-600" />}
-                    {index === 3 && <Building className="h-6 w-6 text-green-600" />}
-                    {index === 4 && <FileText className="h-6 w-6 text-green-600" />}
-                    {index === 5 && <ClipboardCheck className="h-6 w-6 text-green-600" />}
-                    {index === 6 && <Users className="h-6 w-6 text-green-600" />}
-                  </div>
-                  <span className="text-gray-700 font-medium">{item}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
+        {/* Experience Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-2xl font-bold mb-8 text-center gradient-text">
+            {t('engineeringServices.experience.title')}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {t('engineeringServices.experience.items').map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.02, backgroundColor: '#F0FDF4' }}
+                className="flex items-start space-x-4 p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+              >
+                <div className="p-3 bg-green-100 rounded-lg">
+                  {index === 0 && <Award className="h-6 w-6 text-green-600" />}
+                  {index === 1 && <Lightbulb className="h-6 w-6 text-green-600" />}
+                  {index === 2 && <BadgeCheck className="h-6 w-6 text-green-600" />}
+                  {index === 3 && <Building className="h-6 w-6 text-green-600" />}
+                  {index === 4 && <FileText className="h-6 w-6 text-green-600" />}
+                  {index === 5 && <ClipboardCheck className="h-6 w-6 text-green-600" />}
+                  {index === 6 && <Users className="h-6 w-6 text-green-600" />}
+                </div>
+                <span className="text-gray-700 font-medium">{item}</span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </div>
   );

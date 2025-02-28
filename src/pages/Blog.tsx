@@ -146,16 +146,24 @@ const Blog = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
+    // Ορισμός title και meta description για SEO
     document.title = language === 'el' 
-      ? 'Blog | MAVRIDIS - Κατασκευές & Αρχιτεκτονικές Υπηρεσίες'
-      : 'Blog | MAVRIDIS - Constructions & Architectural Services';
+      ? 'Blog | IN-MAVRIDIS - Νέα & Άρθρα για Αρχιτεκτονική, Κατασκευές & Ανακαινίσεις'
+      : 'Blog | IN-MAVRIDIS - News & Articles about Architecture, Construction & Renovations';
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', language === 'el'
-        ? 'Διαβάστε τα τελευταία νέα και άρθρα για κατασκευές, αρχιτεκτονική, ανακαινίσεις και τάσεις στον κλάδο από το γραφείο MAVRIDIS στην Κομοτηνή.'
-        : 'Read the latest news and articles about construction, architecture, renovations and industry trends from MAVRIDIS office in Komotini, Greece.'
+        ? 'Διαβάστε τα τελευταία νέα και άρθρα για αρχιτεκτονική, κατασκευές, ανακαινίσεις, εξοικονόμηση ενέργειας και τάσεις στον κλάδο. Ενημερωθείτε για τις τελευταίες εξελίξεις στον κατασκευαστικό τομέα.'
+        : 'Read the latest news and articles about architecture, construction, renovations, energy saving and industry trends. Stay updated with the latest developments in the construction sector.'
       );
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = language === 'el'
+        ? 'Διαβάστε τα τελευταία νέα και άρθρα για αρχιτεκτονική, κατασκευές, ανακαινίσεις, εξοικονόμηση ενέργειας και τάσεις στον κλάδο. Ενημερωθείτε για τις τελευταίες εξελίξεις στον κατασκευαστικό τομέα.'
+        : 'Read the latest news and articles about architecture, construction, renovations, energy saving and industry trends. Stay updated with the latest developments in the construction sector.';
+      document.head.appendChild(meta);
     }
   }, [language]);
 
@@ -182,14 +190,10 @@ const Blog = () => {
       excerpt: {
         el: `Νέο έργο σε εξέλιξη: «Ανέγερση δύο όμοιων προκατασκευασμένων κατοικιών στον παραθεριστικό οικισμό Προφήτη Ηλία Δήμου Μαρώνειας Σαπών, ΠΕ Ροδόπης». Ολοκλήρωση βάσεων σκυροδέματος και εν αναμονή του μεταλλικού σκελετού κατοικιών.
 
-Maroneia, Rodopi, Μαρώνεια, Προφήτης Ηλίας Ροδόπης
-
-#αρχιτεκτονικοσσχεδιασμος #στατικημελετη #επιβλεψηεργου #κατασκευηεργου`,
+Maroneia, Rodopi, Μαρώνεια, Προφήτης Ηλίας Ροδόπης`,
         en: `New project in progress: "Construction of two identical prefabricated houses in the holiday settlement of Profitis Ilias, Municipality of Maroneia Sapon, Rodopi". Completion of concrete foundations and awaiting the metal frame of the houses.
 
-Maroneia, Rodopi, Profitis Ilias Rodopi
-
-#architecturaldesign #structuraldesign #constructionsupervision #construction`
+Maroneia, Rodopi, Profitis Ilias Rodopi`
       },
       date: '2024-02-16',
       author: 'Νίκη Μαυρίδου & Ιωάννης Μαυρίδης',
@@ -209,9 +213,7 @@ Maroneia, Rodopi, Profitis Ilias Rodopi
 
 Σύμβουλοι μηχανικοί:
 @Yiannis Mavridis πολιτικός μηχανικός
-@Νίκη Μαυρίδου αρχιτέκτων μηχανικός
-
-#eadeia #ektimiseis #taftotitaktiriou #ktimatologio #afthereta #propertyresearchgreece #buildingpermitsgreece #maronia #fanari #komotini`,
+@Νίκη Μαυρίδου αρχιτέκτων μηχανικός`,
         en: `Architectural Office, Civil Engineering Office MSc Civil Engineer. Architectural studies, Structural studies, Energy studies (KENAK), Reinforcement & KANEPE studies, Penetron applications, Existing building load-bearing capacity assessment studies, Floor addition assessment studies, Complete construction supervision with construction details and stage costing, Complete construction site management until completion.`
       },
       date: '2024-02-15',
@@ -230,9 +232,7 @@ Maroneia, Rodopi, Profitis Ilias Rodopi
 
 Σύμβουλοι μηχανικοί:
 @Yiannis Mavridis πολιτικός μηχανικός
-@Νίκη Μαυρίδου αρχιτέκτων μηχανικός
-
-#eadeia #ektimiseis #taftotitaktiriou #ktimatologio #afthereta #propertyresearchgreece #buildingpermitsgreece #maronia #fanari #komotini`,
+@Νίκη Μαυρίδου αρχιτέκτων μηχανικός`,
         en: `House construction in Komotini. Construction progress - completion of concrete slabs.`
       },
       date: '2024-02-08',
@@ -251,9 +251,7 @@ Maroneia, Rodopi, Profitis Ilias Rodopi
 
 Σύμβουλοι μηχανικοί:
 @Yiannis Mavridis πολιτικός μηχανικός
-@Νίκη Μαυρίδου αρχιτέκτων μηχανικός
-
-#eadeia #ektimiseis #taftotitaktiriou #ktimatologio #afthereta #propertyresearchgreece #buildingpermitsgreece #maronia #fanari #komotini`,
+@Νίκη Μαυρίδου αρχιτέκτων μηχανικός`,
         en: `House construction - construction progress - plastering, completion works.`
       },
       date: '2024-02-03',
@@ -278,10 +276,7 @@ Maroneia, Rodopi, Profitis Ilias Rodopi
 
 Ενεργειακές μελέτες, Εκτιμήσεις REV ακινήτων, Νομιμοποιήσεις Αυθαιρέτων Κατασκευών, Άδειες Λειτουργίας επιχειρήσεων και καταστημάτων, Άδειες εργασιών Μικρής κλίμακας, Άδειες κατηγορίας 3, & όλων των κατηγοριών, Ελεγκτές Δόμησης, Ελεγκτές Προσβασιμότητας, Ταυτότητα κτιρίου, Βεβαίωση - έλεγχος νομιμότητας για μεταβιβάσεις ακινήτων - συμβόλαια, Ενεργειακές επιθεωρήσεις & Ενεργειακά Πιστοποιητικά, Επιθεωρητής Καταλυμάτων, Υποβολή επενδυτικών σχεδίων ΕΣΠΑ - LEADER, Κατασκευή Ιδιωτικών Έργων, Ανακαινίσεις, Μονώσεις ταρατσών - εξωστών - υπογείων
 
-http://www.in-mavridis.gr
-https://www.instagram.com/komotini_architecture_engineer/
-
-#eadeia #ektimiseis #taftotitaktiriou #ktimatologio #afthereta #propertyresearchgreece #buildingpermitsgreece #maronia #fanari #komotini`,
+`,
         en: `Engineering consultants:
 @Yiannis Mavridis civil engineer
 @Niki Mavridou architect engineer
@@ -292,10 +287,7 @@ Architectural studies, Structural studies, Energy studies (KENAK), Reinforcement
 
 Energy studies, REV property valuations, Legalization of Unauthorized Constructions, Business and shop Operating Licenses, Small-scale work permits, Category 3 permits, & all categories, Building Inspectors, Accessibility Inspectors, Building Identity, Certification - legality check for property transfers - contracts, Energy inspections & Energy Certificates, Accommodation Inspector, Submission of ESPA - LEADER investment plans, Private Project Construction, Renovations, Waterproofing of terraces - balconies - basements
 
-http://www.in-mavridis.gr
-https://www.instagram.com/komotini_architecture_engineer/
-
-#eadeia #ektimiseis #taftotitaktiriou #ktimatologio #afthereta #propertyresearchgreece #buildingpermitsgreece #maronia #fanari #komotini`
+`
       },
       date: '2024-02-01',
       author: 'Νίκη Μαυρίδου & Ιωάννης Μαυρίδης',
@@ -321,10 +313,7 @@ https://www.instagram.com/komotini_architecture_engineer/
 
 Ενεργειακές μελέτες, Εκτιμήσεις REV ακινήτων, Νομιμοποιήσεις Αυθαιρέτων Κατασκευών, Άδειες Λειτουργίας επιχειρήσεων και καταστημάτων, Άδειες εργασιών Μικρής κλίμακας, Άδειες κατηγορίας 3, & όλων των κατηγοριών, Ελεγκτές Δόμησης, Ελεγκτές Προσβασιμότητας, Ταυτότητα κτιρίου, Βεβαίωση - έλεγχος νομιμότητας για μεταβιβάσεις ακινήτων - συμβόλαια, Ενεργειακές επιθεωρήσεις & Ενεργειακά Πιστοποιητικά, Επιθεωρητής Καταλυμάτων, Υποβολή επενδυτικών σχεδίων ΕΣΠΑ - LEADER, Κατασκευή Ιδιωτικών Έργων, Ανακαινίσεις, Μονώσεις ταρατσών - εξωστών - υπογείων
 
-http://www.in-mavridis.gr
-https://www.instagram.com/komotini_architecture_engineer/
-
-#eadeia #ektimiseis #taftotitaktiriou #ktimatologio #afthereta #propertyresearchgreece #buildingpermitsgreece #maronia #fanari #komotini`,
+`,
         en: `Construction of a two-story house with attic - architectural study - Ektenepol ZEP Komotini
 
 Engineering consultants:
@@ -337,10 +326,7 @@ Architectural studies, Structural studies, Energy studies (KENAK), Reinforcement
 
 Energy studies, REV property valuations, Legalization of Unauthorized Constructions, Business and shop Operating Licenses, Small-scale work permits, Category 3 permits, & all categories, Building Inspectors, Accessibility Inspectors, Building Identity, Certification - legality check for property transfers - contracts, Energy inspections & Energy Certificates, Accommodation Inspector, Submission of ESPA - LEADER investment plans, Private Project Construction, Renovations, Waterproofing of terraces - balconies - basements
 
-http://www.in-mavridis.gr
-https://www.instagram.com/komotini_architecture_engineer/
-
-#eadeia #ektimiseis #taftotitaktiriou #ktimatologio #afthereta #propertyresearchgreece #buildingpermitsgreece #maronia #fanari #komotini`
+`
       },
       date: '2024-01-30',
       author: 'Νίκη Μαυρίδου & Ιωάννης Μαυρίδης',
@@ -357,15 +343,11 @@ https://www.instagram.com/komotini_architecture_engineer/
         el: `Ολοκληρωμένες υπηρεσίες συμβούλων μηχανικών, Αρχιτεκτονική μελέτη, Νομοθεσία δόμησης, αδειών λειτουργίας καταστημάτων, αυθαιρέτων, Ταυτότητα Κτιρίου, Πιστοποιημένες εκτιμήσεις REV, Στατικές Μελέτες, Εφαρμογή, Κοστολόγηση κατά στάδιο, Επίβλεψη με χρονικό προγραμματισμό, Διαχείριση εργοταξίου ανέγερσης - ανακαίνισης επιχειρήσεων/κατοικιών, Ειδίκευση σε διάβρωση σκυροδέματος, επεμβάσεις σε παλαιότερα κτίσματα, Επισκευές κτιρίων.
 
 Νίκη Μαυρίδου Αρχιτέκτονάς Μηχανικός Α.Π.Θ.
-Ιωάννης Μαυρίδης, MSc Civil Engineer (αντιστ. Ε.Μ.Π.)
-
-#mavridis_architecture_engineer #mavridiskomotini #archinima #nikimavridou #ioannismavridis #civilengineering #architecture #komotini`,
+Ιωάννης Μαυρίδης, MSc Civil Engineer (αντιστ. Ε.Μ.Π.)`,
         en: `Comprehensive engineering consulting services, Architectural design, Building legislation, business operation permits, unauthorized buildings, Building Identity, Certified REV valuations, Structural Studies, Implementation, Stage-by-stage costing, Supervision with time scheduling, Construction site management for business/residential construction - renovation, Specialization in concrete corrosion, interventions in older buildings, Building repairs.
 
 Niki Mavridou Architect Engineer AUTH
-Ioannis Mavridis, MSc Civil Engineer (equiv. NTUA)
-
-#mavridis_architecture_engineer #mavridiskomotini #archinima #nikimavridou #ioannismavridis #civilengineering #architecture #komotini`
+Ioannis Mavridis, MSc Civil Engineer (equiv. NTUA)`
       },
       date: '2024-01-20',
       author: 'Νίκη Μαυρίδου & Ιωάννης Μαυρίδης',
@@ -382,15 +364,11 @@ Ioannis Mavridis, MSc Civil Engineer (equiv. NTUA)
         el: `Ολοκληρωμένες υπηρεσίες συμβούλων μηχανικών, Αρχιτεκτονική μελέτη, Νομοθεσία δόμησης, αδειών λειτουργίας καταστημάτων, αυθαιρέτων, Ταυτότητα Κτιρίου, Πιστοποιημένες εκτιμήσεις REV, Στατικές Μελέτες, Εφαρμογή, Κοστολόγηση κατά στάδιο, Επίβλεψη με χρονικό προγραμματισμό, Διαχείριση εργοταξίου ανέγερσης - ανακαίνισης επιχειρήσεων/κατοικιών, Ειδίκευση σε διάβρωση σκυροδέματος, επεμβάσεις σε παλαιότερα κτίσματα, Επισκευές κτιρίων.
 
 Νίκη Μαυρίδου Αρχιτέκτονάς Μηχανικός Α.Π.Θ.
-Ιωάννης Μαυρίδης, MSc Civil Engineer (αντιστ. Ε.Μ.Π.)
-
-#mavridis_architecture_engineer #mavridiskomotini #archinima #nikimavridou #ioannismavridis #civilengineering #architecture #komotini`,
+Ιωάννης Μαυρίδης, MSc Civil Engineer (αντιστ. Ε.Μ.Π.)`,
         en: `Comprehensive engineering consulting services, Architectural design, Building legislation, business operation permits, unauthorized buildings, Building Identity, Certified REV valuations, Structural Studies, Implementation, Stage-by-stage costing, Supervision with time scheduling, Construction site management for business/residential construction - renovation, Specialization in concrete corrosion, interventions in older buildings, Building repairs.
 
 Niki Mavridou Architect Engineer AUTH
-Ioannis Mavridis, MSc Civil Engineer (equiv. NTUA)
-
-#mavridis_architecture_engineer #mavridiskomotini #archinima #nikimavridou #ioannismavridis #civilengineering #architecture #komotini`
+Ioannis Mavridis, MSc Civil Engineer (equiv. NTUA)`
       },
       date: '2024-01-10',
       author: 'Νίκη Μαυρίδου & Ιωάννης Μαυρίδης',
@@ -404,12 +382,8 @@ Ioannis Mavridis, MSc Civil Engineer (equiv. NTUA)
         en: 'Past Multi Storey Residential Projects in Komotini'
       },
       excerpt: {
-        el: `Past multi storey residential projects. Komotini.
-
-#mavridiskomotini #mavridis_architecture_engineer #archinima #nikimavridou #ioannismavridis #civilengineering #architecture #komotini`,
-        en: `Past multi storey residential projects. Komotini.
-
-#mavridiskomotini #mavridis_architecture_engineer #archinima #nikimavridou #ioannismavridis #civilengineering #architecture #komotini`
+        el: `Past multi storey residential projects. Komotini.`,
+        en: `Past multi storey residential projects. Komotini.`
       },
       date: '2024-01-05',
       author: 'Νίκη Μαυρίδου & Ιωάννης Μαυρίδης',

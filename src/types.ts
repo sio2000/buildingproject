@@ -8,4 +8,17 @@ export type TranslationKeys =
   | 'home.services.engineering.title'
   | 'home.services.engineering.description'
   | 'home.services.blog.title'
-  | 'home.services.blog.description'; 
+  | 'home.services.blog.description'
+  | 'whyInterested.title'
+  | 'whyInterested.subtitle'
+  | 'whyInterested.reasons'
+  | 'whyInterested.touristAttractions.title'
+  | 'whyInterested.touristAttractions.items'
+  | 'whyInterested.aboutUs.title'
+  | 'whyInterested.aboutUs.description'
+  | 'whyInterested.expertise.title'
+  | 'whyInterested.expertise.description'
+  | 'whyInterested.expertise.services'
+  | 'whyInterested.cta.title'
+  | 'whyInterested.cta.description'
+  | 'whyInterested.cta.button'; 
