@@ -288,7 +288,12 @@ export const translations = {
     },
     engineeringServices: {
       title: 'Υπηρεσίες Μηχανικού',
-      description: 'Ολοκληρωμένες λύσεις για κάθε έργο',
+      description: 'Ολοκληρωμένες υπηρεσίες μηχανικού στην Κομοτηνή.',
+      officeInfo: {
+        title: 'Λίγα λόγια για το γραφείο μας',
+        description: 'Ανακαλύψτε την ιστορία μας και τις αξίες που μας καθοδηγούν στην παροχή υπηρεσιών.',
+        readMore: 'Διαβάστε περισσότερα',
+      },
       services: {
         title: 'Οι Υπηρεσίες μας',
         items: [
@@ -372,6 +377,86 @@ export const translations = {
         }
       },
       // ... υπόλοιπες μεταφράσεις
+    },
+    aboutUs: {
+      title: 'Επιχειρηματικές Ευκαιρίες & Κατασκευαστικές Υπηρεσίες στη Θράκη',
+      description: 'Η Θράκη, με τη στρατηγική της τοποθεσία στη Βόρεια Ελλάδα και την εγγύτητα σε οικονομικά κέντρα όπως η Θεσσαλονίκη, το Πλόβντιβ και η Κωνσταντινούπολη, αποτελεί έναν ανερχόμενο κόμβο επιχειρηματικής δραστηριότητας και τουριστικής ανάπτυξης.',
+      subTitle: 'MAVRIDIS Real Estate Development & Business Consulting',
+      details: 'Με παρουσία σε όλη τη Θράκη και στη Θεσσαλονίκη, η MAVRIDIS Real Estate Development παρέχει εξειδικευμένες χρηματοοικονομικές συμβουλές και αναπτυξιακές λύσεις για ακίνητα και επιχειρήσεις.',
+      touristAttractions: {
+        title: 'Τουριστικά Σημεία Ενδιαφέροντος',
+        items: [
+          'Μαρώνεια: Παραλίες, αμπελώνες και τοπική γαστρονομία.',
+          'Φανάρι: Γνωστό για τα beach bars και τις αμμώδεις παραλίες του.',
+          'Σαμοθράκη & Θάσος: Νησιά φυσικής ομορφιάς, προσβάσιμα από την Αλεξανδρούπολη.',
+          'Αρχαία Μαρώνεια: Ιστορικός χώρος με σύνδεση στην Οδύσσεια.'
+        ]
+      },
+      constructionServices: {
+        title: 'Mavridis Construction – Κατασκευαστικές Υπηρεσίες',
+        description: 'Με εμπειρία 40 ετών, η Mavridis Construction εξειδικεύεται στον σχεδιασμό, την αδειοδότηση και την κατασκευή ακινήτων, προσφέροντας ολοκληρωμένες λύσεις με σύγχρονες τεχνολογίες.'
+      },
+      constructionServicesList: {
+        title: 'Υπηρεσίες Κατασκευής',
+        items: [
+          'Σχεδιασμός & Αδειοδοτήσεις',
+          'Αρχιτεκτονικός & Τεχνικός Σχεδιασμός',
+          'Υλοποίηση Κατασκευής & Τεχνικές Εργασίες (ηλεκτρολογικές, μηχανολογικές, τοιχοποιία, δάπεδα)',
+          'Εξειδικευμένα Μηχανολογικά Δίκτυα'
+        ]
+      },
+      certifications: {
+        title: 'Πιστοποιήσεις & Εξειδίκευση',
+        items: [
+          'Πιστοποιημένος Ελεγκτής Δόμησης. Για έργα της μεγαλύτερης κατηγορίας.',
+          'Πιστοποιημένος Επιθεωρητής Καταλυμάτων. Για κατηγοριοποίηση ξενοδοχειακών μονάδων (αστεροποίηση) και ενοικιαζόμενων δωματίων (κλειδιά) από την TÜV Austria.',
+          'Εμπειρία στις Εκτιμήσεις Ακινήτων, με συνεργασίες με διάφορες τράπεζες (Πανελλήνια, Ασπίς, Αγροτική, Πειραιώς).',
+          'Εξειδίκευση σε Ενεργειακές Μελέτες και Επιθεωρήσεις βάσει ΚΕΝΑΚ.',
+          'Διεκπεραίωση προγράμματος "Εξοικονομώ κατ\' Οίκον".',
+          'Expert Valuer in Real Estate Property (REV) – TEGoVA.',
+          'Πιστοποιημένη Εκτιμήτρια Ακινήτων, διεξάγοντας εκτιμήσεις σύμφωνα με τα Ευρωπαϊκά Πρότυπα.',
+          'ΜΕΛΟΣ ΕΠΑΓΓΕΛΜΑΤΙΚΩΝ ΟΡΓΑΝΙΣΜΩΝ',
+          'Πιστοποίηση ISO/IEC 17024.',
+          'Μέλος του Συλλόγου Εκτιμητών Ελλάδος (Σ.ΕΚ.Ε.).',
+          'Συμμετοχή στην TEGoVA.',
+          'Εντεταλμένος Χορηγός REV της TEGoVA.'
+        ]
+      },
+      recentProjects: {
+        title: 'Νέες Προκατασκευασμένες Κατοικίες στον Προφήτη Ηλία',
+        description: 'Ολοκλήρωση βάσεων σκυροδέματος και ανέγερση προκατασκευασμένων κατοικιών με χρήση μεταλλικού σκελετού για μέγιστη αντοχή.',
+        conclusion: 'Με όραμα την ανάπτυξη της Θράκης και των γύρω περιοχών, η MAVRIDIS Real Estate Development & Business Consulting προσφέρει υψηλού επιπέδου επαγγελματικές υπηρεσίες, εξασφαλίζοντας βιώσιμες και κερδοφόρες επιχειρηματικές ευκαιρίες.'
+      },
+      portfolioButton: 'Τα Έργα Μας',
+      blogButton: 'Οι κατασκευές μας',
+    },
+    renovations: {
+      title: 'Ολοκληρωμένες Υπηρεσίες Ανακαίνισης',
+      subtitle: 'Μεταμορφώνουμε τους χώρους σας',
+      introduction: {
+        title: 'Ανακαινίσεις: Ανανέωση και Αναβάθμιση Υφιστάμενων Χώρων',
+        description: `Στην MAVRIDIS Real Estate Development & Business Consulting, κατανοούμε τη σημασία της ανανέωσης και αναβάθμισης των υφιστάμενων χώρων σας. Είτε πρόκειται για το σπίτι σας είτε για τον επαγγελματικό σας χώρο, η ομάδα μας προσφέρει ολοκληρωμένες λύσεις ανακαίνισης που συνδυάζουν την αισθητική, τη λειτουργικότητα και τη βιωσιμότητα.
+
+📐 Ολοκληρωμένες Υπηρεσίες Ανακαίνισης
+Αναλαμβάνουμε κάθε στάδιο της ανακαίνισης, από τον αρχικό σχεδιασμό μέχρι την τελική υλοποίηση, προσφέροντας:
+
+• Αρχιτεκτονικό σχεδιασμό 
+• Επιλογή υλικών 
+• Ενεργειακή αναβάθμιση 
+
+🏠 Ανακαίνιση Κατοικιών
+Με σεβασμό στην προσωπικότητα και το στυλ του χώρου σας, ανανεώνουμε το σπίτι σας, δημιουργώντας ένα περιβάλλον που αντανακλά τις επιθυμίες και τις ανάγκες σας.
+
+🏢 Ανακαίνιση Επαγγελματικών Χώρων
+Γνωρίζουμε ότι ο επαγγελματικός σας χώρος είναι η εικόνα της επιχείρησής σας. Βελτιώνουμε τη λειτουργικότητα και την αισθητική του, ενισχύοντας την παραγωγικότητα και την ικανοποίηση των πελατών σας.
+
+🔹 Εμπιστευθείτε την εμπειρία μας για την ανανέωση του χώρου σας!`
+      },
+      cta: {
+        title: 'Εμπιστευθείτε την εμπειρία μας για την ανανέωση του χώρου σας!',
+        description: 'Επικοινωνήστε μαζί μας για να συζητήσουμε το έργο σας.',
+        button: 'Επικοινωνία'
+      }
     }
   },
   en: {
@@ -671,7 +756,12 @@ export const translations = {
     },
     engineeringServices: {
       title: 'Engineering Services',
-      description: 'Comprehensive solutions for every project',
+      description: 'Comprehensive engineering services in Komotini.',
+      officeInfo: {
+        title: 'A Few Words About Our Office',
+        description: 'Discover our story and the values that guide us in providing services.',
+        readMore: 'Read More',
+      },
       services: {
         title: 'Our Services',
         items: [
@@ -755,6 +845,86 @@ export const translations = {
         }
       },
       // ... υπόλοιπες μεταφράσεις
+    },
+    aboutUs: {
+      title: 'Business Opportunities & Construction Services in Thrace',
+      description: 'Thrace, with its strategic location in Northern Greece and proximity to economic centers such as Thessaloniki, Plovdiv, and Istanbul, is an emerging hub of business activity and tourism development.',
+      subTitle: 'MAVRIDIS Real Estate Development & Business Consulting',
+      details: 'With a presence throughout Thrace and Thessaloniki, MAVRIDIS Real Estate Development provides specialized financial advice and development solutions for properties and businesses.',
+      touristAttractions: {
+        title: 'Tourist Attractions',
+        items: [
+          'Maronia: Beaches, vineyards, and local cuisine.',
+          'Fanari: Known for its beach bars and sandy beaches.',
+          'Samothrace & Thassos: Islands of natural beauty, accessible from Alexandroupolis.',
+          'Ancient Maronia: Historical site connected to the Odyssey.'
+        ]
+      },
+      constructionServices: {
+        title: 'Mavridis Construction – Construction Services',
+        description: 'With 40 years of experience, Mavridis Construction specializes in the design, licensing, and construction of properties, offering comprehensive solutions with modern technologies.'
+      },
+      constructionServicesList: {
+        title: 'Construction Services',
+        items: [
+          'Design & Licensing',
+          'Architectural & Technical Design',
+          'Construction Implementation & Technical Works (electrical, mechanical, masonry, flooring)',
+          'Specialized Mechanical Networks'
+        ]
+      },
+      certifications: {
+        title: 'Certifications & Expertise',
+        items: [
+          'Certified Building Inspector. For large-scale projects.',
+          'Certified Accommodation Inspector. For the classification of hotel units (star rating) and rental rooms (keys) by TÜV Austria.',
+          'Experience in Real Estate Valuations, with collaborations with various banks (Panellinia, Aspis, Agricultural, Piraeus).',
+          'Specialization in Energy Studies and Inspections based on KENAK.',
+          'Execution of the program "Exoikonomo kat\' Oikon".',
+          'Expert Valuer in Real Estate Property (REV) – TEGoVA.',
+          'Certified Real Estate Appraiser, conducting valuations in accordance with European Standards.',
+          'MEMBERSHIP IN PROFESSIONAL ORGANIZATIONS',
+          'ISO/IEC 17024 Certification.',
+          'Member of the Hellenic Association of Valuers (Σ.ΕΚ.Ε.).',
+          'Participation in TEGoVA.',
+          'Designated REV Sponsor of TEGoVA.'
+        ]
+      },
+      recentProjects: {
+        title: 'New Prefabricated Houses in Profitis Ilias',
+        description: 'Completion of concrete bases and construction of prefabricated houses using a metal frame for maximum durability.',
+        conclusion: 'With a vision for the development of Thrace and the surrounding areas, MAVRIDIS Real Estate Development & Business Consulting offers high-level professional services, ensuring sustainable and profitable business opportunities.'
+      },
+      portfolioButton: 'Our Projects',
+      blogButton: 'Our Constructions',
+    },
+    renovations: {
+      title: 'Comprehensive Renovation Services',
+      subtitle: 'Transforming Your Spaces',
+      introduction: {
+        title: 'Renovations: Renewal and Upgrade of Existing Spaces',
+        description: `At MAVRIDIS Real Estate Development & Business Consulting, we understand the importance of renewing and upgrading your existing spaces. Whether it's your home or your business premises, our team offers comprehensive renovation solutions that combine aesthetics, functionality, and sustainability.
+
+📐 Comprehensive Renovation Services
+We take on every stage of the renovation, from initial design to final implementation, offering:
+
+• Architectural design 
+• Material selection 
+• Energy upgrade 
+
+🏠 Residential Renovation
+With respect for the personality and style of your space, we renew your home, creating an environment that reflects your desires and needs.
+
+🏢 Professional Space Renovation
+We know that your professional space is the image of your business. We improve its functionality and aesthetics, enhancing productivity and customer satisfaction.
+
+🔹 Trust our experience for the renewal of your space!`
+      },
+      cta: {
+        title: 'Trust our experience for the renewal of your space!',
+        description: 'Contact us to discuss your project.',
+        button: 'Contact Us'
+      }
     }
   }
 }; 

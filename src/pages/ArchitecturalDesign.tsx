@@ -4,14 +4,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import t1 from '../assets/images/t1.jpg';
-import t2 from '../assets/images/t2.jpg';
+import t2 from '../assets/images/d3d.png';
 import t3 from '../assets/images/t3.jpg';
 import t4 from '../assets/images/t4.jpg';
 import t5 from '../assets/images/t5.jpg';
 import t6 from '../assets/images/t6.jpg';
 import t7 from '../assets/images/t7.jpg';
 import t8 from '../assets/images/t8.jpg';
-import t9 from '../assets/images/t9.jpg';
+import t9 from '../assets/images/d6.jpg';
 
 const ArchitecturalDesign = () => {
   const { language } = useLanguage();

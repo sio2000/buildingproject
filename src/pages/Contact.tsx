@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Building2, Phone, Mail, Clock, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -23,6 +23,11 @@ L.Marker.prototype.options.icon = DefaultIcon;
 const Contact = () => {
   const { language } = useLanguage();
   const { t } = useTranslation();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
 
   useEffect(() => {
     // Ορισμός title και meta description για SEO
@@ -101,6 +106,24 @@ const Contact = () => {
       color: 'bg-black hover:bg-gray-900'
     }
   ];
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const { name, email, message } = formData;
+    const subject = encodeURIComponent('Contact Form Submission');
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
+    
+    // Include both email addresses in the mailto link
+    const mailtoLink = `mailto:info@in-mavridis.gr, niki_mavridou@yahoo.gr?subject=${subject}&body=${body}`;
+    
+    window.location.href = mailtoLink; // This will open the user's email client
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -262,7 +285,7 @@ const Contact = () => {
               {language === 'el' ? 'Φόρμα Επικοινωνίας' : 'Contact Form'}
             </h2>
 
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -270,6 +293,9 @@ const Contact = () => {
                   </label>
                   <input
                     type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     placeholder={language === 'el' ? 'Εισάγετε το ονοματεπώνυμό σας' : 'Enter your full name'}
                     className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400"
                   />
@@ -280,6 +306,9 @@ const Contact = () => {
                   </label>
                   <input
                     type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     placeholder={language === 'el' ? 'Εισάγετε το email σας' : 'Enter your email'}
                     className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400"
                   />
@@ -292,6 +321,9 @@ const Contact = () => {
                 </label>
                 <input
                   type="text"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
                   placeholder={language === 'el' ? 'Εισάγετε το θέμα του μηνύματος' : 'Enter message subject'}
                   className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400"
                 />
@@ -302,6 +334,9 @@ const Contact = () => {
                   {language === 'el' ? 'Μήνυμα' : 'Message'}
                 </label>
                 <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   rows={6}
                   placeholder={language === 'el' ? 'Γράψτε το μήνυμά σας...' : 'Write your message...'}
                   className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400"

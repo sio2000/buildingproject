@@ -17,6 +17,7 @@ import InteriorDesign from './pages/InteriorDesign';
 import WhyInterested from './pages/WhyInterested';
 import Renovations from './pages/Renovations';
 import ArchitecturalDesign from './pages/ArchitecturalDesign';
+import AboutUs from './pages/AboutUs';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
               <Route path="/whyinterested" element={<WhyInterested />} />
               <Route path="/renovations" element={<Renovations />} />
               <Route path="/architectural-design" element={<ArchitecturalDesign />} />
+              <Route path="/about-us" element={<AboutUs />} />
             </Routes>
           </main>
           <Footer />

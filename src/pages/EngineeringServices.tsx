@@ -18,8 +18,10 @@ import {
 import { useTranslation } from '../hooks/useTranslation';
 import { useLanguage } from '../context/LanguageContext';
 import backofficeImage from '../assets/images/backoffice.png';
+import floorImage from '../assets/images/floor.jpg';
 import photo1 from '../assets/images/photo1.png';
 import photo2 from '../assets/images/photo2.png';
+import { Link } from 'react-router-dom';
 
 const EngineeringServices = () => {
   const { t } = useTranslation();
@@ -131,7 +133,66 @@ const EngineeringServices = () => {
           </div>
         </motion.div>
 
-        {/* Services Section */}
+        {/* Experience Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-2xl font-bold mb-8 text-center gradient-text">
+            {t('engineeringServices.experience.title')}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {t('engineeringServices.experience.items').map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.02, backgroundColor: '#F0FDF4' }}
+                className="flex items-start space-x-4 p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+              >
+                <div className="p-3 bg-green-100 rounded-lg">
+                  {index === 0 && <Award className="h-6 w-6 text-green-600" />}
+                  {index === 1 && <Lightbulb className="h-6 w-6 text-green-600" />}
+                  {index === 2 && <BadgeCheck className="h-6 w-6 text-green-600" />}
+                  {index === 3 && <Building className="h-6 w-6 text-green-600" />}
+                  {index === 4 && <FileText className="h-6 w-6 text-green-600" />}
+                  {index === 5 && <ClipboardCheck className="h-6 w-6 text-green-600" />}
+                  {index === 6 && <Users className="h-6 w-6 text-green-600" />}
+                </div>
+                <span className="text-gray-700 font-medium">{item}</span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Δεύτερη Hero Section */}
+        <div className="relative w-full h-96 mt-12">
+          <img 
+            src={floorImage}
+            alt="Hero Background"
+            className="absolute inset-0 w-full h-full object-cover rounded-lg"
+          />
+          <div className="absolute inset-0 bg-black opacity-30 rounded-lg"></div>
+          <div className="relative z-10 flex flex-col items-center justify-center h-full">
+            <h1 className="text-4xl font-bold text-white mb-4">
+              {t('engineeringServices.officeInfo.title')}
+            </h1>
+            <p className="text-lg text-white mb-8 text-center">
+              {t('engineeringServices.officeInfo.description')}
+            </p>
+            <Link 
+              to="/about-us"
+              className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors text-lg font-semibold"
+            >
+              {t('engineeringServices.officeInfo.readMore')}
+            </Link>
+          </div>
+        </div>
+
+        {/* Υπηρεσίες Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -163,41 +224,6 @@ const EngineeringServices = () => {
                   {index === 7 && <Video className="h-6 w-6 text-blue-600" />}
                 </div>
                 <span className="text-gray-700 font-medium">{service}</span>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Experience Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-2xl font-bold mb-8 text-center gradient-text">
-            {t('engineeringServices.experience.title')}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {t('engineeringServices.experience.items').map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.02, backgroundColor: '#F0FDF4' }}
-                className="flex items-start space-x-4 p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
-              >
-                <div className="p-3 bg-green-100 rounded-lg">
-                  {index === 0 && <Award className="h-6 w-6 text-green-600" />}
-                  {index === 1 && <Lightbulb className="h-6 w-6 text-green-600" />}
-                  {index === 2 && <BadgeCheck className="h-6 w-6 text-green-600" />}
-                  {index === 3 && <Building className="h-6 w-6 text-green-600" />}
-                  {index === 4 && <FileText className="h-6 w-6 text-green-600" />}
-                  {index === 5 && <ClipboardCheck className="h-6 w-6 text-green-600" />}
-                  {index === 6 && <Users className="h-6 w-6 text-green-600" />}
-                </div>
-                <span className="text-gray-700 font-medium">{item}</span>
               </motion.div>
             ))}
           </div>
